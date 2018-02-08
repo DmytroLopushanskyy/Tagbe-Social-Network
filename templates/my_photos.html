@@ -1,0 +1,952 @@
+{%extends 'header.html'%}
+{%block center_part %} 
+        
+<div class="col-xs-6 post_part img_part m-t15 flex-images" id="demo1">
+      {% for image in photos %}
+      <div class="item" data-w="200" data-h="150"><img src="{{ url_for('static', filename='images/') }}{{origin_way}}{{image}}" class="my_images"></div>
+      {% endfor %}
+      <div class="item" data-w="540" data-h="960"><img src="https://scontent.fiev4-1.fna.fbcdn.net/v/t1.0-9/15492416_1807640609491243_8678408558240384220_n.jpg?oh=d83856339e5a0e7ac71487f44b8509f0&oe=5AFBEACD" class="my_images"></div>
+     <div class="item" data-w="219" data-h="180"><img src="https://scontent.fiev4-1.fna.fbcdn.net/v/t1.0-9/23172744_1961439670778002_8754123791080668091_n.jpg?oh=4570921ab75a999efd7cbe364bfd8db1&oe=5AF4F84B" class="my_images"></div>
+      <div class="item" data-w="540" data-h="960"><img src="https://scontent.fiev4-1.fna.fbcdn.net/v/t1.0-9/15492416_1807640609491243_8678408558240384220_n.jpg?oh=d83856339e5a0e7ac71487f44b8509f0&oe=5AFBEACD" class="my_images"></div>
+      <div class="item" data-w="219" data-h="180"><img src="https://scontent.fiev4-1.fna.fbcdn.net/v/t1.0-9/23172744_1961439670778002_8754123791080668091_n.jpg?oh=4570921ab75a999efd7cbe364bfd8db1&oe=5AF4F84B" class="my_images"></div>
+
+      
+      
+</div>
+      
+{% endblock%} 
+
+{%block scripts_and_rest %}  
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <div class="create_post_modal" ng-app="">
+                <div class="post_header">
+                    <img src="https://scontent.fhen1-1.fna.fbcdn.net/v/t1.0-9/20429627_1918501131738523_4099807999573759335_n.jpg?oh=1caa18efbfe583ad7753da85b4c358be&oe=5AB96743" class="user_photo">
+                    <div class="post_header_text">
+                        <p class="user_name non_hover">Dmytro Lopushanskyy</p>
+                    </div>
+                    <div class="post_tags_div">
+                        
+                    </div>
+                    <span class="close" ng-click="place ='' ">&times;</span>
+                </div>
+                <div class="post_body">
+                    <div contenteditable="true" class="create_post_textarea">
+                        <!-- <div class="choose_tag" contenteditable="false">
+                            <select class="fa-select" name="hash_selector">
+                              <option value="hash">#</option>
+                              <option value="laugh">😂</option>
+                              <option value="wow">😯</option>
+                              <option value="smile">🙂</option>
+                              <option value="applause">👏</option>
+                            </select>
+                            <input type="text" name="tag" placeholder="Hastag">
+                            <p class="ok">OK</p>
+                            <p class="cancel">CANCEL</p>
+                        </div> -->
+                    </div>
+                    <div class="create_post_images">
+                        <!-- <div class="upload_div" id="up1000">
+                          <img src="https://pbs.twimg.com/media/CYdrqGRWwAAdZM5.jpg" class="my_img image_uploaded" id="image_uploaded">
+                          <i class="fa fa-window-close" aria-hidden="true"></i>
+                        </div> -->
+                    </div>
+                </div>
+                <p id="trigger_class" class="none"></p>
+                <hr>
+                <div class="post_add_div">
+                    <form action="#" id="post_form">
+                      <div class="input-file-container">  
+                        <input class="input-file" id="my-file" type="file" multiple="multiple" accept="image/jpg, image/jpeg, image/png">
+                        <label tabindex="0" for="my-file" class="input-file-trigger"><i class="fa fa-file-image-o" aria-hidden="true"></i>Add Images (<span class="img_num">4</span>)</label>
+                        <label tabindex="0" for="check_in" class="input-file-trigger" id="check_in_div">
+                            <i class="fa fa-map-marker check_icon" aria-hidden="true"></i>
+                            <span class="default_text">Add Place</span>
+                            <span class="place_check none">{{place}}</span>
+                            <input class="input-place none" id="check_in" type="text" ng-model="place">
+                        </label>
+                        <button class="input-file-trigger post_btn">POST</button>
+                      </div>
+                    </form>
+                </div>
+            </div>
+  </div>
+
+</div>
+
+<div class="input-buffer"></div>
+
+<div class="alert">
+  <strong>POSTED!</strong>
+</div>
+
+<img src="" class="test_img2">
+<img src="" class="test_img">
+
+
+
+
+
+<script>
+$('.flex-images').flexImages({rowHeight: 500});
+
+
+</script>
+
+
+<script>
+
+function readURL3(input) {
+    var numFiles = input.files.length;
+
+    if (input.files && input.files[0]) {
+
+      var reader = new FileReader();
+      reader.onload = function (e) {
+          $('.photos_container').css('background-image','url('+ e.target.result + ')');
+          $('.test_img').attr('src', e.target.result);
+          console.log('a')
+      }
+      reader.readAsDataURL(input.files[0]);
+    }
+}
+
+$(document).on('change', '#back_photo', function(e){
+    readURL3(this);
+});
+
+
+
+
+function readURL2(input) {
+    var numFiles = input.files.length;
+
+    if (input.files && input.files[0]) {
+
+      var reader = new FileReader();
+      reader.onload = function (e) {
+          $('.profile_photo_user').attr('src', e.target.result);
+          $('.test_img2').attr('src', e.target.result);
+      }
+      reader.readAsDataURL(input.files[0]);
+    }
+}
+
+$(document).on('change', '#profile_photo', function(e){
+    readURL2(this);
+});
+
+$('.test_img2').on('load', function(){
+    console.log($('.test_img2'),$('.test_img2').width(), $('.test_img2').height())
+    if ($('.test_img2').width() > $('.test_img2').height()) {
+        console.log('widthmore')
+        $('.profile_photo_user').css('height', '174px');
+        $('.profile_photo_user').css('width', 'auto');
+    }else{
+        $('.profile_photo_user').css('width', '174px');
+        $('.profile_photo_user').css('height', 'auto');
+    }
+});
+
+$(document).on('mouseover', '.photos_container', function(e) {
+    if ($('.ava').children('.overlay').hasClass('none')) {
+      $(this).children('.overlay').removeClass('none')
+    }
+    
+});
+$(document).on('mouseleave', '.photos_container', function(e) {
+    $(this).children('.overlay').addClass('none')
+});
+
+$(document).on('mouseover', '.ava', function(e) {
+    $('.photos_container').children('.overlay').addClass('none')
+    $(this).children('.overlay').removeClass('none')
+});
+$(document).on('mouseleave', '.ava', function(e) {
+    $(this).children('.overlay').addClass('none')
+});
+
+
+$(document).on('click', '#about', function(e) {
+    e.preventDefault()
+    $('.edit_div').toggleClass('none')
+});
+
+$(document).ready(function(e) {
+    var bodyHeight = $('body').height()
+    $('.height100').css('height', bodyHeight)
+});
+
+</script>
+
+
+
+
+
+<script>
+  
+$(document).on('click', '.post_btn', function(e) {
+    e.preventDefault()
+    modal.style.display = "none";
+    $("body").css("overflow", "auto");
+
+    $('.place_check').addClass('none')
+    $('.default_text').removeClass('none')
+
+    $('.create_post_images').empty()
+    
+    $( "#trigger_class" ).trigger( "click" );
+
+    $('.alert').addClass('appear_alert')
+
+    setTimeout(function(){
+      $('.alert').removeClass('appear_alert')
+      $('.alert').addClass('hide_alert')
+    },2000);
+    setTimeout(function(){
+      $('.alert').removeClass('hide_alert')
+    },2500);
+});
+
+// empty all inputs
+// $('#trigger_class').on('click', function(e){
+//    var $el = $('#my-file');
+//    $el.wrap('<form>').closest('form').get(0).reset();
+//    $el.unwrap();
+
+//     $('.create_post_textarea').html('')
+//     $('.create_post_textarea').css('height', 'auto')
+//     $('.img_num').html(4)
+    
+// });
+</script>
+<script>
+
+$(document).on('keyup', '.post_text_edit', function(e) {
+    $(e.target).remove()
+    $('.create_post_textarea').focus()
+});
+
+  // searching for hastag 
+$(document).on('keyup', '.create_post_textarea', function(e) {
+    var post_array = []
+    var post_text = $('.create_post_textarea').html()
+    post_text = post_text.replace(/<br>/g,'');
+    post_text = post_text.replace(/&nbsp;/g,'');
+    for (var i = 0, len = post_text.length; i < len; i++) {
+      post_array.push(post_text.charAt(i))
+      if ((post_text.charAt(i) == '#') && (post_text.charAt(i-2) != '' && post_text.charAt(i-1) != '>' || post_text.charAt(i+1) != '<')){
+        insertTag(i)
+        $('.choose_tag_input').focus();
+      }
+    }
+});
+$(document).on('keyup', 'input[name=tag]', function(e) {
+    var post_text = $('input[name=tag]').val()
+    post_text = post_text.replace(/#/g,'');
+    $('input[name=tag]').val(post_text)
+});
+$(document).on('change', '.fa-select', function(e) {
+    $('input[name=tag]').focus()
+});
+
+function insertTag(index){
+    $(".create_post_textarea").html(function(i,v){
+      console.log(v)
+      data = v.replace(/>#</g,'><');
+      console.log(data)
+      return data.replace(/#/g , '<div class="choose_tag" contenteditable="false"><select class="fa-select" name="hash_selector"><option value="hash">#</option><option value="laugh">😂</option><option value="wow">😯</option><option value="smile">🙂</option><option value="applause">👏</option></select><input type="text" name="tag" placeholder="Hastag" class="choose_tag_input"><p class="ok">OK</p><p class="cancel">CANCEL</p></div>' )
+    });
+}
+$('.create_post_textarea').on('keypress', function(e) {
+   if(e.which == 13) {
+        var hashtag = $('select[name=hash_selector]').val()
+        var insert = hashtag
+        var input = $('input[name=tag]').val()
+        console.log(hashtag)
+        if (input == undefined){
+          return
+        }
+        if (input == ''){
+          return  $(e.target).parent().replaceWith('')
+        }
+        $("body").bind("DOMNodeInserted", function() {
+           prependClass($(this).find('.hastag_changed'), '<'+insert+'>')
+        });
+        if (hashtag == 'hash'){
+          hashtag = '&#xf292;'
+        }
+        if (hashtag == 'laugh'){
+          hashtag = '😂'
+        }
+        if (hashtag == 'wow'){
+          hashtag = '😯'
+        }
+        if (hashtag == 'smile'){
+          hashtag = '🙂'
+        }
+        if (hashtag == 'applause'){
+          hashtag = '👏'
+        }
+        
+        $(e.target).parent().replaceWith('<input class="hastag_changed autoresize" contenteditable="true" value="'+ hashtag + input + '"></input><input class="post_text_edit" contenteditable="true"> </input>')
+        // var $input = $('.hastag_changed'),
+        //     $buffer = $('.input-buffer');
+
+        // $buffer.text($input.val());
+        // $input.width($buffer.width());
+        
+        $('.hastag_changed').attr('size', $('.hastag_changed').val().length);
+        $('.post_text_edit').focus()
+
+        
+
+    $(".create_post_textarea").val($(".create_post_textarea").val())
+    console.log(hashtag, input, $(e.target).parent())
+    }
+});
+
+
+$(document).on('click', '.ok', function(e) {
+    var hashtag = $('select[name=hash_selector]').val()
+    var insert = hashtag
+    var input = $('input[name=tag]').val()
+    if (input == ''){
+      return  $(e.target).parent().replaceWith('')
+    }
+    $("body").bind("DOMNodeInserted", function() {
+      prependClass($(this).find('.hastag_changed'), '<'+insert+'>')
+    });
+    if (hashtag == 'hash'){
+      hashtag = '&#xf292;'
+    }
+    if (hashtag == 'laugh'){
+      hashtag = '😂'
+    }
+    if (hashtag == 'wow'){
+      hashtag = '😯'
+    }
+    if (hashtag == 'smile'){
+      hashtag = '🙂'
+    }
+    if (hashtag == 'applause'){
+      hashtag = '👏'
+    }
+    $(e.target).parent().replaceWith('<input class="hastag_changed autoresize" contenteditable="true" value="'+ hashtag + input + '"></input>')
+    $('.hastag_changed').attr('size', $('.hastag_changed').val().length);
+    $('.create_post_textarea').focus()
+    $(".create_post_textarea").val($(".create_post_textarea").val())
+    console.log(hashtag, input, $(e.target).parent())
+});
+
+function prependClass(sel, strClass) {
+    var $el = sel
+    console.log($el, strClass)
+    /* prepend class */
+    var classes = $el.attr('class');
+    classes = strClass +' ' +classes;
+    $el.removeClass()
+    $el.attr('class', classes);
+}
+
+$(document).on('focusin', '.hastag_changed', function(e) {
+    var text = $('.hastag_changed').attr('value').substring(1, $('.hastag_changed').attr('value').length)
+    var option = 'hash'
+    var emotion = $(".hastag_changed[class^='<'],.hastag_changed[class*='<']").attr('class').split(' ')[0].slice(1,-1)
+    if(emotion!='hash'){
+      text = $('.hastag_changed').attr('value').substring(2, $('.hastag_changed').attr('value').length)
+    }
+    
+    console.log(emotion, option)
+    var input = $('input[name=tag]').val()
+
+    $(e.target).replaceWith('<div class="choose_tag" contenteditable="false"><select class="fa-select" name="hash_selector"><option value="hash">#</option><option value="laugh">😂</option><option value="wow">😯</option><option value="smile">🙂</option><option value="applause">👏</option></select><input type="text" class="choose_tag_input" name="tag" placeholder="Hastag" value="'+ text +'"><p class="ok">OK</p><p class="cancel">CANCEL</p></div>')
+    $('input[name=tag]').focus()
+    var val = $('input[name=tag]').val();       
+    $('input[name=tag]').val('');
+    $('input[name=tag]').val(val);
+    
+    $("select[name=hash_selector]").val(emotion);
+});
+
+$(document).on('click', '.cancel', function(e) {
+    $(e.target).parent().replaceWith('')
+});
+
+$(document).mouseup(function(e) {
+    var container = $(".choose_tag_input").parent();
+
+    // if the target of the click isn't the container nor a descendant of the container
+    if (!container.is(e.target) && container.has(e.target).length === 0) 
+    {
+        container.remove();
+    }
+});
+</script>
+
+
+
+
+<script>
+  
+$("#check_in_div").click(function(){
+    $('.check_icon').addClass('none')
+    $('.default_text').addClass('none')
+    $('#check_in').removeClass('none')
+    $('#check_in_div').addClass('blue_color')
+    $('.place_check').addClass('none')
+});
+
+$("#check_in").focusout(function(){
+    $('.check_icon').removeClass('none')
+    if ($('.place_check').html() != ''){
+        $('.place_check').removeClass('none')
+    }else{
+        $('.default_text').removeClass('none')
+    }
+    
+    $('#check_in').addClass('none')
+    $('#check_in_div').removeClass('blue_color')
+});
+
+
+</script>
+
+
+<script>
+  
+document.querySelector("html").classList.add('js');
+
+var fileInput  = document.querySelector( ".input-file" ),  
+    button     = document.querySelector( ".input-file-trigger" ),
+    the_return = document.querySelector(".file-return");
+      
+button.addEventListener( "keydown", function( event ) {  
+    if ( event.keyCode == 13 || event.keyCode == 32 ) {  
+        fileInput.focus();  
+    }  
+});
+button.addEventListener( "click", function( event ) {
+   fileInput.focus();
+   return false;
+});  
+
+function readURL(input) {
+    var numFiles = input.files.length;
+
+    if (input.files && input.files[0]) {
+        var num = Number($( ".img_num" ).html())
+        if (num != 0){
+          for (var i = 0; i < num; i++) {
+              var reader = new FileReader();
+              reader.onload = function (e) {
+                  $( ".create_post_images" ).prepend('<div class="upload_div" id="' + Math.random() +'"><img src="'+ e.target.result +'" class="my_img image_uploaded" id="image_uploaded"><i class="fa fa-window-close" aria-hidden="true"></i></div>');
+                var num = Number($( ".img_num" ).html()) - 1
+                $( ".img_num" ).html(num)
+              }
+              reader.readAsDataURL(input.files[i]);
+          }
+        }
+    }
+}
+$("#my-file").change(function(){
+    readURL(this);
+});
+
+
+$(document).ready ( function () {
+    $(document).on ("click", ".upload_div i", function (e) {
+        $(e.target).parent().remove()
+
+        var num = Number($( ".img_num" ).html()) + 1
+        $( ".img_num" ).html(num)
+    });
+});
+
+</script>
+
+
+<script>
+// Get the modal
+var modal = document.getElementById('myModal');
+
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+var btn2 = document.getElementById("myBtn2");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal 
+btn.onclick = function() {
+    modal.style.display = "block";
+    $("body").css("overflow", "hidden");
+}
+btn2.onclick = function() {
+    modal.style.display = "block";
+    $("body").css("overflow", "hidden");
+}
+
+
+
+span.onclick = function() {
+    var warn = confirm("Delete this post?");
+    if (warn == true) {
+        modal.style.display = "none";
+        $("body").css("overflow", "auto");
+
+        $('.place_check').addClass('none')
+        $('.default_text').removeClass('none')
+
+        $('.create_post_images').empty()
+        
+        $( "#trigger_class" ).trigger( "click" );
+    } else {
+        
+    }
+
+}
+
+// empty all inputs
+$('#trigger_class').on('click', function(e){
+   var $el = $('#my-file');
+   $el.wrap('<form>').closest('form').get(0).reset();
+   $el.unwrap();
+
+    $('.create_post_textarea').html('')
+    $('.create_post_textarea').css('height', 'auto')
+    $('.img_num').html(4)
+    
+});
+
+
+// When the user clicks anywhere outside of the modal, close it
+
+
+jQuery.each(jQuery('textarea[data-autoresize]'), function() {
+    var offset = this.offsetHeight - this.clientHeight;
+ 
+    var resizeTextarea = function(el) {
+        jQuery(el).css('height', 'auto').css('height', el.scrollHeight + offset);
+    };
+    jQuery(this).on('keyup input', function() { resizeTextarea(this); }).removeAttr('data-autoresize');
+});
+</script>
+
+
+
+<script>
+
+
+$(window).on('load', function(){
+    $( ".post" ).each(function() {
+      id = Number($(this).attr('id'))
+
+      length = $('#'+id+ ' .post_body img').length
+      var divWidth = $('.post_images').width() / 2; 
+      if (length != 1){
+          $( '#'+id+ " .post_body img" ).each(function() {
+          if ($(this).height() < $(this).width()){
+              $(this).css('height', divWidth+'px');
+              $(this).css('width', 'auto');
+              $(this).parent().css('overflow', 'scroll');
+              $('#'+id+ ' .post_body img').addClass('vertical_align_bottom')
+              $('#'+id+ ' .post_body .img_container').addClass('vertical_align_bottom')
+          }else{
+              // if (length == 3){
+              //     $('#'+id+ ' .post_body .img_container:nth-child(3) img').css('marginTop','-'+divWidth/2+'px');
+              //     $('#'+id+ ' .post_body .img_container:nth-child(3)').css('height', divWidth+'px');
+              // }
+              $(this).parent().css('height', divWidth+'px');
+              $(this).parent().css('overflow', 'scroll');
+              $('#'+id+ ' .post_body img').addClass('vertical_align_bottom')
+              $('#'+id+ ' .post_body .img_container').addClass('vertical_align_bottom')
+          }
+          }); 
+      }
+    });
+});
+
+
+$(document).ready(function(){
+    $( ".post" ).each(function() {
+        id = Number($(this).attr('id'))
+
+        length = $('#'+id+ ' .post_body img').length
+        if (length == 1){
+            $('#'+id+ ' .post_body .img_container').addClass('width100')
+        }
+        if (length == 2 || length == 4){
+            $('#'+id+ ' .post_body .img_container').addClass('width50')
+        }
+        if (length == 3){
+            $('#'+id+ ' .post_body .img_container').addClass('width50')
+            $('#'+id+ ' .post_body .img_container:nth-child(3)').addClass('three_img')
+            var divHeight = $('.post_images').width() / 2; 
+        }
+    }); 
+})
+
+
+</script>
+
+
+
+
+
+
+
+
+<script>
+$(document).on('click', '.comm_dropdown_div', function(e) {
+    var parent = $(this).parent().parent().parent().parent().attr('id')
+    console.log(parent)
+
+    $('#'+ parent + ' .comm_dropdown').toggleClass("show");
+});
+
+$('.post_dropdown').click(function(){
+    var parent = $(this).parent().parent().attr('id')
+
+    $('#'+ parent + ' #myDropdown').toggleClass("show");
+});
+
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+
+$('.post_footer .footer_div:first-child').mouseover(function(){
+    var parent = $(this).parent().parent().attr('id')
+
+    $('#'+ parent + ' .reactions').removeClass('hide')
+    $('#'+ parent + ' .reactions').addClass('show')
+});
+$('.post_footer .footer_div:first-child').mouseleave(function(){
+    var parent = $(this).parent().parent().attr('id')
+
+    setTimeout(function(){
+        $('#'+ parent + ' .reactions').addClass('hide')
+    }, 500);
+    setTimeout(function(){
+        $('#'+ parent + ' .reactions').removeClass('show')
+    }, 900);  
+});
+
+$(document).on('mouseover', '.comment', function(e) {
+    console.log('yeah')
+    var parent = $(this).parent().parent().attr('id')
+    var name = $('#username strong').html()
+    var id = Number($(this).attr('id'))
+    var comm_name =  $('#'+ id + ' .comm_username').html()
+    console.log(parent,id)
+    if (name == comm_name) {
+        $('#'+ id).children( ".comm_hover" ).removeClass('none')
+    }else{
+      console.log(false)
+    }
+});
+
+$(document).ready(function(e) {
+  $( ".post" ).each(function() {
+      id = Number($(this).attr('id'))
+
+      var name = $('#username strong').html()
+      var user_post_name =  $('#'+ id + ' .post_header .user_name').html()
+
+      console.log(parent,id)
+      if (name != user_post_name) {
+          $('#'+ id + ' .post_header .post_dropdown').addClass('none')
+      }
+
+    });
+    
+});
+
+$(document).on('mouseleave', '.comment', function(e) {
+    $('.comm_hover').addClass('none') 
+});
+
+$(document).on('click', '.delete_comm', function(e) {
+    var id = Number($(this).parent().parent().parent().attr('id'))
+    var parent = Number($('#' + id).parent().parent().attr('id'))
+
+    $('#' + id).remove() 
+    if($('#'+ parent + ' .view_more_text:first-child').hasClass('none')){
+        if($('#'+ parent + ' .post_comments .comment:first-child').hasClass('more_comm')){
+            $('#'+ parent + ' .post_comments .comment:first-child').removeClass('more_comm')
+        }
+        CountComments(parent)
+    }else{
+        CountComments(parent)
+
+        if($('#'+ parent + ' .post_comments .comment:first-child').hasClass('more_comm')){
+            $('#'+ parent + ' .post_comments .comment:first-child').removeClass('more_comm none')
+        }
+
+    }
+
+    num = Number($('#'+ parent +' .comments_quantity').html()) - 1
+    $('#'+ parent + ' .comments_quantity').html(num)
+
+});
+
+$('.like').click(function(){
+    var parent = $(this).parent().parent().parent().parent().attr('id')
+
+    if (!$('#'+ parent +' .like').hasClass('fa-heart') && !$('#'+ parent +' .like_bottom').hasClass('none')) {
+        num = Number($('#'+ parent +' .likes_quantity').html()) + 1
+        $('#'+ parent + ' .likes_quantity').html(num)
+    }else{
+        if (!$('#'+ parent + ' .like_bottom').hasClass('none')) {
+            num = Number($('#'+ parent + ' .likes_quantity').html()) - 1
+            $('#'+ parent + ' .likes_quantity').html(num)
+        }
+    }
+
+    $('#'+ parent + ' .footer_div > span').addClass('none')
+    $('#'+ parent + ' .footer_div > span:nth-child(2)').toggleClass('none')
+    $('#'+ parent + ' .like').toggleClass('fa-heart-o fa-heart')
+});
+
+
+$('.react2').click(function(){
+    var parent = $(this).parent().parent().parent().parent().attr('id')
+
+    if (!$('#'+ parent + ' .like_bottom').hasClass('none') && $('#'+ parent + ' .like').hasClass('fa-heart-o')) {
+        num = Number($('#'+ parent + ' .likes_quantity').html()) + 1
+        $('#'+ parent + ' .likes_quantity').html(num)
+    }
+
+    $('#'+ parent + ' .like').removeClass('fa-heart') 
+    $('#'+ parent + ' .like').addClass('fa-heart-o')
+    $('#'+ parent + ' .footer_div > span').addClass('none')
+    $('#'+ parent + ' .footer_div > span:nth-child(3)').toggleClass('none')
+    $('#'+ parent + ' .post_footer .footer_div:nth-child(1)').css("marginTop", "-20px")
+});
+
+$('.react3').click(function(){
+    var parent = $(this).parent().parent().parent().parent().attr('id')
+
+    if (!$('#'+ parent + ' .like_bottom').hasClass('none') && $('#'+ parent + ' .like').hasClass('fa-heart-o')) {
+        num = Number($('#'+ parent + ' .likes_quantity').html()) + 1
+        $('#'+ parent + ' .likes_quantity').html(num)
+    }
+
+    $('#'+ parent + ' .like').removeClass('fa-heart') 
+    $('#'+ parent + ' .like').addClass('fa-heart-o')
+    $('#'+ parent + ' .footer_div > span').addClass('none')
+    $('#'+ parent + ' .footer_div > span:nth-child(4)').toggleClass('none')
+    $('#'+ parent + ' .post_footer .footer_div:nth-child(1)').css("marginTop", "-20px")
+});
+
+$('.react4').click(function(){
+    var parent = $(this).parent().parent().parent().parent().attr('id')
+
+    if (!$('#'+ parent + ' .like_bottom').hasClass('none') && $('#'+ parent + ' .like').hasClass('fa-heart-o')) {
+        num = Number($('#'+ parent + ' .likes_quantity').html()) + 1
+        $('#'+ parent + ' .likes_quantity').html(num)
+    }
+
+    $('#'+ parent + ' .like').removeClass('fa-heart') 
+    $('#'+ parent + ' .like').addClass('fa-heart-o')
+    $('#'+ parent + ' .footer_div > span').addClass('none')
+    $('#'+ parent + ' .footer_div > span:nth-child(5)').toggleClass('none')
+    $('#'+ parent + ' .post_footer .footer_div:nth-child(1)').css("marginTop", "-20px")
+});
+
+$('.react5').click(function(){
+    var parent = $(this).parent().parent().parent().parent().attr('id')
+
+    if (!$('#'+ parent + ' .like_bottom').hasClass('none') && $('#'+ parent + ' .like').hasClass('fa-heart-o')) {
+        num = Number($('#'+ parent + ' .likes_quantity').html()) + 1
+        $('#'+ parent + ' .likes_quantity').html(num)
+    }
+
+    $('#'+ parent + ' .like').removeClass('fa-heart') 
+    $('#'+ parent + ' .like').addClass('fa-heart-o')
+    $('#'+ parent + ' .footer_div > span').addClass('none')
+    $('#'+ parent + ' .footer_div > span:nth-child(6)').toggleClass('none')
+    $('#'+ parent + ' .post_footer .footer_div:nth-child(1)').css("marginTop", "-20px")
+});
+
+$(".post").dblclick(function(){
+    var parent = $(this).attr('id')
+    if (!$('#'+ parent + ' .like').hasClass('fa-heart') && !$('#'+ parent + ' .like_bottom').hasClass('none')) {
+        num = Number($('#'+ parent + ' .likes_quantity').html()) + 1
+        $('#'+ parent + ' .likes_quantity').html(num)
+    }else{
+        if (!$('#'+ parent + ' .like_bottom').hasClass('none')) {
+            num = Number($('#'+ parent + ' .likes_quantity').html()) - 1
+            $('#'+ parent + ' .likes_quantity').html(num)
+        }
+    }
+
+    if (!$('#'+ parent + ' .like_bottom').hasClass('none')) {
+        $('#'+ parent + ' .like').toggleClass('fa-heart-o fa-heart')
+    }else{
+        $('#'+ parent + ' .post_footer span:nth-child(3), .post_footer span:nth-child(4), .post_footer span:nth-child(5), .post_footer span:nth-child(6)').addClass('none')
+        $('#'+ parent + ' .post_footer span:nth-child(2)').removeClass('none')
+        $('#'+ parent + ' .reactions span:nth-child(3), .reactions span:nth-child(4), .reactions span:nth-child(5), .reactions span:nth-child(6)').removeClass('none')
+        num = Number($('#'+ parent + ' .likes_quantity').html()) - 1
+        $('#'+ parent + ' .likes_quantity').html(num)
+    }
+});
+
+
+var textContainer, textareaSize, input;
+var autoSize = function () {
+  textareaSize.innerHTML = input.value + '\n';
+};
+var clear = function () {
+  textareaSize.innerHTML = input.value;
+};
+$('textarea').on('keydown', function(event) {
+    if (event.keyCode == 13)
+        if (!event.shiftKey) submitData()
+});
+
+var focusId = 1
+
+$('.comment_form textarea').focusin(function(){
+    var parent = $(this).parent().parent().parent().parent().parent().attr('id')
+
+    window.focusId = Number(parent)
+
+    window.textareaSize = $('#' + focusId+ ' .textarea-size').get()[0]
+    window.input = $('#'+ focusId+ ' textarea').get()[0]
+
+    autoSize();
+    input.addEventListener('input', autoSize);
+});
+
+function CountComments(parent){
+    var comm_length = $('#'+ parent + " .post_comments .comment").length
+
+    if (comm_length >= 2){
+        $('#'+ parent + ' .view_more').removeClass('none')
+    }else{
+        console.log(comm_length, false)
+        $('#'+ parent + ' .view_more').addClass('none')
+    }
+}
+
+$('.comment_btn').click(function(){
+    var parent = $(this).parent().parent().parent().attr('id')
+    CountComments(parent)
+    
+
+    $('#'+ parent + ' .comment_btn').toggleClass('fa-comment-o fa-comment')
+    $('#'+ parent + ' .post_comments').toggleClass('none')
+    $('#'+ parent + ' .hr_none').toggleClass('none')
+    $('#'+ parent + ' .comment_form textarea').focus();
+});
+
+$('.view_more_text').click(function(){
+    var parent = $(this).parent().parent().parent().attr('id')
+
+    $('#'+ parent + ' .view_more_text').toggleClass('none')
+    $('#'+ parent + ' .more_comm').toggleClass('none')
+});
+
+function submitData(){
+    var href = $('#'+ focusId + ' .my_img').attr('src');
+    var name = $('#'+ focusId + " .my_name" ). html()
+    var comment_text = $('#'+ focusId + " .my_comment .textarea-size" ). html()
+    var last_comm_id = 0
+    $( ".comment" ).each(function( index ) {
+      console.log('all: '  + $(this).attr('id') + ' and last_comm_id: ' + last_comm_id)
+      if (Number($(this).attr('id')) > last_comm_id){
+        last_comm_id = $(this).attr('id')
+        console.log('bigger: '  + $(this).attr('id'))
+      }
+    });
+    last_comm_id = Number(last_comm_id) + 1
+    console.log('last_comm_id '+ last_comm_id)
+    $( '#'+ focusId + " .post_comments .comment" ).addClass('more_comm none')
+    $( '#'+ focusId + " .view_more_text:nth-child(1)" ).removeClass('none')
+    $( '#'+ focusId + " .view_more_text:nth-child(2)" ).addClass('none')
+    $( '#'+ focusId + " .post_comments" ).prepend( '<div class="comment" id ="'+last_comm_id+'"><img src="'+href+'" class="comment_img"><p class="comm_username tagbe_hover">'+name+'</p><form class="comment_form"><div class="comm_text width100"><div>'+comment_text+'</div></div></form><div class="dropbtn comm_hover none"><div class="comm_dropdown_div dots_container dropbtn"><div class="dots"></div></div><div class="dropdown-content comm_dropdown"><a class="delete_comm">Delete</a></div></div></div>' );
+    $( '#'+ focusId + ' textarea').val('')
+
+    clear();
+    input.addEventListener('input', clear);
+
+    num = Number($('#'+ focusId +' .comments_quantity').html()) + 1
+    $('#'+ focusId + ' .comments_quantity').html(num)
+
+    CountComments(focusId)
+}
+
+</script>
+
+<script>
+  
+// input auto resi
+function onReady(f) {
+    "complete" === document.readyState
+        ? f() : setTimeout(onReady, 10, f);
+}
+
+onReady(function() {
+    [].forEach.call(
+        document.querySelectorAll("input[type='text'].autoresize"),
+        registerInput
+    );
+});
+function registerInput(el) {
+    el.size = 1;
+    var style = el.currentStyle || window.getComputedStyle(el),
+        borderBox = style.boxSizing === "border-box",
+        boxSizing = borderBox
+            ? parseInt(style.borderRightWidth, 10) +
+                parseInt(style.borderLeftWidth, 10)
+            : 0;
+    if ("onpropertychange" in el) {
+         // IE
+         el.onpropertychange = adjust;
+    } else if ("oninput" in el) {
+         el.oninput = adjust;
+    }
+    adjust();
+
+    function adjust() {
+
+        // reset to smaller size (for if text deleted) 
+        el.style.width = "";
+
+        // getting the scrollWidth should trigger a reflow
+        // and give you what the width would be in px if 
+        // original style, less any box-sizing
+        var newWidth = el.scrollWidth + boxSizing;
+
+        // so let's set this to the new width!
+        el.style.width = newWidth + "px";
+    }
+}
+
+$('div').click( function(){});
+$('img').click( function(){});
+$('button').click( function(){});
+</script>
+
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+
+
+
+</body>
+{% endblock%}

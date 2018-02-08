@@ -1,0 +1,86 @@
+{%extends 'main.html'%}
+{%block content %}
+<center>
+    <h1>You're at the HOME page</h1>
+    <h2 style ="color: red; text-decoration: underlined;">{{messages}}</h2>
+    <h2 style="display:{{d_none}}">Please <a href="/login" style="color: red; text-decoration: underlined;">login</a> or <a href="/signup" style="color: red; text-decoration: underlined;">sign up</a> to our website!</h2>
+</center>
+
+
+
+<div style="display:{{block}}">
+    <center>
+        <br><br>
+        <h3>You are logged in  as {{user.first_name}}</h3>
+        <h4>Your EMAIL: {{user.email}}</h4>
+        <a href="/logout" style="color: red; text-decoration: underlined;">Logout</a><br><br>
+
+        <p style="color: purple; text-decoration: underlined; font-size: 25px">Additional info:</p>
+        <h4>Your AGE: {{user.add.age}}</h4>
+        <h4>Your PHONE NUMBER: {{user.add.phone}}</h4>
+        <h4>Your SEX: {{user.add.sex}}</h4>
+        <h4>Your ADDRESS: {{user.add.address}}</h4>
+        <a href="/add_edit" style="color: blue; text-decoration: underlined; font-size: 20px">Edit</a>
+    </center>
+</div>
+<br><br>
+<center>
+    <div style="display:{{block}}">
+        <a onenterkey="returnFunc()">
+          <input type="text" name="friends_search" placeholder="Search for your friends!" id="friends_search">
+      </a>
+      <a onclick="returnFunc()">
+          <button type="button" class="btn btn-success submit_btn">Submit</button>
+      </a>
+    </div>
+</center>
+<br><br>
+
+<div style="display:{{block}}">
+    <center>
+        <a href="/friends_list" style="color: green; text-decoration: underlined; font-size: 20px"> My friends list</a><br><br>
+        <a href="/signup"><button class="btn btn-info" style="display: inline-block">CREATE GROUP</button></a><br><br>
+        <a href="/groups_list" style="color: red; text-decoration: underlined; font-size: 20px"> My groups list</a><br><br>
+        <form method="GET" action="/groups_list">
+            <input type="name" class="form-control" name="action" value="show_all" style="display:none">
+            <button type="submit" class="btn btn-default" style="display: inline-block">List of all groups in Dacelook</button>
+        </form><br><br>
+    </center>
+</div>
+
+<div style="display:{{block}}">
+    <center>
+         <h3>My notifications:</h3>
+            {% if length >= 1 %}
+            {% for item in range(0, length) %}
+                <div style="width: 800px; height: 40px; background-color: #32e574; text-align: center; font-size: 20px; color: white; padding-top: 5px">{{notifications[item][0]}}!</div>
+                <form method="GET" action="/add_friend" style="display: inline-block">
+                    <input type="name" class="form-control" name="notific_id" value="{{notifications_id[item]}}" style="display:none">
+                    <input type="name" class="form-control" name="id" value="{{user.id}}" style="display:none">
+                    <input type="name" class="form-control" name="action" value="accept" style="display:none">
+                    <button type="submit" class="btn btn-success" >Accept</button>
+                </form>
+                <form method="GET" action="/add_friend" style="display: inline-block">
+                    <input type="name" class="form-control" name="notific_id" value="{{notifications_id[item]}}" style="display:none">
+                    <input type="name" class="form-control" name="id" value="{{user.id}}" style="display:none">
+                    <input type="name" class="form-control" name="action" value="decline" style="display:none">
+                    <button type="submit" class="btn btn-danger" style="display: inline-block">Decline</button>
+                </form><br><br>
+        {% endfor %}
+        {% endif %}
+    </center>
+</div>
+
+
+
+
+<br><br>
+<script>
+
+function returnFunc(){
+    var firstName = document.getElementsByName("friends_search")[0].value;
+    window.location.href= firstName;
+}
+
+</script>
+{% endblock%}

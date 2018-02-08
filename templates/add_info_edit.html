@@ -1,0 +1,92 @@
+{%extends 'main.html'%}
+{%block content %}
+
+{% if ifgroup == True %}
+<center>
+	<h1>{{errors}}</h1>
+    <h2>You're at the Group Edit page. <br> Please fill in the form</h2>
+</center>
+<div class="container">
+	<form method="POST" action="/add_edit">
+		<div class="form-group">
+		<label for="id">Change id:</label>
+		   <input type="number" class="form-control" name="id" value="{{user.id}}">
+		 </div>
+		<div class="form-group">
+		<label for="name">Change group name:</label>
+		   <input type="name" class="form-control" name="f_name" value="{{user.first_name}}">
+		 </div>
+		<div class="form-group">
+		   <label for="name">Change group decription:</label>
+		   <input type="name" class="form-control" name="l_name" value="{{user.last_name}}">
+		 </div>
+		<div class="form-group">
+		   <label for="descr">Change group about:</label>
+		   <input type="name2" class="form-control" name="descr" value="{{user.descr}}">
+		 </div>
+        <div class="form-group">
+			<label for="phone">Admin phone number:</label>
+			<input type="name" class="form-control" name="phone" value="{{user.add.phone}}">
+		  </div>
+	  <div class="form-group">
+	    <label for="address">Group address:</label>
+	    <input type="name1" class="form-control" name="address" value="{{user.add.address}}">
+	  </div>
+
+        <button type="submit" class="btn btn-success">Submit</button>
+	</form>
+</div>
+{% else %}
+<center>
+	<h1>{{errors}}</h1>
+    <h2>You're at the Edit page. <br> Please fill in the form</h2>
+</center>
+<div class="container">
+	<form method="POST" action="/add_edit">
+		<div class="form-group">
+		<label for="name">Change first name:</label>
+		   <input type="name" class="form-control" name="f_name" value="{{user.first_name}}">
+		 </div>
+		<div class="form-group">
+		   <label for="name">Change last name:</label>
+		   <input type="name" class="form-control" name="l_name" value="{{user.last_name}}">
+		 </div>
+		<div class="form-group">
+		   <label for="password">Change password:</label>
+		   <input type="password" class="form-control" name="new_pass" value="{{user.password}}">
+		 </div>
+		<div class="form-group">
+		   <label for="email">Change email:</label>
+		   <input type="text" class="form-control" name="new_email" placeholder="{{user.email}}">
+		 </div>
+
+        <div class="form-group">
+	    <label for="age">Your age:</label>
+	    <input type="name" class="form-control" name="age" value="{{user.add.age}}">
+	  </div>
+        <div class="form-group">
+	    <label for="phone">Your phone number:</label>
+	    <input type="name" class="form-control" name="phone" value="{{user.add.phone}}">
+	  </div>
+       <div class="form-group">
+	    <label for="sex">Your sex:</label>
+	    <input type="sex" class="form-control" name="sex" value="{{user.add.sex}}">
+	  </div>
+	  <div class="form-group">
+	    <label for="address">Your address:</label>
+	    <input type="name1" class="form-control" name="address" value="{{user.add.address}}">
+	  </div>
+
+        <button type="submit" class="btn btn-success">Submit</button>
+	</form>
+</div>
+
+{% endif %}
+
+<center>
+   <a href="/" style="color: blue; text-decoration: underlined; font-size: 20px">Back to HOME page >>></a>
+</center>
+
+
+
+{% endblock%}

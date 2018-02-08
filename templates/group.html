@@ -1,0 +1,55 @@
+{%extends 'main.html'%}
+{%block content %}
+
+
+
+
+<center>
+    <h1>Group name: {{group_data[1]}}</h1>
+</center>
+
+
+
+<div style="display:{{block}}">
+    <center>
+        <br><br>
+        <p style="color: purple; text-decoration: underlined; font-size: 25px">Description:</p>
+        <h4>{{group_data[2]}}</h4>
+        <p style="color: purple; text-decoration: underlined; font-size: 25px">About:</p>
+        <h4>{{group_data[4]}}</h4>
+        <p style="color: purple; text-decoration: underlined; font-size: 25px">Followers:</p>
+        <h4>{{group_add_data[5]}}</h4>
+    </center>
+</div><br>
+
+<center>
+    {% if status == 'owner'%}
+        <form method="GET" action="/group_edit">
+            <input type="name" class="form-control" name="id" value="{{group_data[0]}}" style="display:none">
+            <br><button type="submit" class="btn btn-success">Edit group info >>></button><br><br>
+        </form>
+    {% elif status == 'notLoggedIn' %}
+        <button type="submit" class="btn btn-success" formaction="/login">Log in!</button><br><br>
+    {% else %}
+    {% if following%}
+        <form method="GET" action="/group_action">
+            <input type="name" class="form-control" name="id" value="{{group_data[0]}}" style="display:none">
+            <input type="name" class="form-control" name="action" value="unfollow" style="display:none">
+            <div style="width: 200px; height: 40px; background-color: #32e574; text-align: center; font-size: 20px; color: white; padding-top: 5px">You follow this group!</div>
+            <br><button type="submit" class="btn btn-warning">Unfollow</button><br><br><br>
+        </form>
+    {% else %}
+        <form method="GET" action="/group_action">
+            <input type="name" class="form-control" name="id" value="{{group_data[0]}}" style="display:none">
+            <input type="name" class="form-control" name="action" value="follow" style="display:none">
+            <br><button type="submit" class="btn btn-success">Follow!</button><br><br>
+        </form>
+    {% endif %}
+    {% endif %}
+    <a href="/" style="color: blue; text-decoration: underlined; font-size: 20px">Back to My Profile >>></a>
+</center>
+<br><br>
+
+
+
+{% endblock%}

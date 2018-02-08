@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html>
+<head>
+      <title>TAGBE</title>
+      <meta charset = "utf-8">
+      <meta http-equiv = "X-UA-Compatible" content = "IE = edge chrome=1">
+      <meta name = "viewport" content = "width = device-width, initial-scale = 1, user-scalable=no">
+      <!-- Bootstrap -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+      <link rel="shortcut icon" href="{{ url_for('static', filename='materials/tagbe_blue.ico') }}" />
+      <!-- Icons -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <!-- Custom style -->
+      <link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/main.css') }}">
+      <!-- JQuery -->
+      <script src="https://code.jquery.com/jquery-1.8.3.js">
+      </script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+      <!-- <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> -->
+      <meta content="width=1280" name="viewport">
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+      <link rel="stylesheet" href="{{ url_for('static', filename='materials/flex-images.css') }}">
+      <script src="{{ url_for('static', filename='materials/flex-images.js') }}"></script>
+</head>
+
+<body>
+
+<div class="navbar navbar-default my_navbar navbar-fixed-top" role="navigation">
+    <div class="container"> 
+          <ul class="nav navbar-nav">
+              <li class="dropdown non_hover">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="id_a">
+                      <img class="profile_photo" src="{{ url_for('static', filename='images/') }}{{user.user_photo.split(',')[0]}}">
+                  </a>
+                  <ul class="dropdown-menu">
+                      <li class="non_hover">
+                          <div class="navbar-login">
+                              <div class="triangle"></div>
+                              <div class="row">
+                                  <div class="col-xs-12 p-0" align="center">
+                                      <p class="text-center font_style p-default" id="username"><strong>{{user.first_name}} {{user.last_name}}</strong></p>
+                                      <p class="text-center small font_style p-default">{{user.email}}</p>
+                                      <a href="#"><p class="text-left pop_up_icon p-default nav_text"><i class="fa fa-user-o" aria-hidden="true"></i>View Profile</p></a>
+                                      <a href="#"><p class="text-left pop_up_icon p-default nav_text"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Edit My Info</p></a>
+                                  </div>
+                              </div>
+                          </div>
+                      </li>
+                      <li class="divider"></li>
+                      <li class="non_hover">
+                          <div class="navbar-login">
+                              <div class="triangle"></div>
+                              <div class="row">
+                                  <div class="col-xs-12 p-0" align="center">
+                                      <a href="/group_create"><p class="text-left pop_up_icon nav_text p-default"><i class="fa fa-plus-square-o" aria-hidden="true"></i>Create Group</p></a>
+                                      <a href="#"><p class="text-left nav_text pop_up_icon p-default"><i class="fa fa-list-ul" aria-hidden="true"></i>My Groups</p></a>
+                                  </div>
+                              </div>
+                          </div>
+                      </li>
+                      <li class="divider"></li>
+                      <li class="non_hover">
+                          <div class="navbar-login navbar-login-session p-0">
+                              <div class="row p-0">
+                                  <div class="col-lg-12 p-0">
+                                      <a href="#">
+                                          <p class="text-left pop_up_icon p-default">
+                                              Settings
+                                          </p>
+                                      </a>
+                                      <a href="#">
+                                          <p class="text-left pop_up_icon p-default">
+                                              Help
+                                          </p>
+                                      </a>
+                                      <a href="logout">
+                                          <p class="text-left pop_up_icon p-default">
+                                              Logout
+                                          </p>
+                                      </a>
+                                  </div>
+                              </div>
+                          </div>
+                      </li>
+                      <li class="divider"></li>
+                      <li class="non_hover">
+                          <div class="navbar-login navbar-login-session p-0">
+                              <div class="row p-0">
+                                  <div class="col-lg-12 p-0">
+                                      <a href="#">
+                                          <p class="text-left pop_up_icon p-default red non_hover" id="delete_account">
+                                              Delete Account
+                                          </p>
+                                      </a>
+                              </div>
+                          </div>
+                      </li>
+                  </ul>
+              </li>
+              <li class="non_hover fa_icon plus_container" id="myBtn2" ><i class="fa fa-plus plus_sign" aria-hidden="true"></i></li>
+              <li class="non_hover">
+                  <div class="search">
+                      <div id="custom-search-input">
+                          <div class="input-group col-md-12 input_parent">
+                              <input type="text" class="form-control input-lg my_input" placeholder="Search on Tagbe" id="tagbe_search" />
+                              <span class="input-group-btn">
+                                  <button class="btn btn-info btn-lg" type="button">
+                                      <i class="glyphicon glyphicon-search"></i>
+                                  </button>
+                              </span>
+                          </div>
+                      </div>
+                  </div>
+              </li>
+              <li class="website_name non_hover"><img src="{{ url_for('static', filename='materials/tagbe_blue.png') }}" class="tagbe_logo"><!-- <img src="tagbe_name.png" class="tagbe_name"> --></li>
+           </ul>
+          <ul class="nav navbar-nav navbar-right">
+              <li class="fa_icon nav_li">
+                  <div class="navbar_item"><i class="fa fa-home" aria-hidden="true"></i> Home</div>
+              <li>
+              <li class="fa_icon nav_li">
+                  <div class="navbar_item"><i class="fa fa-bell" aria-hidden="true"></i> Notifications</div>
+              <li>
+              <li class="fa_icon nav_li m-r20">
+                  <div class="navbar_item"><i class="fa fa-globe" aria-hidden="true"></i> Country</div>
+              <li>
+          </ul>
+    </div>
+</div>
+
+<div class="container m-t50">
+    <div class="row p-20">
+        <div class="col-xs-3 m-t10 height100">
+            <a href="/">
+              <p class="text-left m-l70 side_text p-default active">
+                <i class="fa fa-home" aria-hidden="true"></i>
+              My Profile
+              </p>
+            </a>
+            <a href="news.html">
+              <p class="text-left m-l70 side_text p-default">
+                <i class="fa fa-newspaper-o" aria-hidden="true"></i>
+              News Feed
+              </p>
+            </a>
+            <a href="#">
+              <p class="text-left m-l70 side_text p-default">
+                <i class="fa fa-comments-o" aria-hidden="true"></i>
+              Messages
+              </p>
+            </a>
+            <a href="/friends_list">
+              <p class="text-left m-l70 side_text p-default">
+                <i class="fa fa-handshake-o" aria-hidden="true"></i>
+              Friends
+              </p>
+            </a>
+            <a href="/groups_list"><!-- groups.html -->
+              <p class="text-left m-l70 side_text p-default">
+                <i class="fa fa-users" aria-hidden="true"></i>
+              Groups
+              </p>
+            </a>
+            <a href="/images">
+              <p class="text-left m-l70 side_text p-default">
+                <i class="fa fa-picture-o" aria-hidden="true"></i>
+              My Photos
+              </p>
+            </a>
+            <a href="my_tags.html">
+              <p class="text-left m-l70 side_text p-default">
+                <i class="fa fa-hashtag" aria-hidden="true"></i>
+              My Tags
+              </p>
+            </a>
+        </div>
+
+{%block center_part %} {% endblock%}
+
+        <div class="col-xs-3 m-t10">
+            <p class="text-center text-underlined m-l30 side_text p-default">
+              Popular Tags Ukraine:
+            </p>
+            <a href="#">
+              <p class="text-left m-l30 tag_text side_text p-default">
+              #people
+              </p>
+              <p class="text-left m-l30 tag_undertext side_text p-default non_hover">
+              25K people wrote about it
+              </p>
+            </a>
+            <a href="#">
+              <p class="text-left m-l30 tag_text side_text p-default">
+              🔥war
+              </p>
+              <p class="text-left m-l30 tag_undertext side_text p-default non_hover">
+              25K people wrote about it
+              </p>
+            </a>
+            <a href="#">
+              <p class="text-left m-l30 tag_text side_text p-default">
+              😂laugh
+              </p>
+              <p class="text-left m-l30 tag_undertext side_text p-default non_hover">
+              25K people wrote about it
+              </p>
+            </a>
+            <a href="#">
+              <p class="text-left m-l30 tag_text side_text p-default">
+              👏something
+              </p>
+              <p class="text-left m-l30 tag_undertext side_text p-default non_hover">
+              25K people wrote about it
+              </p>
+            </a>
+            <a href="#">
+              <p class="text-left m-l30 tag_text side_text p-default">
+              😎cool
+              </p>
+              <p class="text-left m-l30 tag_undertext side_text p-default non_hover">
+              25K people wrote about it
+              </p>
+            </a>
+            <p class="text-center text-underlined m-l30 side_text p-default">
+              Popular Tags World:
+            </p>
+            <a href="#">
+              <p class="text-left m-l30 tag_text side_text p-default">
+              #people
+              </p>
+              <p class="text-left m-l30 tag_undertext side_text p-default non_hover">
+              25K people wrote about it
+              </p>
+            </a>
+            <a href="#">
+              <p class="text-left m-l30 tag_text side_text p-default">
+              🔥war
+              </p>
+              <p class="text-left m-l30 tag_undertext side_text p-default non_hover">
+              25K people wrote about it
+              </p>
+            </a>
+            <a href="#">
+              <p class="text-left m-l30 tag_text side_text p-default">
+              😂laugh
+              </p>
+              <p class="text-left m-l30 tag_undertext side_text p-default non_hover">
+              25K people wrote about it
+              </p>
+            </a>
+            <a href="#">
+              <p class="text-left m-l30 tag_text side_text p-default">
+              👏something
+              </p>
+              <p class="text-left m-l30 tag_undertext side_text p-default non_hover">
+              25K people wrote about it
+              </p>
+            </a>
+            <a href="#">
+              <p class="text-left m-l30 tag_text side_text p-default">
+              😎cool
+              </p>
+              <p class="text-left m-l30 tag_undertext side_text p-default non_hover">
+              25K people wrote about it
+              </p>
+            </a>
+            <p class="text-center text-underlined m-l30 side_text p-default">
+              Tags For You:
+            </p>
+            <a href="#">
+              <p class="text-left m-l30 tag_text side_text p-default">
+              #people
+              </p>
+              <p class="text-left m-l30 tag_undertext side_text p-default non_hover">
+              25K people wrote about it
+              </p>
+            </a>
+            <a href="#">
+              <p class="text-left m-l30 tag_text side_text p-default">
+              🔥war
+              </p>
+              <p class="text-left m-l30 tag_undertext side_text p-default non_hover">
+              25K people wrote about it
+              </p>
+            </a>
+            <a href="#">
+              <p class="text-left m-l30 tag_text side_text p-default">
+              😂laugh
+              </p>
+              <p class="text-left m-l30 tag_undertext side_text p-default non_hover">
+              25K people wrote about it
+              </p>
+            </a>
+            <a href="#">
+              <p class="text-left m-l30 tag_text side_text p-default">
+              👏something
+              </p>
+              <p class="text-left m-l30 tag_undertext side_text p-default non_hover">
+              25K people wrote about it
+              </p>
+            </a>
+            <a href="#">
+              <p class="text-left m-l30 tag_text side_text p-default">
+              😎cool
+              </p>
+              <p class="text-left m-l30 tag_undertext side_text p-default non_hover">
+              25K people wrote about it
+              </p>
+            </a>
+        </div>
+    </div>
+</div>
+
+{%block scripts_and_rest %} {% endblock%}
+
+<script>
+
+if('{{user.type}}' == 'dead'){
+      var person = prompt("You deleted your account from Tagbe. Write OK to renew it", "");
+
+      if (person == 'OK') {
+            $.ajax({
+                  url: '/renew_account',
+                  type: 'POST',
+                  contentType: 'application/json;charset=UTF-8',
+                  success: function(response) {
+                      console.log(response.status);
+                  },
+                  error: function(error) {
+                      console.log(error);
+                  }
+            });
+      }else{
+            $.ajax({
+                  url: '/delete_account',
+                  type: 'POST',
+                  contentType: 'application/json;charset=UTF-8',
+                  success: function(response) {
+                      console.log(response.status);
+                      window.location.href = '/login';
+                  },
+                  error: function(error) {
+                      console.log(error);
+                  }
+            });
+      }
+}
+
+      
+$('#tagbe_search').keypress(function (e) {
+  if (e.which == 13) {
+    var firstName = $("#tagbe_search").val();
+    window.location.href= 'user/'+ firstName;
+    return false;    
+    $("#tagbe_search").val();
+  }
+});
+
+$('#delete_account').click(function(e){
+      e.preventDefault()
+
+      var person = prompt("Please write CONFIRM to delete your account. By clicking OK you agree that you understand all the consequences. You can renew your account by logging in the next time for 6 months. In other case account is permanently deleted from Tagbe", "");
+
+      if (person == 'CONFIRM') {
+
+            $.ajax({
+                  url: '/delete_account',
+                  type: 'POST',
+                  contentType: 'application/json;charset=UTF-8',
+                  success: function(response) {
+                      console.log(response.status);
+                      window.location.href = '/login';
+                  },
+                  error: function(error) {
+                      console.log(error);
+                  }
+            });
+      }   
+})
+
+</script>
+</html>
+
+
+
+
+
+
+
+
+

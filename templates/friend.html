@@ -1,0 +1,120 @@
+{%extends 'main.html'%}
+{%block content %}
+
+
+{% if if_blocked == 1 %}
+<center>
+    <h1>User {{name}} is blocked! <br> Unblock to see profile!</h1>
+    <form method="GET" action="/add_friend">
+        <input type="name" class="form-control" name="id" value="{{id}}" style="display:none">
+        <input type="name" class="form-control" name="action" value="unblock" style="display:none">
+        <br><button type="submit" class="btn btn-danger">Unblock</button>
+    </form>
+</center>
+{% else %}
+
+<center>
+    {% if friends == True %}
+    {% elif friends == False %}
+    {% elif friends == 'waiting' %}
+    {% elif friends == 'undefined' %}
+    {% elif friends == 'NotLoggedIn' %}
+    {% else %}
+        {% if email == 'friends_list' %}
+            <h1>Your friends:</h1>
+            {% for name in friends %}
+            <form method="GET" action="/special"> <!--!!!it should go to /group route which will render group.html insted of rendering this file. If you're user --one page, admin -- other-->
+                    <input type="name" class="form-control" name="id" value="{{name[0]}}" style="display:none">
+                    <button type="submit" class="btn btn-warning" style="font-size: 30px">{{ name[1] + ' ' + name[2]}}</button>
+                </form><br>
+            {% endfor %}
+        {% elif email == 'groups_list' %}
+            {% if sex == 'all' %}
+                <h1>All groups in Dacelook:</h1><br>
+            {% else %}
+                <h1>Your groups:</h1><br>
+            {% endif %}
+            {% for name in friends %}
+            <form method="GET" action="/group">
+                    <input type="name" class="form-control" name="id" value="{{name[0]}}" style="display:none">
+                    <button type="submit" class="btn btn-warning" style="font-size: 30px">{{name[1]}}</button>
+                    <p>{{name[2]}}</p>
+                </form><br>
+            {% endfor %}
+        {% else %}
+            <h1>There are many  users with this username! Please choose one!</h1>
+            {% for name in friends %}
+                <form method="GET" action="/special">
+                    <input type="name" class="form-control" name="id" value="{{name[0]}}" style="display:none">
+                    <button type="submit" class="btn btn-warning" style="font-size: 30px">{{ name[1] + ' ' + name[2]}}</button>
+                </form><br>
+            {% endfor %}
+        {% endif %}
+    {% endif %}
+
+
+    <h1>{{name}}</h1>
+</center>
+
+
+
+<div style="display:{{block}}">
+    <center>
+        <br><br>
+        <p style="color: purple; text-decoration: underlined; font-size: 25px">Info about user:</p>
+        <h4>AGE: {{age}}</h4>
+        <h4>PHONE NUMBER: {{phone}}</h4>
+        <h4>SEX: {{sex}}</h4>
+        <h4>ADDRESS: {{address}}</h4>
+    </center>
+</div><br><br>
+
+<center>
+   <a href="/" style="color: blue; text-decoration: underlined; font-size: 20px">Back to My Profile >>></a><br><br>
+    <form method="GET" action="/add_friend">
+        <input type="name" class="form-control" name="id" value="{{id}}" style="display:none">
+        {% if friends == True %}
+            <input type="name" class="form-control" name="action" value="unfriend" style="display:none">
+            <div style="width: 200px; height: 40px; background-color: #32e574; text-align: center; font-size: 20px; color: white; padding-top: 5px">You are friends!</div>
+            <br><button type="submit" class="btn btn-warning">Unfriend</button><br>
+    </form>
+            {% if if_blocked == 0 %}
+            <form method="GET" action="/add_friend">
+                <input type="name" class="form-control" name="id" value="{{id}}" style="display:none">
+                <input type="name" class="form-control" name="action" value="block" style="display:none">
+                <br><button type="submit" class="btn btn-danger">Block</button>
+            </form>
+            {% else %}
+            {% endif %}
+        {% elif friends == 'waiting' %}
+            {% if sender_id != False or sender_id != 'NotLoggedIn' %}
+                {% if sender_id == current_id %}
+                <form method="GET" action="/add_friend">
+                    <input type="name" class="form-control" name="id" value="{{id}}" style="display:none">
+                    <input type="name" class="form-control" name="action" value="redo_request" style="display:none">
+                    <div style="width: 200px; height: 40px; background-color: #32e574; text-align: center; font-size: 20px; color: white; padding-top: 5px">Friend request sent!</div>
+                    <br><button type="submit" class="btn btn-danger">Redo request</button>
+                </form>
+                {% else %}
+                <form method="GET" action="/add_friend">
+                    <input type="name" class="form-control" name="notific_id" value="0" style="display:none">
+                    <input type="name" class="form-control" name="action" value="accept" style="display:none">
+                    <br><button type="submit" class="btn btn-success">Accept friend request?</button>
+                </form>
+                {% endif %}
+            {% endif %}
+        {% elif friends == False %}
+            <button type="submit" class="btn btn-success">Become friends!</button>
+        {% elif friends == 'NotLoggedIn' %}
+            <button type="submit" class="btn btn-success" formaction="/login">Log in!</button>
+        {% else %}
+
+        {% endif %}
+
+	</form>
+</center>
+<br><br>
+
+
+{% endif %}
+{% endblock%}

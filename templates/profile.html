@@ -1,0 +1,1538 @@
+{%extends 'header.html'%}
+{%block center_part %}
+
+
+
+<div class="col-xs-6 post_part m-t15">
+    <div class="profile_info">
+        <div class="photos_container" style="background-image: url('{{ url_for('static', filename='images/') }}{{user.user_photo.split(',')[1]}}');">
+            <div class="ava">
+                <img src="{{ url_for('static', filename='images/') }}{{user.user_photo.split(',')[0]}}" class="profile_photo_user">
+                <div class="overlay none">
+                  <div class="text">Change Profile Photo</div>
+                  <form id="form_ava" enctype="multipart/form-data">
+                    <input type="file" name="ava" class="back_file" id="profile_photo" accept="image/*">
+                  </form>
+                  
+                </div>
+            </div>
+            <div class="overlay none">
+              <div class="text">Change Background Photo</div>
+              <form id="form_back" enctype="multipart/form-data">
+                <input type="file" name="back" class="back_file" id="back_photo" accept="image/*">
+              </form>
+            </div>
+        </div>
+        <div class="profile_name">
+            {{user.first_name}} {{user.last_name}}
+            <br>
+            <p class="profile_undertext">Don`t be scared to dive in deep and start a tsunami</p>
+        </div>
+        <div class="profile_text">
+            <div class="control_btn">
+                <a href="#"><i class="fa fa-tags" aria-hidden="true"></i><br>Tags</a>
+                <!-- <a href="#"><i class="fa fa-plus" aria-hidden="true"></i><br>Add Friend</a> -->
+                <a href="#" class="padding5"><i class="fa fa-comment" aria-hidden="true"></i><br>Message</a>
+                <a href="#"><i class="fa fa-users" aria-hidden="true"></i><br>Groups</a>
+                <a href="#" id="about"><i class="fa fa-info" aria-hidden="true"></i><br>About</a>
+                <a href="#"><i class="fa fa-file-image-o" aria-hidden="true"></i><br>Photos</a>
+            </div>
+        </div>
+        <div class="edit_div none" id="editting">
+                <input type="hidden" class="form-control edit_field" id="f_id" name="new_pass" value="{{user.id}}">
+                <form class="edit_form">
+                    <label class="edit_label" for="name">First name:</label>
+                    <label class="edit_label" for="name">Last name:</label>
+
+                    <input type="name" class="form-control edit_field" id="f_f_name" name="f_name" value="{{user.first_name}}">
+                    <input type="name" class="form-control edit_field" id="f_l_name" name="l_name" value="{{user.last_name}}">
+
+                    <label class="edit_label" for="password">Password:</label>
+                    <label class="edit_label" for="email">Email:</label>
+
+                    <input type="password" class="form-control edit_field" id="f_password" name="new_pass" value="{{user.password}}">
+                    <input type="text" class="form-control edit_field" id="f_email"  name="new_email" placeholder="{{user.email}}">
+
+                    <label class="edit_label" for="age">Your age:</label>
+                    <label class="edit_label" for="phone">Your phone number:</label>
+
+                    <input type="name" class="form-control edit_field" id="f_age" name="age" value="{{user.add.age}}">
+                    <input type="name" class="form-control edit_field" id="f_phone" name="phone" value="{{user.add.phone}}">
+
+                    <label class="edit_label" for="sex">Your sex:</label>
+                    <label class="edit_label" for="address">Your address:</label>
+
+                    <input type="sex" class="form-control edit_field" id="f_sex" name="sex" value="{{user.add.sex}}">
+                    <input type="name1" class="form-control edit_field" id="f_address" name="address" value="{{user.add.address}}">
+
+                    <button class="refresh" id="refresh">REFRESH</button>
+                </form>
+            </div>
+        <div class="edit_div user_info none" id="info">
+              <div class="label_name">Email:</div>
+              <div class="user_info_statement">{{user.email}}</div>
+              <div class="label_name">Age:</div>
+              <div class="user_info_statement">{{user.add.age}}</div>
+              <div class="label_name">Phone Number:</div>
+              <div class="user_info_statement">{{user.add.phone}}</div>
+              <div class="label_name">Sex:</div>
+              <div class="user_info_statement">{{user.add.sex}}</div>
+              <div class="label_name">Address:</div>
+              <div class="user_info_statement">{{user.add.address}}</div>
+              <button class="refresh" id="edit">EDIT INFO</button>
+        </div>
+    </div>
+    <!-- endof profile info -->
+    <div class="create_post white">
+        <div class="create_post_div my_comment">
+            <img src="{{ url_for('static', filename='images/') }}{{user.user_photo.split(',')[0]}}" class="comment_img my_img">
+            <p class="click_to_post" id="myBtn">Click To Share Something Interesting Here 🙂</p>
+        </div>
+    </div>
+    <div class="new_posts_div">
+      
+    </div>
+    <div class="post" id="1">
+        <div class="post_header">
+            <img src="{{ url_for('static', filename='images/') }}{{user.user_photo.split(',')[0]}}" class="user_photo">
+            <div class="post_header_text">
+                <a href="#">
+                    <p class="user_name">Dmytro Lopushanskyy</p>
+                </a>
+                <p class="post_info">23 December, 10:13, Lviv</p>
+            </div>
+            <div class="post_tags_div">
+                <a href="#">
+                    <p class="post_tag">#future,</p>
+                </a>
+                <a href="#">
+                    <p class="post_tag">#future,</p>
+                </a>
+                <a href="#">
+                    <p class="post_tag">#future,</p>
+                </a>
+                <a href="#">
+                    <p class="post_tag">#future,</p>
+                </a>
+                <a href="#">
+                    <p class="post_tag">#future,</p>
+                </a>
+                <a href="#">
+                    <p class="post_tag">#future,</p>
+                </a>
+                <a href="#">
+                    <p class="post_tag">#future,</p>
+                </a>
+                <a href="#">
+                    <p class="post_tag">#future,</p>
+                </a>
+            </div>
+            <div class="post_dropdown dropbtn">
+                <div class="dots_container dropbtn">
+                    <div class="dots"></div>
+                </div>
+                <div id="myDropdown" class="dropdown-content">
+                    <a href="#">Change Privacy</a>
+                    <a href="#">Hide</a>
+                </div>
+            </div>
+        </div>
+        <div class="post_body">
+            <p class="post_text">Hi! Look at my new photo! Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <div class="post_images">
+              <div class="img_container">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Empire_State_Building_from_the_Top_of_the_Rock.jpg/180px-Empire_State_Building_from_the_Top_of_the_Rock.jpg" class="post_img">
+              </div>
+              <div class="img_container">
+                  <img src="http://photoblogstop.com/wp-content/uploads/2012/07/Sierra_HDR_Panorama_DFX8048_2280x819_Q40_wm_mini.jpg" class="post_img">
+              </div>
+              <div class="img_container">
+                  <img src="https://scontent.fhen1-1.fna.fbcdn.net/v/t1.0-9/25289755_1979029282352374_1810228594444589056_n.jpg?oh=ebefcfd8626796810d116498d407da27&oe=5AFADCA3" class="post_img">
+              </div>
+            </div>
+        </div>
+        <hr>
+        <div class="post_footer">
+            <div class="footer_div reactions_div"> 
+                <div class="reactions hide pointer">
+                    <i class="fa fa-heart-o react_btn like" aria-hidden="true"></i>
+                    <!-- <i class="fa fa-heart-o react_btn" aria-hidden="true"></i> -->
+                    <span class="react_btn react2">😂</span>
+                    <span class="react_btn react3">😯</span> 
+                    <span class="react_btn react4">🙂</span> 
+                    <span class="react_btn react5">👏</span> 
+                </div>
+                <span class="like_bottom pointer"><i class="fa fa-heart-o like_btn like" aria-hidden="true"></i></span>
+                <span class="react_btn like_btn none">😂</span>
+                <span class="react_btn like_btn none">😯</span> 
+                <span class="react_btn like_btn none">🙂</span> 
+                <span class="react_btn like_btn none">👏</span> 
+                <div class="connection"></div>
+            </div>
+            <div class="footer_div">
+                <i class="fa fa-comment-o comment_btn pointer" aria-hidden="true"></i>
+            </div>
+            <div class="footer_div hey">
+                <i class="fa fa-share share_btn pointer" aria-hidden="true"></i>
+            </div>
+            <div class="quantity">
+                <p><span class="likes_quantity pointer">25</span> reactions,</p>
+                <p> <span class="comments_quantity pointer">35</span> comments,</p>
+                <p> <span class="shares_quantity pointer">25</span> shares</p>
+            </div>
+        </div><hr class="hr_none none">
+        <div class="post_comments none">
+            <div class="comment" id="6">
+                <img src="{{ url_for('static', filename='images/') }}{{user.user_photo.split(',')[0]}}" class="comment_img">
+                <p class="comm_username tagbe_hover">Dmytro Lopushanskyy</p>
+                <form class="comment_form">
+                    <div class="comm_text width100">
+                      <div>Wow! Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                      quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                      consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                      cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                      proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+                      
+                    </div>
+                </form>
+                <div class="dropbtn comm_hover none">
+                  <div class="comm_dropdown_div dots_container dropbtn">
+                      <div class="dots"></div>
+                  </div>
+                  <div class="dropdown-content comm_dropdown">
+                      <a class="delete_comm">Delete</a>
+                  </div>
+              </div>
+            </div>
+            <div class="comment more_comm none" id="5">
+                <img src="{{ url_for('static', filename='images/') }}{{user.user_photo.split(',')[0]}}" class="comment_img">
+                <p class="comm_username tagbe_hover">Dmytro Lopushanskyy</p>
+                <form class="comment_form">
+                    <div class="comm_text width100">
+                      <div>Wow! Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                      quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                      consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                      cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                      proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+                      
+                    </div>
+                </form>
+                <div class="dropbtn comm_hover none">
+                  <div class="comm_dropdown_div dots_container dropbtn">
+                      <div class="dots"></div>
+                  </div>
+                  <div class="dropdown-content comm_dropdown">
+                      <a class="delete_comm">Delete</a>
+                  </div>
+              </div>
+            </div>
+            <div class="comment more_comm none" id="7">
+                <img src="{{ url_for('static', filename='images/') }}{{user.user_photo.split(',')[0]}}" class="comment_img">
+                <p class="comm_username tagbe_hover">Dmytro Lopushanskyy</p>
+                <form class="comment_form">
+                    <div class="comm_text width100">
+                      <div>Wow! Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                      quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                      consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                      cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                      proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+                      
+                    </div>
+                </form>
+                <div class="dropbtn comm_hover none">
+                  <div class="comm_dropdown_div dots_container dropbtn">
+                      <div class="dots"></div>
+                  </div>
+                  <div class="dropdown-content comm_dropdown">
+                      <a class="delete_comm">Delete</a>
+                  </div>
+              </div>
+            </div>
+            <div class="view_more pointer none">
+                <p class="view_more_text">View More Comments...</p>
+                <p class="view_more_text none">Hide More Comments</p>
+            </div>
+            <div class="my_comment">
+                <img src="{{ url_for('static', filename='images/') }}{{user.user_photo.split(',')[0]}}" class="comment_img my_img">
+                <p class="comm_username tagbe_hover my_name">Dmytro Lopushanskyy</p>
+                <form class="comment_form comm_form submit" method="get" action="" onsubmit="return false">
+                    <div class="textarea-container">
+                      <textarea class="my_textarea"></textarea>
+                      <div class="textarea-size"></div>
+                    </div>
+                    <i class="fa fa-smile-o smile_icon right50" aria-hidden="true"></i>
+                    <i class="fa fa-file-image-o smile_icon" aria-hidden="true"></i>
+                    <p class="input_tip">Press Enter to submit</p>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="post" id="2">
+        <div class="post_header">
+            <img src="{{ url_for('static', filename='images/') }}{{user.user_photo.split(',')[0]}}" class="user_photo">
+            <div class="post_header_text">
+                <a href="#">
+                    <p class="user_name">Dmytro Lopushanskyy</p>
+                </a>
+                <p class="post_info">23 December, 10:13, Lviv</p>
+            </div>
+            <div class="post_tags_div">
+                <a href="#">
+                    <p class="post_tag">#future,</p>
+                </a>
+                <a href="#">
+                    <p class="post_tag">#future,</p>
+                </a>
+                <a href="#">
+                    <p class="post_tag">#future,</p>
+                </a>
+                <a href="#">
+                    <p class="post_tag">#future,</p>
+                </a>
+                <a href="#">
+                    <p class="post_tag">#future,</p>
+                </a>
+                <a href="#">
+                    <p class="post_tag">#future,</p>
+                </a>
+                <a href="#">
+                    <p class="post_tag">#future,</p>
+                </a>
+                <a href="#">
+                    <p class="post_tag">#future,</p>
+                </a>
+            </div>
+            <div class="post_dropdown dropbtn">
+                <div class="dots_container dropbtn">
+                    <div class="dots"></div>
+                </div>
+                <div id="myDropdown" class="dropdown-content">
+                    <a href="#">Change Privacy</a>
+                    <a href="#">Hide</a>
+                </div>
+            </div>
+        </div>
+        <div class="post_body">
+            <p class="post_text">Hi! Look at my new photo! Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <img src="https://scontent.fhen1-1.fna.fbcdn.net/v/t1.0-9/25289755_1979029282352374_1810228594444589056_n.jpg?oh=ebefcfd8626796810d116498d407da27&oe=5AFADCA3" class="post_img">
+        </div>
+        <hr>
+        <div class="post_footer">
+            <div class="footer_div reactions_div">
+                <div class="reactions hide pointer">
+                    <i class="fa fa-heart-o react_btn like" aria-hidden="true"></i>
+                    <!-- <i class="fa fa-heart-o react_btn" aria-hidden="true"></i> -->
+                    <span class="react_btn react2">😂</span>
+                    <span class="react_btn react3">😯</span> 
+                    <span class="react_btn react4">🙂</span> 
+                    <span class="react_btn react5">👏</span> 
+                </div>
+                <span class="like_bottom pointer"><i class="fa fa-heart-o like_btn like" aria-hidden="true"></i></span>
+                <span class="react_btn like_btn none">😂</span>
+                <span class="react_btn like_btn none">😯</span> 
+                <span class="react_btn like_btn none">🙂</span> 
+                <span class="react_btn like_btn none">👏</span> 
+                <div class="connection"></div>
+            </div>
+            <div class="footer_div">
+                <i class="fa fa-comment-o comment_btn pointer" aria-hidden="true"></i>
+            </div>
+            <div class="footer_div hey">
+                <i class="fa fa-share share_btn pointer" aria-hidden="true"></i>
+            </div>
+            <div class="quantity">
+                <p><span class="likes_quantity pointer">25</span> reactions,</p>
+                <p> <span class="comments_quantity pointer">35</span> comments,</p>
+                <p> <span class="shares_quantity pointer">25</span> shares</p>
+            </div>
+        </div><hr class="hr_none none">
+        <div class="post_comments none">
+            <div class="comment" id="8">
+                <img src="{{ url_for('static', filename='images/') }}{{user.user_photo.split(',')[0]}}" class="comment_img">
+                <p class="comm_username tagbe_hover">Dmytro Lopushanskyy</p>
+                <form class="comment_form">
+                    <div class="comm_text width100">
+                      <div>Wow! Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                      quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                      consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                      cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                      proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+
+                    </div>
+                </form>
+                <div class="dropbtn comm_hover none">
+                  <div class="comm_dropdown_div dots_container dropbtn">
+                      <div class="dots"></div>
+                  </div>
+                  <div class="dropdown-content comm_dropdown">
+                      <a class="delete_comm">Delete</a>
+                  </div>
+              </div>
+            </div>
+            <div class="comment more_comm none" id="3">
+                <img src="{{ url_for('static', filename='images/') }}{{user.user_photo.split(',')[0]}}" class="comment_img">
+                <p class="comm_username tagbe_hover">Dmytro Lopushanskyy</p>
+                <form class="comment_form">
+                    <div class="comm_text width100">
+                      <div>Wow! Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                      quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                      consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                      cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                      proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+                      
+                    </div>
+                </form>
+                <div class="dropbtn comm_hover none">
+                  <div class="comm_dropdown_div dots_container dropbtn">
+                      <div class="dots"></div>
+                  </div>
+                  <div class="dropdown-content comm_dropdown">
+                      <a class="delete_comm">Delete</a>
+                  </div>
+              </div>
+            </div>
+            <div class="comment more_comm none" id="10">
+                <img src="{{ url_for('static', filename='images/') }}{{user.user_photo.split(',')[0]}}" class="comment_img">
+                <p class="comm_username tagbe_hover">Якийсь чувак</p>
+                <form class="comment_form">
+                    <div class="comm_text width100">
+                      <div>Wow! Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                      quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                      consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                      cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                      proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+                      
+                    </div>
+                </form>
+                <div class="dropbtn comm_hover none">
+                  <div class="comm_dropdown_div dots_container dropbtn">
+                      <div class="dots"></div>
+                  </div>
+                  <div class="dropdown-content comm_dropdown">
+                      <a class="delete_comm">Delete</a>
+                  </div>
+              </div>
+            </div>
+            <div class="view_more pointer none">
+                <p class="view_more_text">View More Comments...</p>
+                <p class="view_more_text none">Hide More Comments</p>
+            </div>
+            <div class="my_comment">
+                <img src="{{ url_for('static', filename='images/') }}{{user.user_photo.split(',')[0]}}" class="comment_img my_img">
+                <p class="comm_username tagbe_hover my_name">Dmytro Lopushanskyy</p>
+                <form class="comment_form comm_form submit" method="get" action="" onsubmit="return false">
+                    <div class="textarea-container">
+                      <textarea class="my_textarea"></textarea>
+                      <div class="textarea-size"></div>
+                    </div>
+                    <i class="fa fa-smile-o smile_icon right50" aria-hidden="true"></i>
+                    <i class="fa fa-file-image-o smile_icon" aria-hidden="true"></i>
+                    <p class="input_tip">Press Enter to submit</p>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="spinner">
+      <div class="bounce1"></div>
+      <div class="bounce2"></div>
+      <div class="bounce3"></div>
+    </div>
+</div>
+{% endblock%}      
+
+{%block scripts_and_rest %}
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <div class="create_post_modal" ng-app="">
+                <div class="post_header">
+                    <img src="{{ url_for('static', filename='images/') }}{{user.user_photo.split(',')[0]}}" class="user_photo">
+                    <div class="post_header_text">
+                        <p class="user_name non_hover">Dmytro Lopushanskyy</p>
+                    </div>
+                    <div class="post_tags_div">
+                        
+                    </div>
+                    <span class="close" ng-click="place ='' ">&times;</span>
+                </div>
+                <div class="post_body">
+                    <div contenteditable="true" class="create_post_textarea"></div>
+                    <div class="create_post_images">
+                        <!-- <div class="upload_div" id="up1000">
+                          <img src="https://pbs.twimg.com/media/CYdrqGRWwAAdZM5.jpg" class="my_img image_uploaded" id="image_uploaded">
+                          <i class="fa fa-window-close" aria-hidden="true"></i>
+                        </div> -->
+                    </div>
+                </div>
+                <p id="trigger_class" class="none"></p>
+                <hr>
+                <div class="post_add_div">
+                    <form action="#" id="post_form">
+                      <div class="input-file-container">  
+                        <input class="input-file" id="my-file" type="file" multiple="multiple" accept="image/jpg, image/jpeg, image/png">
+                        <label tabindex="0" for="my-file" class="input-file-trigger"><i class="fa fa-file-image-o" aria-hidden="true"></i>Add Images (<span class="img_num">4</span>)</label>
+                        <label tabindex="0" for="check_in" class="input-file-trigger" id="check_in_div">
+                            <i class="fa fa-map-marker check_icon" aria-hidden="true"></i>
+                            <span class="default_text">Add Place</span>
+                            <span class="place_check none" ng-bind="place"></span>
+                            <input class="input-place none" id="check_in" type="text" ng-model="place">
+                        </label>
+                        <button class="input-file-trigger post_btn">POST</button>
+                      </div>
+                    </form>
+                </div>
+            </div>
+  </div>
+
+</div>
+
+<div class="input-buffer"></div>
+
+<div class="alert">
+  <strong>POSTED!</strong>
+</div>
+
+<img src="{{ url_for('static', filename='images/') }}{{user.user_photo.split(',')[0]}}" class="test_img2">
+<img src="{{ url_for('static', filename='images/') }}{{user.user_photo.split(',')[0]}}" class="test_img">
+
+
+<script>
+
+$(document).on('click', '#refresh', function(e) {
+    e.preventDefault()
+
+    var id = $('#f_id').val()
+    var f_name = $('#f_f_name').val()
+    var l_name = $('#f_l_name').val()
+    var pass = $('#f_password').val()
+    var email = $('#f_email').val()
+    var age = $('#f_age').val()
+    var phone = $('#f_phone').val()
+    var sex = $('#f_sex').val()
+    var address = $('#f_address').val()
+
+    $.ajax({
+        url: '/add_edit',
+        data: JSON.stringify({'f_name':f_name, 'l_name': l_name, 'new_pass':pass, 'id': id, 'new_email':email, 'age': age, 'phone':phone, 'address': address, 'sex': sex}, null, '\t'),
+        type: 'POST',
+        contentType: 'application/json;charset=UTF-8',
+        success: function(response) {
+            console.log(response.status);
+            $('#info').toggleClass('none')
+            $('#editting').toggleClass('none')
+            location.reload();
+        },
+        error: function(error) {
+            console.log(error);
+        }
+    });
+});
+
+$(document).on('click', '#edit', function(e) {
+    e.preventDefault()
+    $('#info').toggleClass('none')
+    $('#editting').toggleClass('none')
+});
+
+
+
+function readURL3(input) {
+    var numFiles = input.files.length;
+
+    if (input.files && input.files[0]) {
+
+     var reader = new FileReader();
+      reader.onload = function (e) {
+
+          var form_data = new FormData($('#form_back')[0]);
+          $.ajax({
+              type: 'POST',
+              url: '/upload?' + 'user_type=user&' + 'type=back' ,
+              data: form_data,
+              contentType: false,
+              cache: false,
+              processData: false,
+              async: false,
+              success: function(response) {
+                  $('.photos_container').css('background-image','url('+ e.target.result + ')');
+                  $('.test_img').attr('src', e.target.result);
+                  console.log(response.status);
+              },
+              error: function(error) {
+                  console.log(error);
+              }
+          });
+
+      }
+      reader.readAsDataURL(input.files[0]);
+    }
+}
+
+$(document).on('change', '#back_photo', function(e){
+    readURL3(this);
+});
+
+
+
+
+function readURL2(input) {
+    var numFiles = input.files.length;
+
+    if (input.files && input.files[0]) {
+
+      var reader = new FileReader();
+      reader.onload = function (e) {
+
+          var form_data = new FormData($('#form_ava')[0]);
+          $.ajax({
+              type: 'POST',
+              url: '/upload?' + 'user_type=user&' + 'type=ava' ,
+              data: form_data,
+              contentType: false,
+              cache: false,
+              processData: false,
+              async: false,
+              success: function(response) {
+                  $('.profile_photo_user').attr('src', e.target.result);
+                  $('.test_img2').attr('src', e.target.result);
+                  console.log(response.status);
+                  location.reload()
+              },
+              error: function(error) {
+                  console.log(error);
+              }
+          });
+      }
+      reader.readAsDataURL(input.files[0]);
+    }
+}
+
+$(document).on('change', '#profile_photo', function(e){
+    readURL2(this);
+});
+
+$('.test_img2').on('load', function(){
+    console.log('heeeere', $('.test_img2'),$('.test_img2').width(), $('.test_img2').height())
+    if ($('.test_img2').width() > $('.test_img2').height()) {
+        console.log('widthmore')
+        $('.profile_photo_user').css('height', '174px');
+        $('.profile_photo_user').css('width', 'auto');
+    }else{
+        $('.profile_photo_user').css('width', '174px');
+        $('.profile_photo_user').css('height', 'auto');
+    }
+});
+
+$(document).ready(function(){
+    if ($('.test_img2').width() > $('.test_img2').height()) {
+        console.log('widthmore')
+        $('.profile_photo_user').css('height', '174px');
+        $('.profile_photo_user').css('width', 'auto');
+    }else{
+        $('.profile_photo_user').css('width', '174px');
+        $('.profile_photo_user').css('height', 'auto');
+    }
+
+});
+
+
+
+$(document).on('mouseover', '.photos_container', function(e) {
+    if ($('.ava').children('.overlay').hasClass('none')) {
+      $(this).children('.overlay').removeClass('none')
+    }
+    
+});
+$(document).on('mouseleave', '.photos_container', function(e) {
+    $(this).children('.overlay').addClass('none')
+});
+
+$(document).on('mouseover', '.ava', function(e) {
+    $('.photos_container').children('.overlay').addClass('none')
+    $(this).children('.overlay').removeClass('none')
+});
+$(document).on('mouseleave', '.ava', function(e) {
+    $(this).children('.overlay').addClass('none')
+});
+
+
+$(document).on('click', '#about', function(e) {
+    e.preventDefault()
+    $('#info').removeClass('none')
+    $('#editting').addClass('none')
+});
+
+$(document).ready(function(e) {
+    var bodyHeight = $('body').height()
+    $('.height100').css('height', bodyHeight)
+});
+
+</script>
+
+
+
+
+
+<script>
+  
+$(document).on('click', '.post_btn', function(e) {
+    e.preventDefault()
+
+    var text = $('.create_post_textarea').html()
+    text = text.split('')
+    var image_being = $('.post_images').length
+    
+    var tags_array = [];
+
+    $('.create_post_textarea .hastag_changed').each(function(){
+         console.log('found!')
+        tags_array.push($(this).val())
+    })
+
+    var delete_cur
+    var aditional = 0
+    var array_length = text.length
+    for (var i = 0; i <= text.length - 1 + aditional ; i++) {
+        aditional = array_length - text.length 
+        if (text[i-aditional] == '<'){
+            delete_cur = i-aditional
+        }else if (text[i-aditional] == '>'){
+            text.splice(delete_cur, i-aditional - delete_cur + 1)
+        }
+    }
+    for (var i = 0; i <= text.length - 1 + aditional ; i++) {
+        aditional = array_length - text.length 
+        if (text[i-aditional] == '<'){
+            delete_cur = i-aditional
+        }else if (text[i-aditional] == '>'){
+            text.splice(delete_cur, i-aditional - delete_cur + 1)
+        }
+    }
+    console.log(text)
+    if (text.length == 0 && image_being == 1) {
+      console.log('leer')
+      return
+    }
+    modal.style.display = "none";
+
+    text = text.join('')
+    city = $('.place_check').html()
+    id = Math.floor(Math.random() * 99999899999) + 999999
+
+    $(".new_posts_div" ).prepend( '<div class="post" id="'+id+'"><div class="post_header"><img src="{{ url_for('static', filename='images/') }}{{user.user_photo.split(',')[0]}}" class="user_photo"><div class="post_header_text"><a href="#"><p class="user_name">{{user.first_name}} {{user.last_name}}</p></a><p class="post_info">' + new Date().toLocaleString() +', ' + city + '</p></div><div class="post_tags_div"></div><div class="post_dropdown dropbtn"><div class="dots_container dropbtn"><div class="dots"></div></div><div id="myDropdown" class="dropdown-content"><a href="#">Change Privacy</a><a href="#">Hide</a></div></div></div><div class="post_body"><p class="post_text">' + text +'</p><div class="post_images"></div></div><hr><div class="post_footer"><div class="footer_div reactions_div"><div class="reactions hide pointer"><i class="fa fa-heart-o react_btn like" aria-hidden="true"></i><span class="react_btn react2">😂</span><span class="react_btn react3">😯</span> <span class="react_btn react4">🙂</span> <span class="react_btn react5">👏</span> </div><span class="like_bottom pointer"><i class="fa fa-heart-o like_btn like" aria-hidden="true"></i></span><span class="react_btn like_btn none">😂</span><span class="react_btn like_btn none">😯</span> <span class="react_btn like_btn none">🙂</span> <span class="react_btn like_btn none">👏</span> <div class="connection"></div></div><div class="footer_div"><i class="fa fa-comment-o comment_btn pointer" aria-hidden="true"></i></div><div class="footer_div hey"><i class="fa fa-share share_btn pointer" aria-hidden="true"></i></div><div class="quantity"><p><span class="likes_quantity pointer">0</span> reactions,</p><p> <span class="comments_quantity pointer">0</span> comments,</p><p> <span class="shares_quantity pointer">0</span> shares</p></div></div><hr class="hr_none none"><div class="post_comments none"><div class="view_more pointer none"><p class="view_more_text">View More Comments...</p><p class="view_more_text none">Hide More Comments</p></div><div class="my_comment"><img src="{{ url_for('static', filename='images/') }}{{user.user_photo.split(',')[0]}}" class="comment_img my_img"><p class="comm_username tagbe_hover my_name">{{user.first_name}} {{user.last_name}}</p><form class="comment_form comm_form submit" method="get" action="" onsubmit="return false"><div class="textarea-container"><textarea class="my_textarea"></textarea><div class="textarea-size"></div></div><i class="fa fa-smile-o smile_icon right50" aria-hidden="true"></i><i class="fa fa-file-image-o smile_icon" aria-hidden="true"></i><p class="input_tip">Press Enter to submit</p></form></div></div></div>' );
+
+    var src
+    $('.create_post_images .upload_div').each(function(){
+        src = $(this).find('.image_uploaded').attr('src');
+        console.log('qwerty', id, $('#'+id+ ' .post_images'), '#'+id+ ' .post_images')
+        $('#'+id+ ' .post_images').append('<div class="img_container"><img src=" '+ src +' " class="post_img"></div>')
+    })
+
+    for (var i = 0; i <= tags_array.length-1; i++) {
+      if (tags_array[i].split('')[0] == '') {
+        var symbol = ' #'
+        tags_array[i] = tags_array[i].substr(1);
+      }else{
+        var symbol = ' '
+      }
+      
+      $('#'+id+ ' .post_tags_div').append('<a href="#"><p class="post_tag">'+ symbol + tags_array[i] +', </p></a>')
+
+    }
+    
+
+    niceImages()
+    aligning()
+    
+    $("body").css("overflow", "auto");
+
+    $('.place_check').addClass('none')
+    $('.default_text').removeClass('none')
+
+    $('.create_post_images').empty()
+    
+    $( "#trigger_class" ).trigger( "click" );
+
+    $('.alert').addClass('appear_alert')
+
+    setTimeout(function(){
+      $('.alert').removeClass('appear_alert')
+      $('.alert').addClass('hide_alert')
+    },2000);
+    setTimeout(function(){
+      $('.alert').removeClass('hide_alert')
+    },2500);
+});
+
+// empty all inputs
+// $('#trigger_class').on('click', function(e){
+//    var $el = $('#my-file');
+//    $el.wrap('<form>').closest('form').get(0).reset();
+//    $el.unwrap();
+
+//     $('.create_post_textarea').html('')
+//     $('.create_post_textarea').css('height', 'auto')
+//     $('.img_num').html(4)
+    
+// });
+</script>
+<script>
+
+$(document).on('keyup', '.post_text_edit', function(e) {
+    $(e.target).remove()
+    $('.create_post_textarea').focus()
+});
+
+  // searching for hastag 
+$(document).on('keyup', '.create_post_textarea', function(e) {
+    var post_array = []
+    var post_text = $('.create_post_textarea').html()
+    post_text = post_text.replace(/<br>/g,'');
+    post_text = post_text.replace(/&nbsp;/g,'');
+    for (var i = 0, len = post_text.length; i < len; i++) {
+      post_array.push(post_text.charAt(i))
+      if ((post_text.charAt(i) == '#') && (post_text.charAt(i-2) != '' && post_text.charAt(i-1) != '>' || post_text.charAt(i+1) != '<')){
+        insertTag(i)
+        $('.choose_tag_input').focus();
+      }
+    }
+});
+$(document).on('keyup', 'input[name=tag]', function(e) {
+    var post_text = $('input[name=tag]').val()
+    post_text = post_text.replace(/#/g,'');
+    $('input[name=tag]').val(post_text)
+});
+$(document).on('change', '.fa-select', function(e) {
+    $('input[name=tag]').focus()
+});
+
+function insertTag(index){
+    $(".create_post_textarea").html(function(i,v){
+      console.log(v)
+      data = v.replace(/>#</g,'><');
+      console.log(data)
+      return data.replace(/#/g , '<div class="choose_tag" contenteditable="false"><select class="fa-select" name="hash_selector"><option value="hash">#</option><option value="laugh">😂</option><option value="wow">😯</option><option value="smile">🙂</option><option value="applause">👏</option></select><input type="text" name="tag" placeholder="Hastag" class="choose_tag_input"><p class="ok">OK</p><p class="cancel">CANCEL</p></div>' )
+    });
+}
+$('.create_post_textarea').on('keypress', function(e) {
+   if(e.which == 13) {
+        var hashtag = $('select[name=hash_selector]').val()
+        var insert = hashtag
+        var input = $('input[name=tag]').val()
+        console.log(hashtag)
+        if (input == undefined){
+          return
+        }
+        if (input == ''){
+          return  $(e.target).parent().replaceWith('')
+        }
+        $("body").bind("DOMNodeInserted", function() {
+           prependClass($(this).find('.hastag_changed'), '_'+insert+'-')
+        });
+        if (hashtag == 'hash'){
+          hashtag = '&#xf292;'
+        }
+        if (hashtag == 'laugh'){
+          hashtag = '😂'
+        }
+        if (hashtag == 'wow'){
+          hashtag = '😯'
+        }
+        if (hashtag == 'smile'){
+          hashtag = '🙂'
+        }
+        if (hashtag == 'applause'){
+          hashtag = '👏'
+        }
+        
+        $(e.target).parent().replaceWith('<input class="hastag_changed autoresize" contenteditable="true" value="'+ hashtag + input + '"></input><input class="post_text_edit" contenteditable="true"> </input>')
+        // var $input = $('.hastag_changed'),
+        //     $buffer = $('.input-buffer');
+
+        // $buffer.text($input.val());
+        // $input.width($buffer.width());
+        
+        $('.hastag_changed').attr('size', $('.hastag_changed').val().length);
+        $('.post_text_edit').focus()
+
+        
+
+    $(".create_post_textarea").val($(".create_post_textarea").val())
+    console.log(hashtag, input, $(e.target).parent())
+    }
+});
+
+
+$(document).on('click', '.ok', function(e) {
+    var hashtag = $('select[name=hash_selector]').val()
+    var insert = hashtag
+    var input = $('input[name=tag]').val()
+    if (input == ''){
+      return  $(e.target).parent().replaceWith('')
+    }
+    $("body").bind("DOMNodeInserted", function() {
+      prependClass($(this).find('.hastag_changed'), '_'+insert+'-')
+    });
+    if (hashtag == 'hash'){
+      hashtag = '&#xf292;'
+    }
+    if (hashtag == 'laugh'){
+      hashtag = '😂'
+    }
+    if (hashtag == 'wow'){
+      hashtag = '😯'
+    }
+    if (hashtag == 'smile'){
+      hashtag = '🙂'
+    }
+    if (hashtag == 'applause'){
+      hashtag = '👏'
+    }
+    $(e.target).parent().replaceWith('<input class="hastag_changed autoresize" contenteditable="true" value="'+ hashtag + input + '"></input>')
+    $('.hastag_changed').attr('size', $('.hastag_changed').val().length);
+    $('.create_post_textarea').focus()
+    $(".create_post_textarea").val($(".create_post_textarea").val())
+    console.log(hashtag, input, $(e.target).parent())
+});
+
+function prependClass(sel, strClass) {
+    var $el = sel
+    console.log($el, strClass)
+    /* prepend class */
+    var classes = $el.attr('class');
+    classes = strClass +' ' +classes;
+    $el.removeClass()
+    $el.attr('class', classes);
+}
+
+$(document).on('focusin', '.hastag_changed', function(e) {
+    var text = $('.hastag_changed').attr('value').substring(1, $('.hastag_changed').attr('value').length)
+    var option = 'hash'
+    var emotion = $(".hastag_changed[class^='_'],.hastag_changed[class*='-']").attr('class').split(' ')[0].slice(1,-1)
+    if(emotion!='hash'){
+      text = $('.hastag_changed').attr('value').substring(2, $('.hastag_changed').attr('value').length)
+    }
+    
+    console.log(emotion, option)
+    var input = $('input[name=tag]').val()
+
+    $(e.target).replaceWith('<div class="choose_tag" contenteditable="false"><select class="fa-select" name="hash_selector"><option value="hash">#</option><option value="laugh">😂</option><option value="wow">😯</option><option value="smile">🙂</option><option value="applause">👏</option></select><input type="text" class="choose_tag_input" name="tag" placeholder="Hastag" value="'+ text +'"><p class="ok">OK</p><p class="cancel">CANCEL</p></div>')
+    $('input[name=tag]').focus()
+    var val = $('input[name=tag]').val();       
+    $('input[name=tag]').val('');
+    $('input[name=tag]').val(val);
+    
+    $("select[name=hash_selector]").val(emotion);
+});
+
+$(document).on('click', '.cancel', function(e) {
+    $(e.target).parent().replaceWith('')
+});
+
+$(document).mouseup(function(e) {
+    var container = $(".choose_tag_input").parent();
+
+    // if the target of the click isn't the container nor a descendant of the container
+    if (!container.is(e.target) && container.has(e.target).length === 0) 
+    {
+        container.remove();
+    }
+});
+</script>
+
+
+
+
+<script>
+  
+$(document).on('click', "#check_in_div", function(e){
+    $('.check_icon').addClass('none')
+    $('.default_text').addClass('none')
+    $('#check_in').removeClass('none')
+    $('#check_in_div').addClass('blue_color')
+    $('.place_check').addClass('none')
+});
+
+$("#check_in").focusout(function(){
+    $('.check_icon').removeClass('none')
+    if ($('.place_check').html() != ''){
+        $('.place_check').removeClass('none')
+    }else{
+        $('.default_text').removeClass('none')
+    }
+    
+    $('#check_in').addClass('none')
+    $('#check_in_div').removeClass('blue_color')
+});
+
+
+</script>
+
+
+<script>
+  
+document.querySelector("html").classList.add('js');
+
+var fileInput  = document.querySelector( ".input-file" ),  
+    button     = document.querySelector( ".input-file-trigger" ),
+    the_return = document.querySelector(".file-return");
+      
+button.addEventListener( "keydown", function( event ) {  
+    if ( event.keyCode == 13 || event.keyCode == 32 ) {  
+        fileInput.focus();  
+    }  
+});
+button.addEventListener( "click", function( event ) {
+   fileInput.focus();
+   return false;
+});  
+
+function readURL(input) {
+    var numFiles = input.files.length;
+
+    if (input.files && input.files[0]) {
+        var num = Number($( ".img_num" ).html())
+        if (num != 0){
+          for (var i = 0; i < num; i++) {
+              var reader = new FileReader();
+              reader.onload = function (e) {
+                  $( ".create_post_images" ).prepend('<div class="upload_div" id="' + Math.random() +'"><img src="'+ e.target.result +'" class="my_img image_uploaded" id="image_uploaded"><i class="fa fa-window-close" aria-hidden="true"></i></div>');
+                var num = Number($( ".img_num" ).html()) - 1
+                $( ".img_num" ).html(num)
+              }
+              reader.readAsDataURL(input.files[i]);
+          }
+        }
+    }
+}
+$("#my-file").change(function(){
+    readURL(this);
+});
+
+
+$(document).ready ( function () {
+    $(document).on ("click", ".upload_div i", function (e) {
+        $(e.target).parent().remove()
+
+        var num = Number($( ".img_num" ).html()) + 1
+        $( ".img_num" ).html(num)
+    });
+});
+
+</script>
+
+
+<script>
+// Get the modal
+var modal = document.getElementById('myModal');
+
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+var btn2 = document.getElementById("myBtn2");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal 
+btn.onclick = function() {
+    modal.style.display = "block";
+    $("body").css("overflow", "hidden");
+}
+btn2.onclick = function() {
+    modal.style.display = "block";
+    $("body").css("overflow", "hidden");
+}
+
+
+
+span.onclick = function() {
+    var warn = confirm("Delete this post?");
+    if (warn == true) {
+        modal.style.display = "none";
+        $("body").css("overflow", "auto");
+
+        $('.place_check').addClass('none')
+        $('.default_text').removeClass('none')
+
+        $('.create_post_images').empty()
+        
+        $( "#trigger_class" ).trigger( "click" );
+    } else {
+        
+    }
+
+}
+
+// empty all inputs
+$('#trigger_class').on('click', function(e){
+   var $el = $('#my-file');
+   $el.wrap('<form>').closest('form').get(0).reset();
+   $el.unwrap();
+
+    $('.create_post_textarea').html('')
+    $('.create_post_textarea').css('height', 'auto')
+    $('.img_num').html(4)
+    
+});
+
+
+// When the user clicks anywhere outside of the modal, close it
+
+
+jQuery.each(jQuery('textarea[data-autoresize]'), function() {
+    var offset = this.offsetHeight - this.clientHeight;
+ 
+    var resizeTextarea = function(el) {
+        jQuery(el).css('height', 'auto').css('height', el.scrollHeight + offset);
+    };
+    jQuery(this).on('keyup input', function() { resizeTextarea(this); }).removeAttr('data-autoresize');
+});
+</script>
+
+
+
+<script>
+
+
+$(window).on('load', function(){
+    aligning()
+});
+
+
+$(document).ready(function(){
+    niceImages()
+})
+function niceImages(){
+  $( ".post" ).each(function() {
+        id = Number($(this).attr('id'))
+
+        length = $('#'+id+ ' .post_body img').length
+
+        console.log(length)
+        if (length == 1){
+            $('#'+id+ ' .post_body .img_container').addClass('width100')
+        }
+        if (length == 2 || length == 4){
+            $('#'+id+ ' .post_body .img_container').addClass('width50')
+        }
+        if (length == 3){
+            $('#'+id+ ' .post_body .img_container').addClass('width50')
+            $('#'+id+ ' .post_body .img_container:nth-child(3)').addClass('three_img')
+            var divHeight = $('.post_images').width() / 2; 
+        }
+    }); 
+}
+function aligning(){
+    $( ".post" ).each(function() {
+      id = Number($(this).attr('id'))
+
+      length = $('#'+id+ ' .post_body img').length
+      var divWidth = $('.post_images').width() / 2; 
+      if (length != 1){
+          $( '#'+id+ " .post_body img" ).each(function() {
+          if ($(this).height() < $(this).width()){
+              $(this).css('height', divWidth+'px');
+              $(this).css('width', 'auto');
+              $(this).parent().css('overflow', 'scroll');
+              $('#'+id+ ' .post_body img').addClass('vertical_align_bottom')
+              $('#'+id+ ' .post_body .img_container').addClass('vertical_align_bottom')
+          }else{
+              // if (length == 3){
+              //     $('#'+id+ ' .post_body .img_container:nth-child(3) img').css('marginTop','-'+divWidth/2+'px');
+              //     $('#'+id+ ' .post_body .img_container:nth-child(3)').css('height', divWidth+'px');
+              // }
+              $(this).parent().css('height', divWidth+'px');
+              $(this).parent().css('overflow', 'scroll');
+              $('#'+id+ ' .post_body img').addClass('vertical_align_bottom')
+              $('#'+id+ ' .post_body .img_container').addClass('vertical_align_bottom')
+          }
+          }); 
+      }
+    });
+}
+
+
+</script>
+
+
+
+
+
+
+
+
+<script>
+
+
+$(document).on('click', '.comm_dropdown_div', function(e) {
+    var parent = $(this).parent().parent().parent().parent().attr('id')
+    console.log(parent)
+
+    $('#'+ parent + ' .comm_dropdown').toggleClass("show");
+});
+
+
+$(document).on('click', '.post_dropdown', function(e){
+    var parent = $(this).parent().parent().attr('id')
+
+    $('#'+ parent + ' #myDropdown').toggleClass("show");
+});
+
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+
+$(document).on('mouseover', '.post_footer .footer_div:first-child', function(e){
+    var parent = $(this).parent().parent().attr('id')
+
+    $('#'+ parent + ' .reactions').removeClass('hide')
+    $('#'+ parent + ' .reactions').addClass('show')
+});
+$(document).on('mouseleave', '.post_footer .footer_div:first-child', function(e){
+    var parent = $(this).parent().parent().attr('id')
+
+    setTimeout(function(){
+        $('#'+ parent + ' .reactions').addClass('hide')
+    }, 500);
+    setTimeout(function(){
+        $('#'+ parent + ' .reactions').removeClass('show')
+    }, 900);  
+});
+
+$(document).on('mouseover', '.comment', function(e) {
+    console.log('yeah')
+    var parent = $(this).parent().parent().attr('id')
+    var name = $('#username strong').html()
+    var id = Number($(this).attr('id'))
+    var comm_name =  $('#'+ id + ' .comm_username').html()
+    console.log(parent,id)
+    if (name == comm_name) {
+        $('#'+ id).children( ".comm_hover" ).removeClass('none')
+    }else{
+      console.log(false)
+    }
+});
+
+$(document).ready(function(e) {
+  $( ".post" ).each(function() {
+      id = Number($(this).attr('id'))
+
+      var name = $('#username strong').html()
+      var user_post_name =  $('#'+ id + ' .post_header .user_name').html()
+
+      console.log(parent,id)
+      if (name != user_post_name) {
+          $('#'+ id + ' .post_header .post_dropdown').addClass('none')
+      }
+
+    });
+    
+});
+
+$(document).on('mouseleave', '.comment', function(e) {
+    $('.comm_hover').addClass('none') 
+});
+
+$(document).on('click', '.delete_comm', function(e) {
+    var id = Number($(this).parent().parent().parent().attr('id'))
+    var parent = Number($('#' + id).parent().parent().attr('id'))
+
+    $('#' + id).remove() 
+    if($('#'+ parent + ' .view_more_text:first-child').hasClass('none')){
+        if($('#'+ parent + ' .post_comments .comment:first-child').hasClass('more_comm')){
+            $('#'+ parent + ' .post_comments .comment:first-child').removeClass('more_comm')
+        }
+        CountComments(parent)
+    }else{
+        CountComments(parent)
+
+        if($('#'+ parent + ' .post_comments .comment:first-child').hasClass('more_comm')){
+            $('#'+ parent + ' .post_comments .comment:first-child').removeClass('more_comm none')
+        }
+
+    }
+
+    num = Number($('#'+ parent +' .comments_quantity').html()) - 1
+    $('#'+ parent + ' .comments_quantity').html(num)
+
+});
+
+$(document).on('click', '.like', function(e){
+    var parent = $(this).parent().parent().parent().parent().attr('id')
+
+    if (!$('#'+ parent +' .like').hasClass('fa-heart') && !$('#'+ parent +' .like_bottom').hasClass('none')) {
+        num = Number($('#'+ parent +' .likes_quantity').html()) + 1
+        $('#'+ parent + ' .likes_quantity').html(num)
+    }else{
+        if (!$('#'+ parent + ' .like_bottom').hasClass('none')) {
+            num = Number($('#'+ parent + ' .likes_quantity').html()) - 1
+            $('#'+ parent + ' .likes_quantity').html(num)
+        }
+    }
+
+    $('#'+ parent + ' .footer_div > span').addClass('none')
+    $('#'+ parent + ' .footer_div > span:nth-child(2)').toggleClass('none')
+    $('#'+ parent + ' .like').toggleClass('fa-heart-o fa-heart')
+});
+
+
+$(document).on('click', '.react2', function(e){
+    var parent = $(this).parent().parent().parent().parent().attr('id')
+
+    if (!$('#'+ parent + ' .like_bottom').hasClass('none') && $('#'+ parent + ' .like').hasClass('fa-heart-o')) {
+        num = Number($('#'+ parent + ' .likes_quantity').html()) + 1
+        $('#'+ parent + ' .likes_quantity').html(num)
+    }
+
+    $('#'+ parent + ' .like').removeClass('fa-heart') 
+    $('#'+ parent + ' .like').addClass('fa-heart-o')
+    $('#'+ parent + ' .footer_div > span').addClass('none')
+    $('#'+ parent + ' .footer_div > span:nth-child(3)').toggleClass('none')
+    $('#'+ parent + ' .post_footer .footer_div:nth-child(1)').css("marginTop", "-20px")
+});
+
+$(document).on('click', '.react3', function(e){
+    var parent = $(this).parent().parent().parent().parent().attr('id')
+
+    if (!$('#'+ parent + ' .like_bottom').hasClass('none') && $('#'+ parent + ' .like').hasClass('fa-heart-o')) {
+        num = Number($('#'+ parent + ' .likes_quantity').html()) + 1
+        $('#'+ parent + ' .likes_quantity').html(num)
+    }
+
+    $('#'+ parent + ' .like').removeClass('fa-heart') 
+    $('#'+ parent + ' .like').addClass('fa-heart-o')
+    $('#'+ parent + ' .footer_div > span').addClass('none')
+    $('#'+ parent + ' .footer_div > span:nth-child(4)').toggleClass('none')
+    $('#'+ parent + ' .post_footer .footer_div:nth-child(1)').css("marginTop", "-20px")
+});
+
+$(document).on('click', '.react4', function(e){
+    var parent = $(this).parent().parent().parent().parent().attr('id')
+
+    if (!$('#'+ parent + ' .like_bottom').hasClass('none') && $('#'+ parent + ' .like').hasClass('fa-heart-o')) {
+        num = Number($('#'+ parent + ' .likes_quantity').html()) + 1
+        $('#'+ parent + ' .likes_quantity').html(num)
+    }
+
+    $('#'+ parent + ' .like').removeClass('fa-heart') 
+    $('#'+ parent + ' .like').addClass('fa-heart-o')
+    $('#'+ parent + ' .footer_div > span').addClass('none')
+    $('#'+ parent + ' .footer_div > span:nth-child(5)').toggleClass('none')
+    $('#'+ parent + ' .post_footer .footer_div:nth-child(1)').css("marginTop", "-20px")
+});
+
+$(document).on('click', '.react5', function(e){
+    var parent = $(this).parent().parent().parent().parent().attr('id')
+
+    if (!$('#'+ parent + ' .like_bottom').hasClass('none') && $('#'+ parent + ' .like').hasClass('fa-heart-o')) {
+        num = Number($('#'+ parent + ' .likes_quantity').html()) + 1
+        $('#'+ parent + ' .likes_quantity').html(num)
+    }
+
+    $('#'+ parent + ' .like').removeClass('fa-heart') 
+    $('#'+ parent + ' .like').addClass('fa-heart-o')
+    $('#'+ parent + ' .footer_div > span').addClass('none')
+    $('#'+ parent + ' .footer_div > span:nth-child(6)').toggleClass('none')
+    $('#'+ parent + ' .post_footer .footer_div:nth-child(1)').css("marginTop", "-20px")
+});
+
+$(document).on('dblclick', '.post', function(e){
+    var parent = $(this).attr('id')
+    if (!$('#'+ parent + ' .like').hasClass('fa-heart') && !$('#'+ parent + ' .like_bottom').hasClass('none')) {
+        num = Number($('#'+ parent + ' .likes_quantity').html()) + 1
+        $('#'+ parent + ' .likes_quantity').html(num)
+    }else{
+        if (!$('#'+ parent + ' .like_bottom').hasClass('none')) {
+            num = Number($('#'+ parent + ' .likes_quantity').html()) - 1
+            $('#'+ parent + ' .likes_quantity').html(num)
+        }
+    }
+
+    if (!$('#'+ parent + ' .like_bottom').hasClass('none')) {
+        $('#'+ parent + ' .like').toggleClass('fa-heart-o fa-heart')
+    }else{
+        $('#'+ parent + ' .post_footer span:nth-child(3), .post_footer span:nth-child(4), .post_footer span:nth-child(5), .post_footer span:nth-child(6)').addClass('none')
+        $('#'+ parent + ' .post_footer span:nth-child(2)').removeClass('none')
+        $('#'+ parent + ' .reactions span:nth-child(3), .reactions span:nth-child(4), .reactions span:nth-child(5), .reactions span:nth-child(6)').removeClass('none')
+        num = Number($('#'+ parent + ' .likes_quantity').html()) - 1
+        $('#'+ parent + ' .likes_quantity').html(num)
+    }
+});
+
+
+var textContainer, textareaSize, input;
+var autoSize = function () {
+  textareaSize.innerHTML = input.value + '\n';
+};
+var clear = function () {
+  textareaSize.innerHTML = input.value;
+};
+$(document).on('keydown', 'textarea', function(event) {
+    if (event.keyCode == 13)
+        if (!event.shiftKey) submitData()
+});
+
+var focusId = 1
+
+$(document).on('focusin', '.comment_form textarea', function(e){
+    var parent = $(this).parent().parent().parent().parent().parent().attr('id')
+
+    window.focusId = Number(parent)
+
+    window.textareaSize = $('#' + focusId+ ' .textarea-size').get()[0]
+    window.input = $('#'+ focusId+ ' textarea').get()[0]
+
+    autoSize();
+    input.addEventListener('input', autoSize);
+});
+
+function CountComments(parent){
+    var comm_length = $('#'+ parent + " .post_comments .comment").length
+
+    if (comm_length >= 2){
+        $('#'+ parent + ' .view_more').removeClass('none')
+    }else{
+        console.log(comm_length, false)
+        $('#'+ parent + ' .view_more').addClass('none')
+    }
+}
+
+$(document).on('click', '.comment_btn', function(e){
+    var parent = $(this).parent().parent().parent().attr('id')
+    CountComments(parent)
+    
+
+    $('#'+ parent + ' .comment_btn').toggleClass('fa-comment-o fa-comment')
+    $('#'+ parent + ' .post_comments').toggleClass('none')
+    $('#'+ parent + ' .hr_none').toggleClass('none')
+    $('#'+ parent + ' .comment_form textarea').focus();
+});
+
+$(document).on('click', '.view_more_text', function(e){
+    var parent = $(this).parent().parent().parent().attr('id')
+
+    $('#'+ parent + ' .view_more_text').toggleClass('none')
+    $('#'+ parent + ' .more_comm').toggleClass('none')
+});
+
+function submitData(){
+    var href = $('#'+ focusId + ' .my_img').attr('src');
+    var name = $('#'+ focusId + " .my_name" ). html()
+    var comment_text = $('#'+ focusId + " .my_comment .textarea-size" ). html()
+    var last_comm_id = 0
+    $( ".comment" ).each(function( index ) {
+      console.log('all: '  + $(this).attr('id') + ' and last_comm_id: ' + last_comm_id)
+      if (Number($(this).attr('id')) > last_comm_id){
+        last_comm_id = $(this).attr('id')
+        console.log('bigger: '  + $(this).attr('id'))
+      }
+    });
+    last_comm_id = Number(last_comm_id) + 1
+    console.log('last_comm_id '+ last_comm_id)
+    $( '#'+ focusId + " .post_comments .comment" ).addClass('more_comm none')
+    $( '#'+ focusId + " .view_more_text:nth-child(1)" ).removeClass('none')
+    $( '#'+ focusId + " .view_more_text:nth-child(2)" ).addClass('none')
+    $( '#'+ focusId + " .post_comments" ).prepend( '<div class="comment" id ="'+last_comm_id+'"><img src="'+href+'" class="comment_img"><p class="comm_username tagbe_hover">'+name+'</p><form class="comment_form"><div class="comm_text width100"><div>'+comment_text+'</div></div></form><div class="dropbtn comm_hover none"><div class="comm_dropdown_div dots_container dropbtn"><div class="dots"></div></div><div class="dropdown-content comm_dropdown"><a class="delete_comm">Delete</a></div></div></div>' );
+    $( '#'+ focusId + ' textarea').val('')
+
+    clear();
+    input.addEventListener('input', clear);
+
+    num = Number($('#'+ focusId +' .comments_quantity').html()) + 1
+    $('#'+ focusId + ' .comments_quantity').html(num)
+
+    CountComments(focusId)
+}
+
+</script>
+
+<script>
+  
+// input auto resi
+function onReady(f) {
+    "complete" === document.readyState
+        ? f() : setTimeout(onReady, 10, f);
+}
+
+onReady(function() {
+    [].forEach.call(
+        document.querySelectorAll("input[type='text'].autoresize"),
+        registerInput
+    );
+});
+function registerInput(el) {
+    el.size = 1;
+    var style = el.currentStyle || window.getComputedStyle(el),
+        borderBox = style.boxSizing === "border-box",
+        boxSizing = borderBox
+            ? parseInt(style.borderRightWidth, 10) +
+                parseInt(style.borderLeftWidth, 10)
+            : 0;
+    if ("onpropertychange" in el) {
+         // IE
+         el.onpropertychange = adjust;
+    } else if ("oninput" in el) {
+         el.oninput = adjust;
+    }
+    adjust();
+
+    function adjust() {
+
+        // reset to smaller size (for if text deleted) 
+        el.style.width = "";
+
+        // getting the scrollWidth should trigger a reflow
+        // and give you what the width would be in px if 
+        // original style, less any box-sizing
+        var newWidth = el.scrollWidth + boxSizing;
+
+        // so let's set this to the new width!
+        el.style.width = newWidth + "px";
+    }
+}
+
+$(document).on('click', 'div',  function(e){});
+$(document).on('click', 'img',  function(e){});
+$(document).on('click', 'button',  function(e){});
+</script>
+
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+
+
+
+</body>
+{% endblock%}
+
