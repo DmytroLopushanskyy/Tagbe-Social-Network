@@ -37,7 +37,7 @@ class UserManager():
         self.user.user_photo = 'default-user-image.png, default-background.png'
         self.user.email = form.get('email', '')
         self.user.password = form.get('pwd', '')
-        self.user.validate()
+        #self.user.validate()
         return self
 
     def getDataFromEditAdd(self,form):
