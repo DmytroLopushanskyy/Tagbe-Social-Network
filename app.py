@@ -556,33 +556,127 @@ def FriendConnectionValidation(curs, friend_add, current_id):
 
 @app.route('/friends_list')
 def friends_list():
-    if session:
+    action = request.args.get('action')
+    user = request.args.get('user')
+    if user:
         curs = conn.cursor()
         current_email = session['email']
-        current_id = curs.execute("select id from users where email = '{}'".format(current_email)).fetchone()
-        friends_1col = list(curs.execute("select user2_id from name where user1_id = '{}'".format(current_id[0])).fetchall())
-        friends_2col = list(curs.execute("select user1_id from name where user2_id = '{}'".format(current_id[0])).fetchall())
-        print(list(friends_1col))
-        friends_id = friends_1col + friends_2col
-        print(friends_id)
-        friend = []
-        for id in friends_id:
-
-            user_el = curs.execute("select * from users where id = '{}'".format(id[0])).fetchone()
-            user_el = list(user_el)
-
-            friend.append(user_el)
-
-        print(friend)
-
-
         user_model = user_info(curs, session['email'])
-        context3 = {'user': user_model, 'name': '', 'email': 'friends_list', 'age': '', 'phone':  '', 'sex': '', 'address': '', 'id': '', 'friends': friend, 'block': 'none'}
+
+        user_information = curs.execute("SELECT first_name, last_name FROM users WHERE id  = '{0}'".format(user)).fetchall()
+
+        curs = conn.cursor()
+
+        friends_list = curs.execute("SELECT user1_id, user2_id FROM name WHERE user2_id  = '{0}' or user1_id  = '{0}'".format(user)).fetchall()
+
+        friends_list_new = []
+        for i in friends_list:
+
+            if int(i[0]) != int(user):
+                friends_list_new.append(i[0])
+            elif int(i[1]) != int(user):
+                friends_list_new.append(i[1])
+
+        print(friends_list_new)
+
+
+        friends_list = []
+        for b in friends_list_new:
+
+            friend_info = list(curs.execute("SELECT * FROM users WHERE id  = '{}'".format(b)).fetchone())
+            fr_quantity = curs.execute("select count(*) from name where user1_id = '{0}' or user2_id = '{0}'".format(b)).fetchone()
+
+            friend_info.append(fr_quantity[0])
+            friends_list.append(friend_info)
+
+        conn.commit()
+        print(friends_list)
+        context3 = {'user': user_model, 'name': '', 'email': 'friends_list', 'age': '', 'phone':  '', 'sex': 'all', 'address': '', 'id': '', 'friends': friends_list, 'block': 'none', 'user_information': user_information}
         return render_template('friends.html', **context3)
+    if session:
+        if action == 'show_all':
+            curs = conn.cursor()
+            current_email = session['email']
+            user_model = user_info(curs, session['email'])
+            groups = list(curs.execute("select id from users where not password = 'group_type'").fetchall())
+            output = []
+            for id in groups:
+                user_el = curs.execute("select * from users where id = '{}'".format(id[0])).fetchone()
+                user_el = list(user_el)
+
+                fr_quantity = curs.execute("select count(*) from name where user1_id = '{0}' or user2_id = '{0}'".format(id[0])).fetchone()
+
+                user_el.append(fr_quantity[0])
+
+                output.append(user_el)
+
+            groups = output
+
+            conn.commit()
+            context3 = {'user': user_model, 'name': '', 'email': 'friends_list', 'age': '', 'phone':  '', 'sex': 'all', 'address': '', 'id': '', 'friends': groups, 'block': 'none'}
+            return render_template('friends.html', **context3)
+
+
+        else:
+            curs = conn.cursor()
+            current_email = session['email']
+            current_id = curs.execute("select id from users where email = '{}'".format(current_email)).fetchone()
+            friends_1col = list(curs.execute("select user2_id from name where user1_id = '{}'".format(current_id[0])).fetchall())
+            friends_2col = list(curs.execute("select user1_id from name where user2_id = '{}'".format(current_id[0])).fetchall())
+            print(list(friends_1col))
+            friends_id = friends_1col + friends_2col
+            print(friends_id)
+            friend = []
+            for id in friends_id:
+
+                user_el = curs.execute("select * from users where id = '{}'".format(id[0])).fetchone()
+                user_el = list(user_el)
+
+                fr_quantity = curs.execute("select count(*) from name where user1_id = '{0}' or user2_id = '{0}'".format(id[0])).fetchone()
+
+                user_el.append(fr_quantity[0])
+                friend.append(user_el)
+
+            print(friend)
+
+
+            user_model = user_info(curs, session['email'])
+            context3 = {'user': user_model, 'name': '', 'email': 'friends_list', 'age': '', 'phone':  '', 'sex': '', 'address': '', 'id': '', 'friends': friend, 'block': 'none'}
+            return render_template('friends.html', **context3)
 
 @app.route('/groups_list')
 def groups_list():
     action = request.args.get('action')
+    user = request.args.get('user')
+    if user:
+        curs = conn.cursor()
+        current_email = session['email']
+        user_model = user_info(curs, session['email'])
+
+        user_information = curs.execute("SELECT first_name, last_name FROM users WHERE id  = '{}'".format(user)).fetchall()
+
+        curs = conn.cursor()
+
+        groups_list = curs.execute("SELECT group_id FROM groups WHERE user_id  = '{}'".format(user)).fetchall()
+
+        groups_list_new = groups_list
+
+
+        groups_list = []
+        for b in groups_list_new:
+
+            group_info = list(curs.execute("SELECT * FROM users WHERE id  = '{}'".format(b[0])).fetchone())
+
+            fr_quantity = curs.execute("select count(*) from groups where group_id = '{}'".format(group_info[0])).fetchone()
+
+            group_info.append(fr_quantity[0])
+
+            groups_list.append(group_info)
+
+        conn.commit()
+        print(groups_list_new, groups_list)
+        context3 = {'user': user_model, 'name': '', 'email': 'groups_list', 'age': '', 'phone':  '', 'sex': 'all', 'address': '', 'id': '', 'friends': groups_list, 'block': 'none', 'user_information': user_information}
+        return render_template('groups.html', **context3)
     if session:
         if action == 'show_all':
             curs = conn.cursor()
@@ -593,6 +687,10 @@ def groups_list():
             for id in groups:
                 user_el = curs.execute("select * from users where id = '{}'".format(id[0])).fetchone()
                 user_el = list(user_el)
+
+                fr_quantity = curs.execute("select count(*) from groups where group_id = '{}'".format(id[0])).fetchone()
+
+                user_el.append(fr_quantity[0])
 
                 output.append(user_el)
 
@@ -611,6 +709,10 @@ def groups_list():
             for id in groups:
                 user_el = curs.execute("select * from users where id = '{}'".format(id[0])).fetchone()
                 user_el = list(user_el)
+
+                fr_quantity = curs.execute("select count(*) from groups where group_id = '{}'".format(id[0])).fetchone()
+
+                user_el.append(fr_quantity[0])
 
                 output.append(user_el)
             # print(groups)
@@ -1104,6 +1206,95 @@ def renew_account():
 
         return jsonify({ 'status': 'renewed!' })
 
+@app.route('/get_friends', methods=['POST'])
+def get_friends():
+    id = request.json['id']
+    action = request.json['action']
+    start = request.json['start']
+    end = request.json['end']
+    try:
+        quantity = request.json['give_me_quantity']
+    except KeyError:
+        quantity = None
+
+    curs = conn.cursor()
+
+    friends_list = curs.execute("SELECT user1_id, user2_id FROM name WHERE user2_id  = '{0}' or user1_id  = '{0}' ORDER BY id LIMIT '{1}', '{2}'".format(id, start, 8)).fetchall()
+
+    friends_list_new = []
+    for i in friends_list:
+
+        if int(i[0]) != int(id):
+            friends_list_new.append(i[0])
+        elif int(i[1]) != int(id):
+            friends_list_new.append(i[1])
+
+    print(friends_list_new)
+
+    if len(friends_list_new) < int(end) - int(start):
+        end_of_friends = 'true'
+    else:
+        end_of_friends = 'false'
+
+    friends_list = []
+    for b in friends_list_new:
+
+        friend_info = curs.execute("SELECT id, first_name, last_name, user_photo FROM users WHERE id  = '{}'".format(b)).fetchone()
+
+        friends_list.append(friend_info)
+
+    #count quantity if needed
+    if quantity:
+        fr_quantity = curs.execute("select count(*) from name where user1_id = '{0}' or user2_id = '{0}'".format(id)).fetchone()[0]
+    else:
+        fr_quantity = None
+
+    print('blabla', id, action, start, end, friends_list, friends_list_new)
+
+    return jsonify({ 'status': 'success!', 'end_of_friends': end_of_friends, 'friends_list': friends_list, 'quantity': fr_quantity })
+
+@app.route('/get_groups', methods=['POST'])
+def get_groups():
+    id = request.json['id']
+    action = request.json['action']
+    start = request.json['start']
+    end = request.json['end']
+    try:
+        quantity = request.json['give_me_quantity']
+    except KeyError:
+        quantity = None
+
+    curs = conn.cursor()
+
+    groups_list = curs.execute("SELECT group_id FROM groups WHERE user_id  = '{0}' ORDER BY id LIMIT '{1}', '{2}'".format(id, start, 8)).fetchall()
+
+    groups_list_new = groups_list
+
+    print(groups_list_new)
+
+    if len(groups_list_new) < int(end) - int(start):
+        end_of_friends = 'true'
+    else:
+        end_of_friends = 'false'
+
+    groups_list = []
+    for b in groups_list_new:
+
+        friend_info = curs.execute("SELECT id, first_name, last_name, user_photo FROM users WHERE id  = '{}'".format(b[0])).fetchone()
+
+        groups_list.append(friend_info)
+
+    #count quantity if needed
+    if quantity:
+        gr_quantity = curs.execute("select count(*) from groups where user_id = '{0}'".format(id)).fetchone()[0]
+    else:
+        gr_quantity = None
+
+
+    print('blabla', id, action, start, end, groups_list, groups_list_new)
+
+    return jsonify({ 'status': 'success!', 'end_of_friends': end_of_friends, 'friends_list': groups_list, 'quantity': gr_quantity })
+
 
 
 
@@ -1114,7 +1305,7 @@ if __name__ =='__main__':
     app.config['SESSION_TYPE'] = 'filesystem'
 
     app.debug = True
-    app.run(port=5001)
+    app.run(port=5004)
 
 
 

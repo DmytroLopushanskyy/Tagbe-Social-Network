@@ -1,7 +1,17 @@
 {%extends 'header.html'%}
 {%block center_part %}
-        
+
+
+{% if request.args.get('user') %}  
+<div class="tag_page_header special_for_friend">
+    <p class="tag_head">{{user_information[0][0]}} {{user_information[0][1]}}</p>
+    <p class="tag_undertext">friends</p>
+    <a href="special?id={{request.args.get('user')}}"><button class="tag_follow">Go back to profile</button></a>
+</div> 
+{% endif %}  
+   
 <div class="col-xs-6 post_part group_part m-t15">
+    
     <div class="search group_search">
         <div id="custom-search-input" class="group_input">
             <div class="input-group col-md-12 input_parent">
@@ -14,7 +24,20 @@
                 
             </div>
         </div>
+        {% if request.args.get('action') == 'show_all' %}  
+        <button class="nice_btn" id="view_my">View My Friends</button>
+        {% elif request.args.get('user') %}  
+        {% else %}  
+        <button class="nice_btn" id="show_all_btn">View All Tagbe Users</button>
+        {% endif %}  
     </div>
+    {% if request.args.get('action') == 'show_all' %}  
+    <hr>
+        <div class="tag_page_header transparent">
+            <p class="tag_head sort_name">All Tagbe Users:</p>
+        </div>
+        {% else %}  
+        {% endif %}  
     <hr>
     {% if email == 'friends_list' %}
         {% for name in friends %}
@@ -29,7 +52,7 @@
                           
                       </div>
                       <div class="group_info">
-                          <p class="users_quantity">237 Friends</p>
+                          <p class="users_quantity">{{name[-1]}} Friend(s)</p>
                           <p class="posts_quantity">230 Posts</p>
                       </div>
                   </div>
@@ -50,7 +73,7 @@
                         
                     </div>
                     <div class="group_info">
-                        <p class="users_quantity">237 Friends</p>
+                        <p class="users_quantity">{{name[-1]}} Followers</p>
                         <p class="posts_quantity">230 Posts</p>
                     </div>
                 </div>
@@ -140,6 +163,13 @@
 
 
 <script>
+
+$('#show_all_btn').click(function(){
+    window.location.href = window.location.href + "?action=show_all";
+})
+$('#view_my').click(function(){
+    window.location.href = '/friends_list'
+})
 
 function readURL3(input) {
     var numFiles = input.files.length;

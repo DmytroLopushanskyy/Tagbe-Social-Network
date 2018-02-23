@@ -117,6 +117,7 @@ $(document).on('click', '#create_group', function(e) {
             type: 'POST',
             contentType: 'application/json;charset=UTF-8',
             success: function(response) {
+                console.log(response.id)
                 window.location.href = "/group?id="+response.id;
             },
             error: function(error) {

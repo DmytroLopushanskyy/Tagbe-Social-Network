@@ -77,7 +77,7 @@ class UserManager():
             .format(self.user.first_name, self.user.last_name, self.user_type, 'default-user-image.png, default-background.png', self.user.about, self.user.email, 'group_type', self.user.create_time))
         conn.commit()
 
-        curs.execute("select id from users where email = '{}' and password = 'group_type' and create_time = '{}'".format(self.user.email, self.user.create_time))
+        curs.execute("select id from users where email = '{}' and password = 'group_type' and create_time = '{}' and first_name = '{}' and last_name = '{}' and descr = '{}'".format(self.user.email, self.user.create_time, self.user.first_name, self.user.last_name, self.user.about))
         data = curs.fetchone()
         #user = UserManager.selectUser(UserManager(), data)
         curs.execute("INSERT INTO users_add ('age', 'create_time', 'phone', 'address', 'sex', 'user')  VALUES ('{}','{}','{}','{}','{}', '{}')" \

@@ -4,10 +4,9 @@
 {% if if_blocked == 1 %}
 <div class="col-xs-6 post_part m-t15">
     <div class="profile_info">
-        <div class="photos_container">
-
+        <div class="photos_container" style="background-image: url('{{ url_for('static', filename='images/') }}{{friend[5].split(',')[1]}}');">
             <div class="ava">
-                <img src="https://scontent.fhen1-1.fna.fbcdn.net/v/t1.0-9/20429627_1918501131738523_4099807999573759335_n.jpg?oh=1caa18efbfe583ad7753da85b4c358be&oe=5AB96743" class="profile_photo_user">
+                <img src="{{ url_for('static', filename='images/') }}{{friend[5].split(',')[0]}}" class="profile_photo_user">
             </div>
         </div>
         <div class="profile_name">
@@ -46,34 +45,37 @@
                 <a href="#" class="padding5" id="unfriend"><i class="fa fa-times" aria-hidden="true"></i><br>Unfriend</a>
                 <a href="#" id="block"><i class="fa fa-ban" aria-hidden="true"></i><br>Block</a>
                 <a href="#" class="padding5"><i class="fa fa-comment" aria-hidden="true"></i><br>Message</a>
-                <a href="#"><i class="fa fa-users" aria-hidden="true"></i><br>Groups</a>
+                <a href="#" id="groups"><i class="fa fa-users" aria-hidden="true"></i><br>Groups</a>
                 <a href="#" class="padding5" id="about"><i class="fa fa-info" aria-hidden="true"></i><br>About</a>
                 <a href="#" class="padding5"><i class="fa fa-file-image-o" aria-hidden="true"></i><br>Photos</a>
                 {% elif friends == 'waiting' %}
                   {% if sender_id != False or sender_id != 'NotLoggedIn' %}
                       {% if sender_id == current_id %}
-                <a href="#" class="padding5" id="friends"><i class="fa fa-handshake-o" aria-hidden="true"></i><br>Sent!</a>
-                <a href="#" class="padding5" id="redo_request"><i class="fa fa-ban" aria-hidden="true"></i><br>Redo request</a>
+                <a href="#" class="padding0" id="block"><i class="fa fa-ban" aria-hidden="true"></i><br>Block</a>
+                <a href="#" class="padding5" id="redo_request"><i class="fa fa-undo" aria-hidden="true"></i><br>Redo request</a>
                 <a href="#" class="padding5"><i class="fa fa-comment" aria-hidden="true"></i><br>Message</a>
-                <a href="#"><i class="fa fa-users" aria-hidden="true"></i><br>Groups</a>
-                <a href="#" id="about"><i class="fa fa-info" aria-hidden="true"></i><br>About</a>
-                <a href="#"><i class="fa fa-file-image-o" aria-hidden="true"></i><br>Photos</a>
+                <a href="#" class="padding5" id="groups"><i class="fa fa-users" aria-hidden="true"></i><br>Groups</a>
+                <a href="#" class="padding5" id="friends"><i class="fa fa-handshake-o" aria-hidden="true"></i><br>Friends</a>
+                <a href="#" class="padding5" id="about"><i class="fa fa-info" aria-hidden="true"></i><br>About</a>
+                <a href="#" class="padding5"><i class="fa fa-file-image-o" aria-hidden="true"></i><br>Photos</a>
                       {% else %}
                 <a href="#" id="block"><i class="fa fa-ban" aria-hidden="true"></i><br>Block</a>
-                <a href="#" class="padding0" id="accept"><i class="fa fa-ban" aria-hidden="true"></i><br>Accept request?</a>
+                <a href="#" class="padding5" id="accept"><i class="fa fa-check" aria-hidden="true"></i><br>Accept?</a>
+                <a href="#" class="padding5" id="friends"><i class="fa fa-handshake-o" aria-hidden="true"></i><br>Friends</a>
                 <a href="#" class="padding5"><i class="fa fa-comment" aria-hidden="true"></i><br>Message</a>
-                <a href="#" class="padding5"><i class="fa fa-users" aria-hidden="true"></i><br>Groups</a>
+                <a href="#" id="groups" class="padding5"><i class="fa fa-users" aria-hidden="true"></i><br>Groups</a>
                 <a href="#" class="padding0" id="about"><i class="fa fa-info" aria-hidden="true"></i><br>About</a>
                 <a href="#" class="padding5"><i class="fa fa-file-image-o" aria-hidden="true"></i><br>Photos</a>
                       {% endif %}
                     {% endif %}
                 {% elif friends == False %}
                 <a href="#" class="padding0" id="add_friend"><i class="fa fa-plus" aria-hidden="true"></i><br>Add Friend</a>
-                <a href="#" id="block"><i class="fa fa-ban" aria-hidden="true"></i><br>Block</a>
+                <a href="#" class="padding5" id="block"><i class="fa fa-ban" aria-hidden="true"></i><br>Block</a>
+                <a href="#" class="padding5" id="friends"><i class="fa fa-handshake-o" aria-hidden="true"></i><br>Friends</a>
                 <a href="#" class="padding5"><i class="fa fa-comment" aria-hidden="true"></i><br>Message</a>
-                <a href="#"><i class="fa fa-users" aria-hidden="true"></i><br>Groups</a>
-                <a href="#" id="about"><i class="fa fa-info" aria-hidden="true"></i><br>About</a>
-                <a href="#"><i class="fa fa-file-image-o" aria-hidden="true"></i><br>Photos</a>
+                <a href="#" class="padding5" id="groups"><i class="fa fa-users" aria-hidden="true"></i><br>Groups</a>
+                <a href="#" class="padding5" id="about"><i class="fa fa-info" aria-hidden="true"></i><br>About</a>
+                <a href="#" class="padding5"><i class="fa fa-file-image-o" aria-hidden="true"></i><br>Photos</a>
                 {% elif friends == 'NotLoggedIn' %}
                 <a href="#"><br>Log in to view info</a>
                 {% else %}
@@ -81,7 +83,7 @@
                 {% endif %}
             </div>
         </div>
-        <div class="edit_div user_info none">
+        <div class="edit_div user_info none" id="user_info">
               <div class="label_name">Email:</div>
               <div class="user_info_statement">{{email}}</div>
               <div class="label_name">Age:</div>
@@ -92,6 +94,22 @@
               <div class="user_info_statement">{{sex}}</div>
               <div class="label_name">Address:</div>
               <div class="user_info_statement">{{address}}</div>
+        </div>
+        <div class="edit_div user_info friends_div none">
+            <div class="row">
+              <p><u><b>{{friend[1]}}'s friends (<span id="fr_quantity"></span>)</b></u></p>
+              
+            </div>  
+            <button class="refresh" id="view_more_friends" start="0" end="8">View More Friends</button>
+            <button class="refresh" id="view_friends">View All Friends</button>
+        </div>
+        <div class="edit_div user_info groups_div none">
+            <div class="row">
+              <p><u><b>{{friend[1]}}'s groups (<span id="gr_quantity"></span>)</b></u></p>
+              
+            </div>  
+            <button class="refresh" id="view_more_groups" start="0" end="8">View More Groups</button>
+            <button class="refresh" id="view_groups">View All Groups</button>
         </div>
     </div>
     <!-- endof profile info -->
@@ -522,7 +540,207 @@
 <img src="" class="test_img">
 
 <script>
+
+$('#view_friends').click(function(){
+    window.location.href = 'friends_list?user=' + {{friend[0]}};
+})
+
+$(document).on('click', '#friends', function(e) {
+    e.preventDefault()
+
+    $('.friends_div').toggleClass('none')
+
+    if (!$('.friends_div').hasClass('none') && $('.friends_div .row div').length == 0) {
+        var start = $('#view_more_friends').attr('start')
+        var end = $('#view_more_friends').attr('end')
+
+
+        friends_avas()
+
+        var id = $("#us_id").val();
+        var action =  'get_friends'
+
+        $.ajax({
+            url: '/get_friends',
+            data: JSON.stringify({'id':id, 'action': action, 'start':start, 'end': end, 'give_me_quantity': 'yes'}, null, '\t'),
+            type: 'POST',
+            contentType: 'application/json;charset=UTF-8',
+            success: function(response) {
+                console.log(response.status, response.friends_list);
+                if (response.end_of_friends == 'true') {
+                    $('#view_more_friends').addClass('none')
+                }else{
+                  $('#view_more_friends').attr('start', Number(start)+8)
+                  $('#view_more_friends').attr('end', Number(end)+8)
+                }
+
+                if (response.quantity) {
+                    $('#fr_quantity').html(response.quantity)
+                }
+
+                for (var i = 0; i <= response.friends_list.length - 1; i++) {
+                    console.log('d', response.friends_list[i], response.friends_list[i][3].split(',')[0])
+                    $('.friends_div .row').append('<div class="friend_item col-xs-3"><img src="'+ '/static/images/'+ response.friends_list[i][3].split(',')[0] +'" alt="Avatar" class="image" style="width:100%; height: 100%"><a href="'+ 'special?id='+ response.friends_list[i][0] +'"><div class="middle2"><div class="text2">'+ response.friends_list[i][1] +'<br> '+ response.friends_list[i][2] +'</div></div></a></div>')
+                }
+                friends_avas()
+            },
+            error: function(error) {
+                console.log(error);
+            }
+        });
+    }
+
+});
+
+
+$(document).on('click', '#view_more_friends', function(e) {
+    e.preventDefault()
+
+    var start = $('#view_more_friends').attr('start')
+    var end = $('#view_more_friends').attr('end')
+
+
+    friends_avas()
+
+    var id = $("#us_id").val();
+    var action =  'get_friends'
+
+    $.ajax({
+        url: '/get_friends',
+        data: JSON.stringify({'id':id, 'action': action, 'start':start, 'end': end}, null, '\t'),
+        type: 'POST',
+        contentType: 'application/json;charset=UTF-8',
+        success: function(response) {
+            console.log(response.status, response.friends_list);
+            if (response.end_of_friends == 'true') {
+                $('#view_more_friends').addClass('none')
+            }else{
+              $('#view_more_friends').attr('start', Number(start)+8)
+              $('#view_more_friends').attr('end', Number(end)+8)
+            }
+
+            for (var i = 0; i <= response.friends_list.length - 1; i++) {
+                console.log('d', response.friends_list[i], response.friends_list[i][3].split(',')[0])
+                $('.friends_div .row').append('<div class="friend_item col-xs-3"><img src="'+ '/static/images/'+ response.friends_list[i][3].split(',')[0] +'" alt="Avatar" class="image" style="width:100%; height: 100%"><a href="'+ 'special?id='+ response.friends_list[i][0] +'"><div class="middle2"><div class="text2">'+ response.friends_list[i][1] +'<br> '+ response.friends_list[i][2] +'</div></div></a></div>')
+            }
+            friends_avas()
+        },
+        error: function(error) {
+            console.log(error);
+        }
+    });
+
+});
+
+function friends_avas(){
+    var width_item = $('.friends_div').width() / 4 - 4
+    $('.friend_item').each(function(){
+      $(this).css('height', width_item)
+      $(this).css('width', width_item)
+    })
+    $('.friends_div').css('height', width_item * 3 + 23)
+}
   
+$('#view_groups').click(function(){
+    window.location.href = 'groups_list?user=' + {{friend[0]}};
+})
+
+$(document).on('click', '#groups', function(e) {
+    e.preventDefault()
+
+    $('.groups_div').toggleClass('none')
+
+    if (!$('.groups_div').hasClass('none') && $('.groups_div .row div').length == 0) {
+        var start = $('#view_more_groups').attr('start')
+        var end = $('#view_more_groups').attr('end')
+
+        friends_avas()
+
+        var id = $("#us_id").val();
+        var action =  'get_groups'
+
+        $.ajax({
+            url: '/get_groups',
+            data: JSON.stringify({'id':id, 'action': action, 'start':start, 'end': end, 'give_me_quantity': 'yes'}, null, '\t'),
+            type: 'POST',
+            contentType: 'application/json;charset=UTF-8',
+            success: function(response) {
+                console.log(response.status, response.friends_list);
+                if (response.end_of_friends == 'true') {
+                    $('#view_more_groups').addClass('none')
+                }else{
+                  $('#view_more_groups').attr('start', Number(start)+8)
+                  $('#view_more_groups').attr('end', Number(end)+8)
+                }
+
+                if (response.quantity) {
+                    $('#gr_quantity').html(response.quantity)
+                }
+
+                for (var i = 0; i <= response.friends_list.length - 1; i++) {
+                    console.log('d', response.friends_list[i], response.friends_list[i][3].split(',')[0])
+                    $('.groups_div .row').append('<div class="friend_item col-xs-3"><img src="'+ '/static/images/'+ response.friends_list[i][3].split(',')[0] +'" alt="Avatar" class="image" style="width:100%; height: 100%"><a href="'+ 'special?id='+ response.friends_list[i][0] +'"><div class="middle2"><div class="text2">'+ response.friends_list[i][1] +'</div></div></a></div>')
+                }
+                groups_avas()
+            },
+            error: function(error) {
+                console.log(error);
+            }
+        });
+    }
+
+});
+
+$(document).on('click', '#view_more_groups', function(e) {
+    e.preventDefault()
+
+    var start = $('#view_more_groups').attr('start')
+    var end = $('#view_more_groups').attr('end')
+
+
+    friends_avas()
+
+    var id = $("#us_id").val();
+    var action =  'get_groups'
+
+    $.ajax({
+        url: '/get_groups',
+        data: JSON.stringify({'id':id, 'action': action, 'start':start, 'end': end}, null, '\t'),
+        type: 'POST',
+        contentType: 'application/json;charset=UTF-8',
+        success: function(response) {
+            console.log(response.status, response.friends_list);
+            if (response.end_of_friends == 'true') {
+                $('#view_more_groups').addClass('none')
+            }else{
+              $('#view_more_groups').attr('start', Number(start)+8)
+              $('#view_more_groups').attr('end', Number(end)+8)
+            }
+
+            for (var i = 0; i <= response.friends_list.length - 1; i++) {
+                console.log('d', response.friends_list[i], response.friends_list[i][3].split(',')[0])
+                $('.groups_div .row').append('<div class="friend_item col-xs-3"><img src="'+ '/static/images/'+ response.friends_list[i][3].split(',')[0] +'" alt="Avatar" class="image" style="width:100%; height: 100%"><a href="'+ 'special?id='+ response.friends_list[i][0] +'"><div class="middle2"><div class="text2">'+ response.friends_list[i][1] +'<br> '+ response.friends_list[i][2] +'</div></div></a></div>')
+            }
+            groups_avas()
+        },
+        error: function(error) {
+            console.log(error);
+        }
+    });
+
+});
+
+function groups_avas(){
+    var width_item = $('.groups_div').width() / 4 - 4
+    $('.friend_item').each(function(){
+      $(this).css('height', width_item)
+      $(this).css('width', width_item)
+    })
+    $('.groups_div').css('height', width_item * 3 + 23)
+}
+
+</script>
+<script>
 
 $(document).on('click', '#unblock', function(e) {
     e.preventDefault()
@@ -582,7 +800,7 @@ $(document).on('click', '#add_friend', function(e) {
             console.log(response.status);
             $('#add_friend').remove()
             $('#block').remove()
-            $('.control_btn').prepend('<a href="#" id="friends" class="padding0"><i class="fa fa-handshake-o" aria-hidden="true"></i><br>Sent!</a><a href="#" class="padding5" id="redo_request"><i class="fa fa-ban" aria-hidden="true"></i><br>Redo request</a>')
+            $('.control_btn').prepend('<a href="#" id="block" class="padding0"><i class="fa fa-ban" aria-hidden="true"></i><br>Block</a><a href="#" class="padding5" id="redo_request"><i class="fa fa-undo" aria-hidden="true"></i><br>Redo request</a>')
         },
         error: function(error) {
             console.log(error);
@@ -604,9 +822,8 @@ $(document).on('click', '#unfriend', function(e) {
         success: function(response) {
             console.log(response.status);
             $('#block').remove()
-            $('#friends').remove()
             $('#unfriend').remove()
-            $('.control_btn').prepend('<a href="#" id="block"><i class="fa fa-ban" aria-hidden="true"></i><br>Block</a><a href="#" class="padding0" id="accept"><i class="fa fa-ban" aria-hidden="true"></i><br>Accept request?</a>')
+            $('.control_btn').prepend('<a href="#" id="block"><i class="fa fa-ban" aria-hidden="true"></i><br>Block</a><a href="#" class="padding5" id="accept"><i class="fa fa-check" aria-hidden="true"></i><br>Accept?</a>')
             
             $('#about').css('padding', 0)
         },
@@ -633,8 +850,9 @@ $(document).on('click', '#accept', function(e) {
         success: function(response) {
             console.log(response.status);
             $('#block').remove()
+            $('#friends').remove()
             $('#accept').remove()
-            $('.control_btn').prepend('<a href="#" class="padding5" id="friends"><i class="fa fa-handshake-o" aria-hidden="true"></i><br>Friends</a><a href="#" class="padding5" id="unfriend"><i class="fa fa-times" aria-hidden="true"></i><br>Unfriend</a><a href="#" id="block"><i class="fa fa-ban" aria-hidden="true"></i><br>Block</a>')
+            $('.control_btn').prepend('<a href="#" id="block"><i class="fa fa-ban" aria-hidden="true"></i><br>Block</a><a href="#" class="padding5" id="unfriend"><i class="fa fa-times" aria-hidden="true"></i><br>Unfriend</a><a href="#" class="padding5" id="friends"><i class="fa fa-handshake-o" aria-hidden="true"></i><br>Friends</a>')
             $('#about').css('padding', 0)
         },
         error: function(error) {
@@ -657,7 +875,7 @@ $(document).on('click', '#redo_request', function(e) {
         success: function(response) {
             console.log(response.status);
             $('#redo_request').remove()
-            $('#friends').remove()
+            $('#block').remove()
             $('.control_btn').prepend('<a href="#" class="padding0" id="add_friend"><i class="fa fa-plus" aria-hidden="true"></i><br>Add Friend</a><a href="#" id="block"><i class="fa fa-ban" aria-hidden="true"></i><br>Block</a>')
             $('#about').css('padding', 0)
         },
@@ -744,13 +962,19 @@ $(document).on('mouseleave', '.ava', function(e) {
 
 $(document).on('click', '#about', function(e) {
     e.preventDefault()
-    $('.edit_div').toggleClass('none')
+    $('#user_info').toggleClass('none')
 });
 
 $(document).ready(function(e) {
     var bodyHeight = $('body').height()
     $('.height100').css('height', bodyHeight)
+
+     friends_avas()
+    
+    width()
 });
+
+
 
 </script>
 

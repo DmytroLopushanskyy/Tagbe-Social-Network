@@ -29,11 +29,13 @@
             <p class="profile_undertext">Don`t be scared to dive in deep and start a tsunami</p>
         </div>
         <div class="profile_text">
+              <input type="name" class="form-control" name="id" id="us_id" value="{{user.id}}" style="display:none">
             <div class="control_btn">
                 <a href="#"><i class="fa fa-tags" aria-hidden="true"></i><br>Tags</a>
                 <!-- <a href="#"><i class="fa fa-plus" aria-hidden="true"></i><br>Add Friend</a> -->
                 <a href="#" class="padding5"><i class="fa fa-comment" aria-hidden="true"></i><br>Message</a>
-                <a href="#"><i class="fa fa-users" aria-hidden="true"></i><br>Groups</a>
+                <a href="#" class="padding5" id="friends"><i class="fa fa-handshake-o" aria-hidden="true"></i><br>Friends</a>
+                <a href="#" id="groups"><i class="fa fa-users" aria-hidden="true"></i><br>Groups</a>
                 <a href="#" id="about"><i class="fa fa-info" aria-hidden="true"></i><br>About</a>
                 <a href="#"><i class="fa fa-file-image-o" aria-hidden="true"></i><br>Photos</a>
             </div>
@@ -80,6 +82,22 @@
               <div class="label_name">Address:</div>
               <div class="user_info_statement">{{user.add.address}}</div>
               <button class="refresh" id="edit">EDIT INFO</button>
+        </div>
+        <div class="edit_div user_info friends_div none">
+            <div class="row">
+              <p><u><b>{{user.first_name}}'s friends (<span id="fr_quantity"></span>)</b></u></p>
+              
+            </div>  
+            <button class="refresh" id="view_more_friends" start="0" end="8">View More Friends</button>
+            <button class="refresh" id="view_friends">View All Friends</button>
+        </div>
+        <div class="edit_div user_info groups_div none">
+            <div class="row">
+              <p><u><b>{{user.first_name}}'s groups (<span id="gr_quantity"></span>)</b></u></p>
+              
+            </div>  
+            <button class="refresh" id="view_more_groups" start="0" end="8">View More Groups</button>
+            <button class="refresh" id="view_groups">View All Groups</button>
         </div>
     </div>
     <!-- endof profile info -->
@@ -517,7 +535,207 @@
 <img src="{{ url_for('static', filename='images/') }}{{user.user_photo.split(',')[0]}}" class="test_img2">
 <img src="{{ url_for('static', filename='images/') }}{{user.user_photo.split(',')[0]}}" class="test_img">
 
+<script>
+  
+$('#view_friends').click(function(){
+    window.location.href = 'friends_list?user=' + {{user.id}};
+})
 
+$(document).on('click', '#friends', function(e) {
+    e.preventDefault()
+
+    $('.friends_div').toggleClass('none')
+
+    if (!$('.friends_div').hasClass('none') && $('.friends_div .row div').length == 0) {
+        var start = $('#view_more_friends').attr('start')
+        var end = $('#view_more_friends').attr('end')
+
+
+        friends_avas()
+
+        var id = $("#us_id").val();
+        var action =  'get_friends'
+
+        $.ajax({
+            url: '/get_friends',
+            data: JSON.stringify({'id':id, 'action': action, 'start':start, 'end': end, 'give_me_quantity': 'yes'}, null, '\t'),
+            type: 'POST',
+            contentType: 'application/json;charset=UTF-8',
+            success: function(response) {
+                console.log(response.status, response.friends_list);
+                if (response.end_of_friends == 'true') {
+                    $('#view_more_friends').addClass('none')
+                }else{
+                  $('#view_more_friends').attr('start', Number(start)+8)
+                  $('#view_more_friends').attr('end', Number(end)+8)
+                }
+
+                if (response.quantity) {
+                    $('#fr_quantity').html(response.quantity)
+                }
+
+                for (var i = 0; i <= response.friends_list.length - 1; i++) {
+                    console.log('d', response.friends_list[i], response.friends_list[i][3].split(',')[0])
+                    $('.friends_div .row').append('<div class="friend_item col-xs-3"><img src="'+ '/static/images/'+ response.friends_list[i][3].split(',')[0] +'" alt="Avatar" class="image" style="width:100%; height: 100%"><a href="'+ 'special?id='+ response.friends_list[i][0] +'"><div class="middle2"><div class="text2">'+ response.friends_list[i][1] +'<br> '+ response.friends_list[i][2] +'</div></div></a></div>')
+                }
+                friends_avas()
+            },
+            error: function(error) {
+                console.log(error);
+            }
+        });
+    }
+
+});
+
+
+$(document).on('click', '#view_more_friends', function(e) {
+    e.preventDefault()
+
+    var start = $('#view_more_friends').attr('start')
+    var end = $('#view_more_friends').attr('end')
+
+
+    friends_avas()
+
+    var id = $("#us_id").val();
+    var action =  'get_friends'
+
+    $.ajax({
+        url: '/get_friends',
+        data: JSON.stringify({'id':id, 'action': action, 'start':start, 'end': end}, null, '\t'),
+        type: 'POST',
+        contentType: 'application/json;charset=UTF-8',
+        success: function(response) {
+            console.log(response.status, response.friends_list);
+            if (response.end_of_friends == 'true') {
+                $('#view_more_friends').addClass('none')
+            }else{
+              $('#view_more_friends').attr('start', Number(start)+8)
+              $('#view_more_friends').attr('end', Number(end)+8)
+            }
+
+            for (var i = 0; i <= response.friends_list.length - 1; i++) {
+                console.log('d', response.friends_list[i], response.friends_list[i][3].split(',')[0])
+                $('.friends_div .row').append('<div class="friend_item col-xs-3"><img src="'+ '/static/images/'+ response.friends_list[i][3].split(',')[0] +'" alt="Avatar" class="image" style="width:100%; height: 100%"><a href="'+ 'special?id='+ response.friends_list[i][0] +'"><div class="middle2"><div class="text2">'+ response.friends_list[i][1] +'<br> '+ response.friends_list[i][2] +'</div></div></a></div>')
+            }
+            friends_avas()
+        },
+        error: function(error) {
+            console.log(error);
+        }
+    });
+
+});
+
+function friends_avas(){
+    var width_item = $('.friends_div').width() / 4 - 4
+    $('.friend_item').each(function(){
+      $(this).css('height', width_item)
+      $(this).css('width', width_item)
+    })
+    $('.friends_div').css('height', width_item * 3 + 23)
+}
+  
+$('#view_groups').click(function(){
+    window.location.href = 'groups_list?user=' + {{user.id}};
+})
+
+$(document).on('click', '#groups', function(e) {
+    e.preventDefault()
+
+    $('.groups_div').toggleClass('none')
+
+    if (!$('.groups_div').hasClass('none') && $('.groups_div .row div').length == 0) {
+        var start = $('#view_more_groups').attr('start')
+        var end = $('#view_more_groups').attr('end')
+
+        friends_avas()
+
+        var id = $("#us_id").val();
+        var action =  'get_groups'
+
+        $.ajax({
+            url: '/get_groups',
+            data: JSON.stringify({'id':id, 'action': action, 'start':start, 'end': end, 'give_me_quantity': 'yes'}, null, '\t'),
+            type: 'POST',
+            contentType: 'application/json;charset=UTF-8',
+            success: function(response) {
+                console.log(response.status, response.friends_list);
+                if (response.end_of_friends == 'true') {
+                    $('#view_more_groups').addClass('none')
+                }else{
+                  $('#view_more_groups').attr('start', Number(start)+8)
+                  $('#view_more_groups').attr('end', Number(end)+8)
+                }
+
+                if (response.quantity) {
+                    $('#gr_quantity').html(response.quantity)
+                }
+
+                for (var i = 0; i <= response.friends_list.length - 1; i++) {
+                    console.log('d', response.friends_list[i], response.friends_list[i][3].split(',')[0])
+                    $('.groups_div .row').append('<div class="friend_item col-xs-3"><img src="'+ '/static/images/'+ response.friends_list[i][3].split(',')[0] +'" alt="Avatar" class="image" style="width:100%; height: 100%"><a href="'+ 'special?id='+ response.friends_list[i][0] +'"><div class="middle2"><div class="text2">'+ response.friends_list[i][1] +'</div></div></a></div>')
+                }
+                groups_avas()
+            },
+            error: function(error) {
+                console.log(error);
+            }
+        });
+    }
+
+});
+
+$(document).on('click', '#view_more_groups', function(e) {
+    e.preventDefault()
+
+    var start = $('#view_more_groups').attr('start')
+    var end = $('#view_more_groups').attr('end')
+
+
+    friends_avas()
+
+    var id = $("#us_id").val();
+    var action =  'get_groups'
+
+    $.ajax({
+        url: '/get_groups',
+        data: JSON.stringify({'id':id, 'action': action, 'start':start, 'end': end}, null, '\t'),
+        type: 'POST',
+        contentType: 'application/json;charset=UTF-8',
+        success: function(response) {
+            console.log(response.status, response.friends_list);
+            if (response.end_of_friends == 'true') {
+                $('#view_more_groups').addClass('none')
+            }else{
+              $('#view_more_groups').attr('start', Number(start)+8)
+              $('#view_more_groups').attr('end', Number(end)+8)
+            }
+
+            for (var i = 0; i <= response.friends_list.length - 1; i++) {
+                console.log('d', response.friends_list[i], response.friends_list[i][3].split(',')[0])
+                $('.groups_div .row').append('<div class="friend_item col-xs-3"><img src="'+ '/static/images/'+ response.friends_list[i][3].split(',')[0] +'" alt="Avatar" class="image" style="width:100%; height: 100%"><a href="'+ 'special?id='+ response.friends_list[i][0] +'"><div class="middle2"><div class="text2">'+ response.friends_list[i][1] +'<br> '+ response.friends_list[i][2] +'</div></div></a></div>')
+            }
+            groups_avas()
+        },
+        error: function(error) {
+            console.log(error);
+        }
+    });
+
+});
+
+function groups_avas(){
+    var width_item = $('.groups_div').width() / 4 - 4
+    $('.friend_item').each(function(){
+      $(this).css('height', width_item)
+      $(this).css('width', width_item)
+    })
+    $('.groups_div').css('height', width_item * 3 + 23)
+}
+
+</script>
 <script>
 
 $(document).on('click', '#refresh', function(e) {

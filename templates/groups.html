@@ -1,6 +1,14 @@
 {%extends 'header.html'%}
 {%block center_part %}
-        
+
+{% if request.args.get('user') %}  
+<div class="tag_page_header special_for_friend">
+    <p class="tag_head">{{user_information[0][0]}} {{user_information[0][1]}}</p>
+    <p class="tag_undertext">groups</p>
+    <a href="special?id={{request.args.get('user')}}"><button class="tag_follow">Go back to profile</button></a>
+</div> 
+{% endif %}  
+
 <div class="col-xs-6 post_part group_part m-t15">
     <div class="search group_search">
         <div id="custom-search-input" class="group_input">
@@ -16,7 +24,8 @@
         </div>
         {% if request.args.get('action') == 'show_all' %}  
         <button class="nice_btn" id="view_my">View My Groups</button>
-        {% else %}  
+        {% elif request.args.get('user') %}  
+        {% else %}   
         <button class="nice_btn" id="show_all_btn">View All Tagbe Groups</button>
         {% endif %}  
     </div>
@@ -40,7 +49,7 @@
                       
                   </div>
                   <div class="group_info">
-                      <p class="users_quantity">237K Followers</p>
+                      <p class="users_quantity">{{name[-1]}} Follower(s)</p>
                       <p class="posts_quantity">230 Posts</p>
                   </div>
               </div>
