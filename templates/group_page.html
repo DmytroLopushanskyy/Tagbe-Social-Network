@@ -62,7 +62,7 @@
             
             <a href="#"><i class="fa fa-tags" aria-hidden="true"></i><br>Tags</a>
             <a href="#" class="padding5"><i class="fa fa-comment" aria-hidden="true"></i><br>Message</a>
-            <a href="#"><i class="fa fa-users" aria-hidden="true"></i><br>Followers</a>
+            <a href="#" id="followers"><i class="fa fa-users" aria-hidden="true"></i><br>Followers</a>
             <a href="#" id="about"><i class="fa fa-info" aria-hidden="true"></i><br>About</a>
             <a href="#"><i class="fa fa-file-image-o" aria-hidden="true"></i><br>Photos</a>
         </div>
@@ -117,6 +117,14 @@
             <button class="refresh">REFRESH</button>    
         </form>
     </div> -->
+        <div class="edit_div user_info followers_div none">
+            <div class="row">
+              <p><u><b>{{group_data[1]}}'s followers (<span id="gr_quantity"></span>)</b></u></p>
+              
+            </div>  
+            <button class="refresh" id="view_more_followers" start="0" end="8">View More Followers</button>
+            <button class="refresh" id="view_followers">View All Followers</button>
+        </div>
     </div>
     <!-- endof profile info -->
 
@@ -561,6 +569,107 @@
 <img src="{{ url_for('static', filename='images/') }}{{user.user_photo.split(',')[0]}}" class="test_img2">
 <img src="{{ url_for('static', filename='images/') }}{{user.user_photo.split(',')[0]}}" class="test_img">
 
+<script>
+  
+$('#view_followers').click(function(){
+    window.location.href = 'friends_list?group=' + {{group_data[0]}};
+})
+
+$(document).on('click', '#followers', function(e) {
+    e.preventDefault()
+
+    $('.followers_div').toggleClass('none')
+
+    if (!$('.followers_div').hasClass('none') && $('.followers_div .row div').length == 0) {
+        var start = $('#view_more_followers').attr('start')
+        var end = $('#view_more_followers').attr('end')
+
+        followers_avas()
+
+        var id = {{group_data[0]}};
+        var action =  'get_followers'
+
+        $.ajax({
+            url: '/get_followers',
+            data: JSON.stringify({'id':id, 'action': action, 'start':start, 'end': end, 'give_me_quantity': 'yes'}, null, '\t'),
+            type: 'POST',
+            contentType: 'application/json;charset=UTF-8',
+            success: function(response) {
+                console.log(response.status, response.friends_list);
+                if (response.end_of_friends == 'true') {
+                    $('#view_more_followers').addClass('none')
+                }else{
+                  $('#view_more_followers').attr('start', Number(start)+8)
+                  $('#view_more_followers').attr('end', Number(end)+8)
+                }
+
+                if (response.quantity) {
+                    $('#gr_quantity').html(response.quantity)
+                }
+
+                for (var i = 0; i <= response.friends_list.length - 1; i++) {
+                    console.log('d', response.friends_list[i], response.friends_list[i][3].split(',')[0])
+                    $('.followers_div .row').append('<div class="friend_item col-xs-3"><img src="'+ '/static/images/'+ response.friends_list[i][3].split(',')[0] +'" alt="Avatar" class="image" style="width:100%; height: 100%"><a href="'+ 'special?id='+ response.friends_list[i][0] +'"><div class="middle2"><div class="text2">'+ response.friends_list[i][1] +'</div></div></a></div>')
+                }
+                followers_avas()
+            },
+            error: function(error) {
+                console.log(error);
+            }
+        });
+    }
+
+});
+
+$(document).on('click', '#view_more_followers', function(e) {
+    e.preventDefault()
+
+    var start = $('#view_more_followers').attr('start')
+    var end = $('#view_more_followers').attr('end')
+
+
+    followers_avas()
+
+    var id = {{group_data[0]}};
+    var action =  'get_followers'
+
+    $.ajax({
+        url: '/get_followers',
+        data: JSON.stringify({'id':id, 'action': action, 'start':start, 'end': end}, null, '\t'),
+        type: 'POST',
+        contentType: 'application/json;charset=UTF-8',
+        success: function(response) {
+            console.log(response.status, response.friends_list);
+            if (response.end_of_friends == 'true') {
+                $('#view_more_followers').addClass('none')
+            }else{
+              $('#view_more_followers').attr('start', Number(start)+8)
+              $('#view_more_followers').attr('end', Number(end)+8)
+            }
+
+            for (var i = 0; i <= response.friends_list.length - 1; i++) {
+                console.log('d', response.friends_list[i], response.friends_list[i][3].split(',')[0])
+                $('.followers_div .row').append('<div class="friend_item col-xs-3"><img src="'+ '/static/images/'+ response.friends_list[i][3].split(',')[0] +'" alt="Avatar" class="image" style="width:100%; height: 100%"><a href="'+ 'special?id='+ response.friends_list[i][0] +'"><div class="middle2"><div class="text2">'+ response.friends_list[i][1] +'<br> '+ response.friends_list[i][2] +'</div></div></a></div>')
+            }
+            followers_avas()
+        },
+        error: function(error) {
+            console.log(error);
+        }
+    });
+
+});
+
+function followers_avas(){
+    var width_item = $('.followers_div').width() / 4 - 4
+    $('.friend_item').each(function(){
+      $(this).css('height', width_item)
+      $(this).css('width', width_item)
+    })
+    $('.followers_div').css('height', width_item * 3 + 23)
+}
+
+</script>
 
 
 <script>

@@ -8,6 +8,12 @@
     <p class="tag_undertext">friends</p>
     <a href="special?id={{request.args.get('user')}}"><button class="tag_follow">Go back to profile</button></a>
 </div> 
+{% elif request.args.get('group') %} 
+<div class="tag_page_header special_for_friend">
+    <p class="tag_head">{{user_information[0][0]}}</p>
+    <p class="tag_undertext">followers</p>
+    <a href="group?id={{request.args.get('group')}}"><button class="tag_follow">Go back to group page</button></a>
+</div>  
 {% endif %}  
    
 <div class="col-xs-6 post_part group_part m-t15">
@@ -27,6 +33,7 @@
         {% if request.args.get('action') == 'show_all' %}  
         <button class="nice_btn" id="view_my">View My Friends</button>
         {% elif request.args.get('user') %}  
+        {% elif request.args.get('group') %}  
         {% else %}  
         <button class="nice_btn" id="show_all_btn">View All Tagbe Users</button>
         {% endif %}  

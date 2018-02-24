@@ -1713,7 +1713,7 @@ box-shadow: 1px 2px 15px 6px rgba(92,163,246,0.22);
     background-size: 100% 100%; 
     position: relative;
 }
-.friends_div, .groups_div{
+.friends_div, .groups_div, .followers_div{
     padding: 10px;
     overflow: scroll;
 }

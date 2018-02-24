@@ -558,6 +558,7 @@ def FriendConnectionValidation(curs, friend_add, current_id):
 def friends_list():
     action = request.args.get('action')
     user = request.args.get('user')
+    group = request.args.get('group')
     if user:
         curs = conn.cursor()
         current_email = session['email']
@@ -575,6 +576,41 @@ def friends_list():
             if int(i[0]) != int(user):
                 friends_list_new.append(i[0])
             elif int(i[1]) != int(user):
+                friends_list_new.append(i[1])
+
+        print(friends_list_new)
+
+
+        friends_list = []
+        for b in friends_list_new:
+
+            friend_info = list(curs.execute("SELECT * FROM users WHERE id  = '{}'".format(b)).fetchone())
+            fr_quantity = curs.execute("select count(*) from name where user1_id = '{0}' or user2_id = '{0}'".format(b)).fetchone()
+
+            friend_info.append(fr_quantity[0])
+            friends_list.append(friend_info)
+
+        conn.commit()
+        print(friends_list)
+        context3 = {'user': user_model, 'name': '', 'email': 'friends_list', 'age': '', 'phone':  '', 'sex': 'all', 'address': '', 'id': '', 'friends': friends_list, 'block': 'none', 'user_information': user_information}
+        return render_template('friends.html', **context3)
+    if group:
+        curs = conn.cursor()
+        current_email = session['email']
+        user_model = user_info(curs, session['email'])
+        print(group)
+        user_information = curs.execute("SELECT first_name, last_name FROM users WHERE id  = '{0}'".format(group)).fetchall()
+
+        curs = conn.cursor()
+
+        friends_list = curs.execute("SELECT user_id FROM groups WHERE group_id  = '{0}'".format(group)).fetchall()
+
+        friends_list_new = []
+        for i in friends_list:
+
+            if int(i[0]) != int(group):
+                friends_list_new.append(i[0])
+            elif int(i[1]) != int(group):
                 friends_list_new.append(i[1])
 
         print(friends_list_new)
@@ -1295,6 +1331,52 @@ def get_groups():
 
     return jsonify({ 'status': 'success!', 'end_of_friends': end_of_friends, 'friends_list': groups_list, 'quantity': gr_quantity })
 
+@app.route('/get_followers', methods=['POST'])
+def get_followers():
+    id = request.json['id']
+    action = request.json['action']
+    start = request.json['start']
+    end = request.json['end']
+    try:
+        quantity = request.json['give_me_quantity']
+    except KeyError:
+        quantity = None
+
+    curs = conn.cursor()
+
+    friends_list = curs.execute("SELECT user_id FROM groups WHERE group_id  = '{0}' ORDER BY id LIMIT '{1}', '{2}'".format(id, start, 8)).fetchall()
+
+    friends_list_new = []
+    for i in friends_list:
+
+        if int(i[0]) != int(id):
+            friends_list_new.append(i[0])
+        elif int(i[1]) != int(id):
+            friends_list_new.append(i[1])
+
+    print('ff', friends_list_new)
+
+    if len(friends_list_new) < int(end) - int(start):
+        end_of_friends = 'true'
+    else:
+        end_of_friends = 'false'
+
+    friends_list = []
+    for b in friends_list_new:
+
+        friend_info = curs.execute("SELECT id, first_name, last_name, user_photo FROM users WHERE id  = '{}'".format(b)).fetchone()
+
+        friends_list.append(friend_info)
+
+    #count quantity if needed
+    if quantity:
+        fr_quantity = curs.execute("select count(*) from groups where group_id = '{0}'".format(id)).fetchone()[0]
+    else:
+        fr_quantity = None
+
+    print('blabla', id, action, start, end, friends_list, friends_list_new)
+
+    return jsonify({ 'status': 'success!', 'end_of_friends': end_of_friends, 'friends_list': friends_list, 'quantity': fr_quantity })
 
 
 
