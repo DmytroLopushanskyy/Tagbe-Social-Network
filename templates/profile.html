@@ -490,9 +490,6 @@
                     <div class="post_header_text">
                         <p class="user_name non_hover">Dmytro Lopushanskyy</p>
                     </div>
-                    <div class="post_tags_div">
-                        
-                    </div>
                     <span class="close" ng-click="place ='' ">&times;</span>
                 </div>
                 <div class="post_body">
@@ -629,7 +626,7 @@ $(document).on('click', '#view_more_friends', function(e) {
 });
 
 function friends_avas(){
-    var width_item = $('.friends_div').width() / 4 - 4
+    var width_item = $('.friends_div').width() / 4 - 8
     $('.friend_item').each(function(){
       $(this).css('height', width_item)
       $(this).css('width', width_item)
@@ -727,7 +724,7 @@ $(document).on('click', '#view_more_groups', function(e) {
 });
 
 function groups_avas(){
-    var width_item = $('.groups_div').width() / 4 - 4
+    var width_item = $('.groups_div').width() / 4 - 8
     $('.friend_item').each(function(){
       $(this).css('height', width_item)
       $(this).css('width', width_item)

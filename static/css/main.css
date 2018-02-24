@@ -999,7 +999,7 @@ textarea.my_textarea:focus {
     text-align: center;
     font-family: Attractive;
     max-height: 48px;
-    overflow: scroll;
+    overflow: hidden;
 }
 .js .input-file-trigger i{
     margin-right: 5px;
@@ -1084,7 +1084,7 @@ textarea.my_textarea:focus {
     display: inline-block;
     max-width: 270px;
     max-height: 20px;
-    overflow: scroll;
+    overflow: hidden;
     margin-bottom: -4px;
 }
 
@@ -1715,7 +1715,7 @@ box-shadow: 1px 2px 15px 6px rgba(92,163,246,0.22);
 }
 .friends_div, .groups_div, .followers_div{
     padding: 10px;
-    overflow: scroll;
+    overflow-y: scroll;
 }
 .friend_item_img{
     width: 50px;
@@ -1768,8 +1768,11 @@ box-shadow: 1px 2px 15px 6px rgba(92,163,246,0.22);
     margin-left: 50%;
     transform: translateX(-50%);
 }
-
-
+.img_container::-webkit-scrollbar {
+    width: 0px;  /* remove scrollbar space */
+    display: none;
+    background: transparent;  /* optional: just make scrollbar invisible */
+}
 
 
 
