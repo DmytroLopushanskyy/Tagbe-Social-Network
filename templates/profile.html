@@ -13,7 +13,7 @@
                   <form id="form_ava" enctype="multipart/form-data">
                     <input type="file" name="ava" class="back_file" id="profile_photo" accept="image/*">
                   </form>
-                  
+
                 </div>
             </div>
             <div class="overlay none">
@@ -26,7 +26,7 @@
         <div class="profile_name">
             {{user.first_name}} {{user.last_name}}
             <br>
-            <p class="profile_undertext">Don`t be scared to dive in deep and start a tsunami</p>
+            <p class="profile_undertext">{{user.descr}}</p>
         </div>
         <div class="profile_text">
               <input type="name" class="form-control" name="id" id="us_id" value="{{user.id}}" style="display:none">
@@ -86,16 +86,16 @@
         <div class="edit_div user_info friends_div none">
             <div class="row">
               <p><u><b>{{user.first_name}}'s friends (<span id="fr_quantity"></span>)</b></u></p>
-              
-            </div>  
+
+            </div>
             <button class="refresh" id="view_more_friends" start="0" end="8">View More Friends</button>
             <button class="refresh" id="view_friends">View All Friends</button>
         </div>
         <div class="edit_div user_info groups_div none">
             <div class="row">
               <p><u><b>{{user.first_name}}'s groups (<span id="gr_quantity"></span>)</b></u></p>
-              
-            </div>  
+
+            </div>
             <button class="refresh" id="view_more_groups" start="0" end="8">View More Groups</button>
             <button class="refresh" id="view_groups">View All Groups</button>
         </div>
@@ -108,7 +108,7 @@
         </div>
     </div>
     <div class="new_posts_div">
-      
+
     </div>
     <div class="post" id="1">
         <div class="post_header">
@@ -176,20 +176,20 @@
         </div>
         <hr>
         <div class="post_footer">
-            <div class="footer_div reactions_div"> 
+            <div class="footer_div reactions_div">
                 <div class="reactions hide pointer">
                     <i class="fa fa-heart-o react_btn like" aria-hidden="true"></i>
                     <!-- <i class="fa fa-heart-o react_btn" aria-hidden="true"></i> -->
                     <span class="react_btn react2">😂</span>
-                    <span class="react_btn react3">😯</span> 
-                    <span class="react_btn react4">🙂</span> 
-                    <span class="react_btn react5">👏</span> 
+                    <span class="react_btn react3">😯</span>
+                    <span class="react_btn react4">🙂</span>
+                    <span class="react_btn react5">👏</span>
                 </div>
                 <span class="like_bottom pointer"><i class="fa fa-heart-o like_btn like" aria-hidden="true"></i></span>
                 <span class="react_btn like_btn none">😂</span>
-                <span class="react_btn like_btn none">😯</span> 
-                <span class="react_btn like_btn none">🙂</span> 
-                <span class="react_btn like_btn none">👏</span> 
+                <span class="react_btn like_btn none">😯</span>
+                <span class="react_btn like_btn none">🙂</span>
+                <span class="react_btn like_btn none">👏</span>
                 <div class="connection"></div>
             </div>
             <div class="footer_div">
@@ -216,7 +216,7 @@
                       consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
                       cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
                       proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
-                      
+
                     </div>
                 </form>
                 <div class="dropbtn comm_hover none">
@@ -239,7 +239,7 @@
                       consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
                       cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
                       proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
-                      
+
                     </div>
                 </form>
                 <div class="dropbtn comm_hover none">
@@ -262,7 +262,7 @@
                       consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
                       cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
                       proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
-                      
+
                     </div>
                 </form>
                 <div class="dropbtn comm_hover none">
@@ -354,15 +354,15 @@
                     <i class="fa fa-heart-o react_btn like" aria-hidden="true"></i>
                     <!-- <i class="fa fa-heart-o react_btn" aria-hidden="true"></i> -->
                     <span class="react_btn react2">😂</span>
-                    <span class="react_btn react3">😯</span> 
-                    <span class="react_btn react4">🙂</span> 
-                    <span class="react_btn react5">👏</span> 
+                    <span class="react_btn react3">😯</span>
+                    <span class="react_btn react4">🙂</span>
+                    <span class="react_btn react5">👏</span>
                 </div>
                 <span class="like_bottom pointer"><i class="fa fa-heart-o like_btn like" aria-hidden="true"></i></span>
                 <span class="react_btn like_btn none">😂</span>
-                <span class="react_btn like_btn none">😯</span> 
-                <span class="react_btn like_btn none">🙂</span> 
-                <span class="react_btn like_btn none">👏</span> 
+                <span class="react_btn like_btn none">😯</span>
+                <span class="react_btn like_btn none">🙂</span>
+                <span class="react_btn like_btn none">👏</span>
                 <div class="connection"></div>
             </div>
             <div class="footer_div">
@@ -412,7 +412,7 @@
                       consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
                       cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
                       proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
-                      
+
                     </div>
                 </form>
                 <div class="dropbtn comm_hover none">
@@ -435,7 +435,7 @@
                       consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
                       cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
                       proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
-                      
+
                     </div>
                 </form>
                 <div class="dropbtn comm_hover none">
@@ -475,7 +475,7 @@
       <div class="bounce3"></div>
     </div>
 </div>
-{% endblock%}      
+{% endblock%}
 
 {%block scripts_and_rest %}
 
@@ -505,7 +505,7 @@
                 <hr>
                 <div class="post_add_div">
                     <form action="#" id="post_form">
-                      <div class="input-file-container">  
+                      <div class="input-file-container">
                         <input class="input-file" id="my-file" type="file" multiple="multiple" accept="image/jpg, image/jpeg, image/png">
                         <label tabindex="0" for="my-file" class="input-file-trigger"><i class="fa fa-file-image-o" aria-hidden="true"></i>Add Images (<span class="img_num">4</span>)</label>
                         <label tabindex="0" for="check_in" class="input-file-trigger" id="check_in_div">
@@ -533,7 +533,7 @@
 <img src="{{ url_for('static', filename='images/') }}{{user.user_photo.split(',')[0]}}" class="test_img">
 
 <script>
-  
+
 $('#view_friends').click(function(){
     window.location.href = 'friends_list?user=' + {{user.id}};
 })
@@ -633,7 +633,7 @@ function friends_avas(){
     })
     $('.friends_div').css('height', width_item * 3 + 23)
 }
-  
+
 $('#view_groups').click(function(){
     window.location.href = 'groups_list?user=' + {{user.id}};
 })
@@ -878,7 +878,7 @@ $(document).on('mouseover', '.photos_container', function(e) {
     if ($('.ava').children('.overlay').hasClass('none')) {
       $(this).children('.overlay').removeClass('none')
     }
-    
+
 });
 $(document).on('mouseleave', '.photos_container', function(e) {
     $(this).children('.overlay').addClass('none')
@@ -911,14 +911,14 @@ $(document).ready(function(e) {
 
 
 <script>
-  
+
 $(document).on('click', '.post_btn', function(e) {
     e.preventDefault()
 
     var text = $('.create_post_textarea').html()
     text = text.split('')
     var image_being = $('.post_images').length
-    
+
     var tags_array = [];
 
     $('.create_post_textarea .hastag_changed').each(function(){
@@ -930,7 +930,7 @@ $(document).on('click', '.post_btn', function(e) {
     var aditional = 0
     var array_length = text.length
     for (var i = 0; i <= text.length - 1 + aditional ; i++) {
-        aditional = array_length - text.length 
+        aditional = array_length - text.length
         if (text[i-aditional] == '<'){
             delete_cur = i-aditional
         }else if (text[i-aditional] == '>'){
@@ -938,7 +938,7 @@ $(document).on('click', '.post_btn', function(e) {
         }
     }
     for (var i = 0; i <= text.length - 1 + aditional ; i++) {
-        aditional = array_length - text.length 
+        aditional = array_length - text.length
         if (text[i-aditional] == '<'){
             delete_cur = i-aditional
         }else if (text[i-aditional] == '>'){
@@ -972,22 +972,22 @@ $(document).on('click', '.post_btn', function(e) {
       }else{
         var symbol = ' '
       }
-      
+
       $('#'+id+ ' .post_tags_div').append('<a href="#"><p class="post_tag">'+ symbol + tags_array[i] +', </p></a>')
 
     }
-    
+
 
     niceImages()
     aligning()
-    
+
     $("body").css("overflow", "auto");
 
     $('.place_check').addClass('none')
     $('.default_text').removeClass('none')
 
     $('.create_post_images').empty()
-    
+
     $( "#trigger_class" ).trigger( "click" );
 
     $('.alert').addClass('appear_alert')
@@ -1010,7 +1010,7 @@ $(document).on('click', '.post_btn', function(e) {
 //     $('.create_post_textarea').html('')
 //     $('.create_post_textarea').css('height', 'auto')
 //     $('.img_num').html(4)
-    
+
 // });
 </script>
 <script>
@@ -1020,7 +1020,7 @@ $(document).on('keyup', '.post_text_edit', function(e) {
     $('.create_post_textarea').focus()
 });
 
-  // searching for hastag 
+  // searching for hastag
 $(document).on('keyup', '.create_post_textarea', function(e) {
     var post_array = []
     var post_text = $('.create_post_textarea').html()
@@ -1081,18 +1081,18 @@ $('.create_post_textarea').on('keypress', function(e) {
         if (hashtag == 'applause'){
           hashtag = '👏'
         }
-        
+
         $(e.target).parent().replaceWith('<input class="hastag_changed autoresize" contenteditable="true" value="'+ hashtag + input + '"></input><input class="post_text_edit" contenteditable="true"> </input>')
         // var $input = $('.hastag_changed'),
         //     $buffer = $('.input-buffer');
 
         // $buffer.text($input.val());
         // $input.width($buffer.width());
-        
+
         $('.hastag_changed').attr('size', $('.hastag_changed').val().length);
         $('.post_text_edit').focus()
 
-        
+
 
     $(".create_post_textarea").val($(".create_post_textarea").val())
     console.log(hashtag, input, $(e.target).parent())
@@ -1149,16 +1149,16 @@ $(document).on('focusin', '.hastag_changed', function(e) {
     if(emotion!='hash'){
       text = $('.hastag_changed').attr('value').substring(2, $('.hastag_changed').attr('value').length)
     }
-    
+
     console.log(emotion, option)
     var input = $('input[name=tag]').val()
 
     $(e.target).replaceWith('<div class="choose_tag" contenteditable="false"><select class="fa-select" name="hash_selector"><option value="hash">#</option><option value="laugh">😂</option><option value="wow">😯</option><option value="smile">🙂</option><option value="applause">👏</option></select><input type="text" class="choose_tag_input" name="tag" placeholder="Hastag" value="'+ text +'"><p class="ok">OK</p><p class="cancel">CANCEL</p></div>')
     $('input[name=tag]').focus()
-    var val = $('input[name=tag]').val();       
+    var val = $('input[name=tag]').val();
     $('input[name=tag]').val('');
     $('input[name=tag]').val(val);
-    
+
     $("select[name=hash_selector]").val(emotion);
 });
 
@@ -1170,7 +1170,7 @@ $(document).mouseup(function(e) {
     var container = $(".choose_tag_input").parent();
 
     // if the target of the click isn't the container nor a descendant of the container
-    if (!container.is(e.target) && container.has(e.target).length === 0) 
+    if (!container.is(e.target) && container.has(e.target).length === 0)
     {
         container.remove();
     }
@@ -1181,7 +1181,7 @@ $(document).mouseup(function(e) {
 
 
 <script>
-  
+
 $(document).on('click', "#check_in_div", function(e){
     $('.check_icon').addClass('none')
     $('.default_text').addClass('none')
@@ -1197,7 +1197,7 @@ $("#check_in").focusout(function(){
     }else{
         $('.default_text').removeClass('none')
     }
-    
+
     $('#check_in').addClass('none')
     $('#check_in_div').removeClass('blue_color')
 });
@@ -1207,22 +1207,22 @@ $("#check_in").focusout(function(){
 
 
 <script>
-  
+
 document.querySelector("html").classList.add('js');
 
-var fileInput  = document.querySelector( ".input-file" ),  
+var fileInput  = document.querySelector( ".input-file" ),
     button     = document.querySelector( ".input-file-trigger" ),
     the_return = document.querySelector(".file-return");
-      
-button.addEventListener( "keydown", function( event ) {  
-    if ( event.keyCode == 13 || event.keyCode == 32 ) {  
-        fileInput.focus();  
-    }  
+
+button.addEventListener( "keydown", function( event ) {
+    if ( event.keyCode == 13 || event.keyCode == 32 ) {
+        fileInput.focus();
+    }
 });
 button.addEventListener( "click", function( event ) {
    fileInput.focus();
    return false;
-});  
+});
 
 function readURL(input) {
     var numFiles = input.files.length;
@@ -1270,7 +1270,7 @@ var btn2 = document.getElementById("myBtn2");
 // Get the <span> element that closes the modal
 var span = document.getElementsByClassName("close")[0];
 
-// When the user clicks the button, open the modal 
+// When the user clicks the button, open the modal
 btn.onclick = function() {
     modal.style.display = "block";
     $("body").css("overflow", "hidden");
@@ -1292,10 +1292,10 @@ span.onclick = function() {
         $('.default_text').removeClass('none')
 
         $('.create_post_images').empty()
-        
+
         $( "#trigger_class" ).trigger( "click" );
     } else {
-        
+
     }
 
 }
@@ -1309,7 +1309,7 @@ $('#trigger_class').on('click', function(e){
     $('.create_post_textarea').html('')
     $('.create_post_textarea').css('height', 'auto')
     $('.img_num').html(4)
-    
+
 });
 
 
@@ -1318,7 +1318,7 @@ $('#trigger_class').on('click', function(e){
 
 jQuery.each(jQuery('textarea[data-autoresize]'), function() {
     var offset = this.offsetHeight - this.clientHeight;
- 
+
     var resizeTextarea = function(el) {
         jQuery(el).css('height', 'auto').css('height', el.scrollHeight + offset);
     };
@@ -1355,16 +1355,16 @@ function niceImages(){
         if (length == 3){
             $('#'+id+ ' .post_body .img_container').addClass('width50')
             $('#'+id+ ' .post_body .img_container:nth-child(3)').addClass('three_img')
-            var divHeight = $('.post_images').width() / 2; 
+            var divHeight = $('.post_images').width() / 2;
         }
-    }); 
+    });
 }
 function aligning(){
     $( ".post" ).each(function() {
       id = Number($(this).attr('id'))
 
       length = $('#'+id+ ' .post_body img').length
-      var divWidth = $('.post_images').width() / 2; 
+      var divWidth = $('.post_images').width() / 2;
       if (length != 1){
           $( '#'+id+ " .post_body img" ).each(function() {
           if ($(this).height() < $(this).width()){
@@ -1383,7 +1383,7 @@ function aligning(){
               $('#'+id+ ' .post_body img').addClass('vertical_align_bottom')
               $('#'+id+ ' .post_body .img_container').addClass('vertical_align_bottom')
           }
-          }); 
+          });
       }
     });
 }
@@ -1443,7 +1443,7 @@ $(document).on('mouseleave', '.post_footer .footer_div:first-child', function(e)
     }, 500);
     setTimeout(function(){
         $('#'+ parent + ' .reactions').removeClass('show')
-    }, 900);  
+    }, 900);
 });
 
 $(document).on('mouseover', '.comment', function(e) {
@@ -1473,18 +1473,18 @@ $(document).ready(function(e) {
       }
 
     });
-    
+
 });
 
 $(document).on('mouseleave', '.comment', function(e) {
-    $('.comm_hover').addClass('none') 
+    $('.comm_hover').addClass('none')
 });
 
 $(document).on('click', '.delete_comm', function(e) {
     var id = Number($(this).parent().parent().parent().attr('id'))
     var parent = Number($('#' + id).parent().parent().attr('id'))
 
-    $('#' + id).remove() 
+    $('#' + id).remove()
     if($('#'+ parent + ' .view_more_text:first-child').hasClass('none')){
         if($('#'+ parent + ' .post_comments .comment:first-child').hasClass('more_comm')){
             $('#'+ parent + ' .post_comments .comment:first-child').removeClass('more_comm')
@@ -1531,7 +1531,7 @@ $(document).on('click', '.react2', function(e){
         $('#'+ parent + ' .likes_quantity').html(num)
     }
 
-    $('#'+ parent + ' .like').removeClass('fa-heart') 
+    $('#'+ parent + ' .like').removeClass('fa-heart')
     $('#'+ parent + ' .like').addClass('fa-heart-o')
     $('#'+ parent + ' .footer_div > span').addClass('none')
     $('#'+ parent + ' .footer_div > span:nth-child(3)').toggleClass('none')
@@ -1546,7 +1546,7 @@ $(document).on('click', '.react3', function(e){
         $('#'+ parent + ' .likes_quantity').html(num)
     }
 
-    $('#'+ parent + ' .like').removeClass('fa-heart') 
+    $('#'+ parent + ' .like').removeClass('fa-heart')
     $('#'+ parent + ' .like').addClass('fa-heart-o')
     $('#'+ parent + ' .footer_div > span').addClass('none')
     $('#'+ parent + ' .footer_div > span:nth-child(4)').toggleClass('none')
@@ -1561,7 +1561,7 @@ $(document).on('click', '.react4', function(e){
         $('#'+ parent + ' .likes_quantity').html(num)
     }
 
-    $('#'+ parent + ' .like').removeClass('fa-heart') 
+    $('#'+ parent + ' .like').removeClass('fa-heart')
     $('#'+ parent + ' .like').addClass('fa-heart-o')
     $('#'+ parent + ' .footer_div > span').addClass('none')
     $('#'+ parent + ' .footer_div > span:nth-child(5)').toggleClass('none')
@@ -1576,7 +1576,7 @@ $(document).on('click', '.react5', function(e){
         $('#'+ parent + ' .likes_quantity').html(num)
     }
 
-    $('#'+ parent + ' .like').removeClass('fa-heart') 
+    $('#'+ parent + ' .like').removeClass('fa-heart')
     $('#'+ parent + ' .like').addClass('fa-heart-o')
     $('#'+ parent + ' .footer_div > span').addClass('none')
     $('#'+ parent + ' .footer_div > span:nth-child(6)').toggleClass('none')
@@ -1647,7 +1647,7 @@ function CountComments(parent){
 $(document).on('click', '.comment_btn', function(e){
     var parent = $(this).parent().parent().parent().attr('id')
     CountComments(parent)
-    
+
 
     $('#'+ parent + ' .comment_btn').toggleClass('fa-comment-o fa-comment')
     $('#'+ parent + ' .post_comments').toggleClass('none')
@@ -1694,7 +1694,7 @@ function submitData(){
 </script>
 
 <script>
-  
+
 // input auto resi
 function onReady(f) {
     "complete" === document.readyState
@@ -1725,11 +1725,11 @@ function registerInput(el) {
 
     function adjust() {
 
-        // reset to smaller size (for if text deleted) 
+        // reset to smaller size (for if text deleted)
         el.style.width = "";
 
         // getting the scrollWidth should trigger a reflow
-        // and give you what the width would be in px if 
+        // and give you what the width would be in px if
         // original style, less any box-sizing
         var newWidth = el.scrollWidth + boxSizing;
 

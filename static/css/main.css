@@ -1773,7 +1773,11 @@ box-shadow: 1px 2px 15px 6px rgba(92,163,246,0.22);
     display: none;
     background: transparent;  /* optional: just make scrollbar invisible */
 }
-
+.post_tags_div::-webkit-scrollbar {
+    width: 0px;  /* remove scrollbar space */
+    display: none;
+    background: transparent;  /* optional: just make scrollbar invisible */
+}
 
 
 
