@@ -107,365 +107,10 @@
             <p class="click_to_post" id="myBtn">Click To Share Something Interesting Here 🙂</p>
         </div>
     </div>
-    <div class="new_posts_div">
+    <div class="new_posts_div" start="0" end="5">
 
     </div>
-    <div class="post" id="1">
-        <div class="post_header">
-            <img src="{{ url_for('static', filename='images/') }}{{user.user_photo.split(',')[0]}}" class="user_photo">
-            <div class="post_header_text">
-                <a href="#">
-                    <p class="user_name">Dmytro Lopushanskyy</p>
-                </a>
-                <p class="post_info">23 December, 10:13, Lviv</p>
-            </div>
-            <div class="post_tags_div">
-                <a href="#">
-                    <p class="post_tag">#future,</p>
-                </a>
-                <a href="#">
-                    <p class="post_tag">#future,</p>
-                </a>
-                <a href="#">
-                    <p class="post_tag">#future,</p>
-                </a>
-                <a href="#">
-                    <p class="post_tag">#future,</p>
-                </a>
-                <a href="#">
-                    <p class="post_tag">#future,</p>
-                </a>
-                <a href="#">
-                    <p class="post_tag">#future,</p>
-                </a>
-                <a href="#">
-                    <p class="post_tag">#future,</p>
-                </a>
-                <a href="#">
-                    <p class="post_tag">#future,</p>
-                </a>
-            </div>
-            <div class="post_dropdown dropbtn">
-                <div class="dots_container dropbtn">
-                    <div class="dots"></div>
-                </div>
-                <div id="myDropdown" class="dropdown-content">
-                    <a href="#">Change Privacy</a>
-                    <a href="#">Hide</a>
-                </div>
-            </div>
-        </div>
-        <div class="post_body">
-            <p class="post_text">Hi! Look at my new photo! Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            <div class="post_images">
-              <div class="img_container">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Empire_State_Building_from_the_Top_of_the_Rock.jpg/180px-Empire_State_Building_from_the_Top_of_the_Rock.jpg" class="post_img">
-              </div>
-              <div class="img_container">
-                  <img src="http://photoblogstop.com/wp-content/uploads/2012/07/Sierra_HDR_Panorama_DFX8048_2280x819_Q40_wm_mini.jpg" class="post_img">
-              </div>
-              <div class="img_container">
-                  <img src="https://scontent.fhen1-1.fna.fbcdn.net/v/t1.0-9/25289755_1979029282352374_1810228594444589056_n.jpg?oh=ebefcfd8626796810d116498d407da27&oe=5AFADCA3" class="post_img">
-              </div>
-            </div>
-        </div>
-        <hr>
-        <div class="post_footer">
-            <div class="footer_div reactions_div">
-                <div class="reactions hide pointer">
-                    <i class="fa fa-heart-o react_btn like" aria-hidden="true"></i>
-                    <!-- <i class="fa fa-heart-o react_btn" aria-hidden="true"></i> -->
-                    <span class="react_btn react2">😂</span>
-                    <span class="react_btn react3">😯</span>
-                    <span class="react_btn react4">🙂</span>
-                    <span class="react_btn react5">👏</span>
-                </div>
-                <span class="like_bottom pointer"><i class="fa fa-heart-o like_btn like" aria-hidden="true"></i></span>
-                <span class="react_btn like_btn none">😂</span>
-                <span class="react_btn like_btn none">😯</span>
-                <span class="react_btn like_btn none">🙂</span>
-                <span class="react_btn like_btn none">👏</span>
-                <div class="connection"></div>
-            </div>
-            <div class="footer_div">
-                <i class="fa fa-comment-o comment_btn pointer" aria-hidden="true"></i>
-            </div>
-            <div class="footer_div hey">
-                <i class="fa fa-share share_btn pointer" aria-hidden="true"></i>
-            </div>
-            <div class="quantity">
-                <p><span class="likes_quantity pointer">25</span> reactions,</p>
-                <p> <span class="comments_quantity pointer">35</span> comments,</p>
-                <p> <span class="shares_quantity pointer">25</span> shares</p>
-            </div>
-        </div><hr class="hr_none none">
-        <div class="post_comments none">
-            <div class="comment" id="6">
-                <img src="{{ url_for('static', filename='images/') }}{{user.user_photo.split(',')[0]}}" class="comment_img">
-                <p class="comm_username tagbe_hover">Dmytro Lopushanskyy</p>
-                <form class="comment_form">
-                    <div class="comm_text width100">
-                      <div>Wow! Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                      quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                      consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                      cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                      proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
-
-                    </div>
-                </form>
-                <div class="dropbtn comm_hover none">
-                  <div class="comm_dropdown_div dots_container dropbtn">
-                      <div class="dots"></div>
-                  </div>
-                  <div class="dropdown-content comm_dropdown">
-                      <a class="delete_comm">Delete</a>
-                  </div>
-              </div>
-            </div>
-            <div class="comment more_comm none" id="5">
-                <img src="{{ url_for('static', filename='images/') }}{{user.user_photo.split(',')[0]}}" class="comment_img">
-                <p class="comm_username tagbe_hover">Dmytro Lopushanskyy</p>
-                <form class="comment_form">
-                    <div class="comm_text width100">
-                      <div>Wow! Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                      quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                      consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                      cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                      proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
-
-                    </div>
-                </form>
-                <div class="dropbtn comm_hover none">
-                  <div class="comm_dropdown_div dots_container dropbtn">
-                      <div class="dots"></div>
-                  </div>
-                  <div class="dropdown-content comm_dropdown">
-                      <a class="delete_comm">Delete</a>
-                  </div>
-              </div>
-            </div>
-            <div class="comment more_comm none" id="7">
-                <img src="{{ url_for('static', filename='images/') }}{{user.user_photo.split(',')[0]}}" class="comment_img">
-                <p class="comm_username tagbe_hover">Dmytro Lopushanskyy</p>
-                <form class="comment_form">
-                    <div class="comm_text width100">
-                      <div>Wow! Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                      quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                      consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                      cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                      proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
-
-                    </div>
-                </form>
-                <div class="dropbtn comm_hover none">
-                  <div class="comm_dropdown_div dots_container dropbtn">
-                      <div class="dots"></div>
-                  </div>
-                  <div class="dropdown-content comm_dropdown">
-                      <a class="delete_comm">Delete</a>
-                  </div>
-              </div>
-            </div>
-            <div class="view_more pointer none">
-                <p class="view_more_text">View More Comments...</p>
-                <p class="view_more_text none">Hide More Comments</p>
-            </div>
-            <div class="my_comment">
-                <img src="{{ url_for('static', filename='images/') }}{{user.user_photo.split(',')[0]}}" class="comment_img my_img">
-                <p class="comm_username tagbe_hover my_name">Dmytro Lopushanskyy</p>
-                <form class="comment_form comm_form submit" method="get" action="" onsubmit="return false">
-                    <div class="textarea-container">
-                      <textarea class="my_textarea"></textarea>
-                      <div class="textarea-size"></div>
-                    </div>
-                    <i class="fa fa-smile-o smile_icon right50" aria-hidden="true"></i>
-                    <i class="fa fa-file-image-o smile_icon" aria-hidden="true"></i>
-                    <p class="input_tip">Press Enter to submit</p>
-                </form>
-            </div>
-        </div>
-    </div>
-    <div class="post" id="2">
-        <div class="post_header">
-            <img src="{{ url_for('static', filename='images/') }}{{user.user_photo.split(',')[0]}}" class="user_photo">
-            <div class="post_header_text">
-                <a href="#">
-                    <p class="user_name">Dmytro Lopushanskyy</p>
-                </a>
-                <p class="post_info">23 December, 10:13, Lviv</p>
-            </div>
-            <div class="post_tags_div">
-                <a href="#">
-                    <p class="post_tag">#future,</p>
-                </a>
-                <a href="#">
-                    <p class="post_tag">#future,</p>
-                </a>
-                <a href="#">
-                    <p class="post_tag">#future,</p>
-                </a>
-                <a href="#">
-                    <p class="post_tag">#future,</p>
-                </a>
-                <a href="#">
-                    <p class="post_tag">#future,</p>
-                </a>
-                <a href="#">
-                    <p class="post_tag">#future,</p>
-                </a>
-                <a href="#">
-                    <p class="post_tag">#future,</p>
-                </a>
-                <a href="#">
-                    <p class="post_tag">#future,</p>
-                </a>
-            </div>
-            <div class="post_dropdown dropbtn">
-                <div class="dots_container dropbtn">
-                    <div class="dots"></div>
-                </div>
-                <div id="myDropdown" class="dropdown-content">
-                    <a href="#">Change Privacy</a>
-                    <a href="#">Hide</a>
-                </div>
-            </div>
-        </div>
-        <div class="post_body">
-            <p class="post_text">Hi! Look at my new photo! Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            <img src="https://scontent.fhen1-1.fna.fbcdn.net/v/t1.0-9/25289755_1979029282352374_1810228594444589056_n.jpg?oh=ebefcfd8626796810d116498d407da27&oe=5AFADCA3" class="post_img">
-        </div>
-        <hr>
-        <div class="post_footer">
-            <div class="footer_div reactions_div">
-                <div class="reactions hide pointer">
-                    <i class="fa fa-heart-o react_btn like" aria-hidden="true"></i>
-                    <!-- <i class="fa fa-heart-o react_btn" aria-hidden="true"></i> -->
-                    <span class="react_btn react2">😂</span>
-                    <span class="react_btn react3">😯</span>
-                    <span class="react_btn react4">🙂</span>
-                    <span class="react_btn react5">👏</span>
-                </div>
-                <span class="like_bottom pointer"><i class="fa fa-heart-o like_btn like" aria-hidden="true"></i></span>
-                <span class="react_btn like_btn none">😂</span>
-                <span class="react_btn like_btn none">😯</span>
-                <span class="react_btn like_btn none">🙂</span>
-                <span class="react_btn like_btn none">👏</span>
-                <div class="connection"></div>
-            </div>
-            <div class="footer_div">
-                <i class="fa fa-comment-o comment_btn pointer" aria-hidden="true"></i>
-            </div>
-            <div class="footer_div hey">
-                <i class="fa fa-share share_btn pointer" aria-hidden="true"></i>
-            </div>
-            <div class="quantity">
-                <p><span class="likes_quantity pointer">25</span> reactions,</p>
-                <p> <span class="comments_quantity pointer">35</span> comments,</p>
-                <p> <span class="shares_quantity pointer">25</span> shares</p>
-            </div>
-        </div><hr class="hr_none none">
-        <div class="post_comments none">
-            <div class="comment" id="8">
-                <img src="{{ url_for('static', filename='images/') }}{{user.user_photo.split(',')[0]}}" class="comment_img">
-                <p class="comm_username tagbe_hover">Dmytro Lopushanskyy</p>
-                <form class="comment_form">
-                    <div class="comm_text width100">
-                      <div>Wow! Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                      quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                      consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                      cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                      proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
-
-                    </div>
-                </form>
-                <div class="dropbtn comm_hover none">
-                  <div class="comm_dropdown_div dots_container dropbtn">
-                      <div class="dots"></div>
-                  </div>
-                  <div class="dropdown-content comm_dropdown">
-                      <a class="delete_comm">Delete</a>
-                  </div>
-              </div>
-            </div>
-            <div class="comment more_comm none" id="3">
-                <img src="{{ url_for('static', filename='images/') }}{{user.user_photo.split(',')[0]}}" class="comment_img">
-                <p class="comm_username tagbe_hover">Dmytro Lopushanskyy</p>
-                <form class="comment_form">
-                    <div class="comm_text width100">
-                      <div>Wow! Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                      quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                      consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                      cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                      proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
-
-                    </div>
-                </form>
-                <div class="dropbtn comm_hover none">
-                  <div class="comm_dropdown_div dots_container dropbtn">
-                      <div class="dots"></div>
-                  </div>
-                  <div class="dropdown-content comm_dropdown">
-                      <a class="delete_comm">Delete</a>
-                  </div>
-              </div>
-            </div>
-            <div class="comment more_comm none" id="10">
-                <img src="{{ url_for('static', filename='images/') }}{{user.user_photo.split(',')[0]}}" class="comment_img">
-                <p class="comm_username tagbe_hover">Якийсь чувак</p>
-                <form class="comment_form">
-                    <div class="comm_text width100">
-                      <div>Wow! Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                      quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                      consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                      cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                      proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
-
-                    </div>
-                </form>
-                <div class="dropbtn comm_hover none">
-                  <div class="comm_dropdown_div dots_container dropbtn">
-                      <div class="dots"></div>
-                  </div>
-                  <div class="dropdown-content comm_dropdown">
-                      <a class="delete_comm">Delete</a>
-                  </div>
-              </div>
-            </div>
-            <div class="view_more pointer none">
-                <p class="view_more_text">View More Comments...</p>
-                <p class="view_more_text none">Hide More Comments</p>
-            </div>
-            <div class="my_comment">
-                <img src="{{ url_for('static', filename='images/') }}{{user.user_photo.split(',')[0]}}" class="comment_img my_img">
-                <p class="comm_username tagbe_hover my_name">Dmytro Lopushanskyy</p>
-                <form class="comment_form comm_form submit" method="get" action="" onsubmit="return false">
-                    <div class="textarea-container">
-                      <textarea class="my_textarea"></textarea>
-                      <div class="textarea-size"></div>
-                    </div>
-                    <i class="fa fa-smile-o smile_icon right50" aria-hidden="true"></i>
-                    <i class="fa fa-file-image-o smile_icon" aria-hidden="true"></i>
-                    <p class="input_tip">Press Enter to submit</p>
-                </form>
-            </div>
-        </div>
-    </div>
+    
 
 
 
@@ -504,9 +149,9 @@
                 <p id="trigger_class" class="none"></p>
                 <hr>
                 <div class="post_add_div">
-                    <form action="#" id="post_form">
+                    <form id="post_form" enctype="multipart/form-data">
                       <div class="input-file-container">
-                        <input class="input-file" id="my-file" type="file" multiple="multiple" accept="image/jpg, image/jpeg, image/png">
+                        <input class="input-file" name="new_post_images" id="my-file" type="file" multiple="multiple" accept="image/*">
                         <label tabindex="0" for="my-file" class="input-file-trigger"><i class="fa fa-file-image-o" aria-hidden="true"></i>Add Images (<span class="img_num">4</span>)</label>
                         <label tabindex="0" for="check_in" class="input-file-trigger" id="check_in_div">
                             <i class="fa fa-map-marker check_icon" aria-hidden="true"></i>
@@ -520,8 +165,40 @@
                 </div>
             </div>
   </div>
-
 </div>
+
+<div id="reactions_list" class="modal" start="0" end="10">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <div class="create_post_modal">
+                <div class="post_header">
+                    <div class="post_header_text ml10">
+                        <p class="user_name non_hover"><span class="react_quan"></span> reactions</p>
+                    </div>
+                    <span class="close close_btn" ">&times;</span>
+                </div><hr>
+                <div class="post_body">
+                    <div id="floatingCirclesG" class="none">
+                          <div class="f_circleG" id="frotateG_01"></div>
+                          <div class="f_circleG" id="frotateG_02"></div>
+                          <div class="f_circleG" id="frotateG_03"></div>
+                          <div class="f_circleG" id="frotateG_04"></div>
+                          <div class="f_circleG" id="frotateG_05"></div>
+                          <div class="f_circleG" id="frotateG_06"></div>
+                          <div class="f_circleG" id="frotateG_07"></div>
+                          <div class="f_circleG" id="frotateG_08"></div>
+                    </div>
+                </div>
+                
+            </div>
+  </div>
+</div>
+
+
+
+
+<span class="none" status="wait" id="new_posts_status"></span>
 
 <div class="input-buffer"></div>
 
@@ -531,6 +208,189 @@
 
 <img src="{{ url_for('static', filename='images/') }}{{user.user_photo.split(',')[0]}}" class="test_img2">
 <img src="{{ url_for('static', filename='images/') }}{{user.user_photo.split(',')[0]}}" class="test_img">
+
+
+<script>
+
+$(document).on('click', '.quantity p:first-child', function(e){
+    $('#floatingCirclesG').removeClass('none')
+
+    var id = $(this).parent().parent().parent().attr('id')
+    $('#reactions_list').css('display', 'block')
+    $("body").css("overflow", "hidden");
+    $('#reactions_list .react_quan').text($('#' + id).find('.likes_quantity').text())
+
+    var start = $('#reactions_list').attr('start')
+    var end = $('#reactions_list').attr('end')
+    console.log(start, end)
+
+    $.ajax({
+        url: '/get_reactions',
+        data: JSON.stringify({'post_id': id, 'start': start, 'end': end}, null, '\t'),
+        type: 'POST',
+        contentType: 'application/json;charset=UTF-8',
+        success: function(response) {
+            console.log(response.status, response.react_list, response.end_of_reacts);
+            if (response.end_of_reacts == 'true') {
+                $('#floatingCirclesG').addClass('none')
+            }else{
+              $('#reactions_list').attr('start', Number(start)+10)
+              $('#reactions_list').attr('end', Number(end)+10)
+            }
+
+            for (var i = 0; i <= response.react_list.length - 1; i++) {
+                
+                
+                var curr = $('#reactions_list .post_body').prepend('<a href="'+ 'special?id='+ response.react_list[i][2][0] +'"><div class="user_reacted_div"><img src="'+ '/static/images/'+ response.react_list[i][2][5].split(',')[0] +'" class="user_photo"><div class="post_header_text"><p class="user_name non_hover">'+ response.react_list[i][2][1] + ' ' + response.react_list[i][2][2] +' </p></div><div class="user_reactions_div"><span class="user_reaction none">👍</span><span class="user_reaction none">😂</span><span class="user_reaction none">😯</span><span class="user_reaction none">🙂</span><span class="user_reaction none">👏</span></div></div></a><hr class="hr_btw_reactions">')
+
+                console.log('d',curr, response.react_list[i], response.react_list[i][2][5].split(',')[0], $('#reactions_list .post_body a:first-child .user_reactions_div .user_reaction:nth-child('+response.react_list[i][1]+')'), response.react_list[i][1])
+
+                $('#reactions_list .post_body a:first-child .user_reactions_div .user_reaction:nth-child('+response.react_list[i][1]+')').removeClass('none')
+            }
+        },
+        error: function(error) {
+            console.log(error);
+        }
+    });
+})
+
+$(document).on('click', '.close_btn', function(e){
+    $('#reactions_list a').remove()
+    $('#reactions_list .hr_btw_reactions').remove()
+
+    $('#reactions_list').css('display', 'none')
+    $("body").css("overflow", "auto");
+})
+
+
+</script>
+
+
+
+
+
+<script>
+  
+// getting posts
+
+$(document).ready(function (event) {
+    loadNewPosts()
+});
+
+$(window).scroll(function (event) {
+    var scroll = $(window).scrollTop();
+    if (scroll > $('body').height() - 943 && !$('.spinner').hasClass('none') && $('#new_posts_status').attr('status') != 'wait') {
+      loadNewPosts()
+      $('#new_posts_status').attr('status', 'wait')
+    }
+});
+
+function loadNewPosts (){
+    var start = $('.new_posts_div').attr('start')
+    var end = $('.new_posts_div').attr('end')
+
+    var id = $("#us_id").val();
+    var action =  'get_posts'
+
+    $.ajax({
+        url: '/get_posts',
+        data: JSON.stringify({'id':id, 'action': action, 'start':start, 'end': end}, null, '\t'),
+        type: 'POST',
+        contentType: 'application/json;charset=UTF-8',
+        success: function(response) {
+            console.log(response.status);
+            if (response.end_of_posts == 'true') {
+                $('.spinner').addClass('none')
+            }else{
+              $('.new_posts_div').attr('start', Number(start)+5)
+              $('.new_posts_div').attr('end', Number(end)+5)
+            }
+
+            console.log('ddd')
+            for (var i = 0; i <= response.posts_list.length - 1; i++) {
+                
+                $(".new_posts_div" ).append( '<div class="post" id="'+response.posts_list[i][0]+'"><div class="post_header"><img src="/static/images/'+ response.posts_list[i][10][5].split(',')[0] +'" class="user_photo"><div class="post_header_text"><a href="#"><p class="user_name">'+ response.posts_list[i][10][1] + ' '+  response.posts_list[i][10][2] +'</p></a><p class="post_info">' + response.posts_list[i][6] +', ' + response.posts_list[i][5] + '</p></div><div class="post_tags_div"></div><div class="post_dropdown dropbtn"><div class="dots_container dropbtn"><div class="dots"></div></div><div id="myDropdown" class="dropdown-content"><a href="#">Change Privacy</a><a href="#">Hide</a></div></div></div><div class="post_body"><p class="post_text">' + response.posts_list[i][2] +'</p><div class="post_images"></div></div><hr><div class="post_footer"><div class="footer_div reactions_div"><div class="reactions hide pointer"><i class="fa fa-heart-o react_btn like" aria-hidden="true"></i><span class="react_btn react2">😂</span><span class="react_btn react3">😯</span> <span class="react_btn react4">🙂</span> <span class="react_btn react5">👏</span> </div><span class="like_bottom pointer"><i class="fa fa-heart-o like_btn like" aria-hidden="true"></i></span><span class="react_btn like_btn none">😂</span><span class="react_btn like_btn none">😯</span> <span class="react_btn like_btn none">🙂</span> <span class="react_btn like_btn none">👏</span> <div class="connection"></div></div><div class="footer_div"><i class="fa fa-comment-o comment_btn pointer" aria-hidden="true"></i></div><div class="footer_div hey"><i class="fa fa-share share_btn pointer" aria-hidden="true"></i></div><div class="quantity"><p><span class="likes_quantity pointer">' + response.posts_list[i][8] +'</span> reactions,</p><p> <span class="comments_quantity pointer">' + response.posts_list[i][11] +'</span> comments,</p><p> <span class="shares_quantity pointer">0</span> shares</p></div></div><hr class="hr_none none"><div class="post_comments none" start="0" end="1"><div class="view_more pointer none"><p class="view_more_text">View More Comments...</p><br><p class="view_more_text none">Hide All Comments</p></div><div class="my_comment"><img src="{{ url_for('static', filename='images/') }}{{user.user_photo.split(',')[0]}}" class="comment_img my_img"><p class="comm_username tagbe_hover my_name">{{user.first_name}} {{user.last_name}}</p><form class="comment_form comm_form submit" method="get" action="" onsubmit="return false"><div class="textarea-container"><textarea class="my_textarea"></textarea><div class="textarea-size"></div></div><i class="fa fa-smile-o smile_icon right50" aria-hidden="true"></i><i class="fa fa-file-image-o smile_icon" aria-hidden="true"></i><p class="input_tip">Press Enter to submit</p></form></div></div></div>' );
+
+                console.log('ddd', response.posts_list[i][3], response.posts_list[i][3].split(',') )
+
+                // display right reaction
+
+                for (var l = 0; l <= response.posts_list[i][9].length - 1; l++) {
+                  console.log('user', response.posts_list[i][9][l][0], response.posts_list[i][9][l][1])
+                  if (response.posts_list[i][9][l][0] == {{user.id}}) {
+                      if (response.posts_list[i][9][l][1] == 1) {
+                          $('#'+ response.posts_list[i][0] + ' .footer_div > span').addClass('none')
+                          $('#'+ response.posts_list[i][0] + ' .footer_div > span:nth-child(2)').toggleClass('none')
+                          $('#'+ response.posts_list[i][0] + ' .like').toggleClass('fa-heart-o fa-heart')
+                      }else{
+                          console.log('log', 'else', Number(response.posts_list[i][9][l][1]) + 1)
+                          react_id = Number(response.posts_list[i][9][l][1]) + 1
+                          $('#'+ response.posts_list[i][0] + ' .like').removeClass('fa-heart')
+                          $('#'+ response.posts_list[i][0] + ' .like').addClass('fa-heart-o')
+                          $('#'+ response.posts_list[i][0] + ' .footer_div > span').addClass('none')
+                          $('#'+ response.posts_list[i][0] + ' .footer_div > span:nth-child('+ react_id +')').toggleClass('none')
+                          $('#'+ response.posts_list[i][0] + ' .post_footer .footer_div:nth-child(1)').css("marginTop", "-20px")
+
+                      }
+                  }
+                }
+
+                
+
+                
+                if (response.posts_list[i][3] != '') {
+                    for (var b = 0; b <= response.posts_list[i][3].split(',').length - 2; b++) {
+                      console.log(response.posts_list[i][3].split(',')[b])
+                      $('#'+response.posts_list[i][0]+ ' .post_images').append('<div class="img_container"><img src=" '+ '/static/images/' + response.posts_list[i][3].split(',')[b]  +' " class="post_img"></div>')
+                    }
+                }
+                
+
+
+                tags_array = response.posts_list[i][4]
+
+                console.log('tagsall', tags_array, tags_array.split(','))
+                if (tags_array != '') {
+                    tags_array = tags_array.split(',')
+                    for (var a = 0; a <= tags_array.length-1; a++) {
+                      if (tags_array[a].split('')[0] == '') {
+                        var symbol = ' #'
+                        tags_array[a] = tags_array[a].substr(1);
+                      }else{
+                        var symbol = ' '
+                      }
+
+                      tags_array[a].toString()
+                      console.log('tags', tags_array[a])
+
+
+                      $('#'+response.posts_list[i][0]+ ' .post_tags_div').append('<a href="#"><p class="post_tag">'+ symbol + tags_array[a] +', </p></a>')
+
+                    }
+                }
+                $('#new_posts_status').attr('status', '')
+            }
+            
+            niceImages()
+            aligning()
+            
+            // $('.post_img').load(function(){
+            //     niceImages()
+            //     aligning()
+            // })
+            
+
+        },
+        error: function(error) {
+            console.log(error);
+        }
+    });
+
+};
+
+</script>
+
+
 
 <script>
 
@@ -912,19 +772,85 @@ $(document).ready(function(e) {
 
 <script>
 
+function readURL20() {
+    input = $('#my-file')[0]
+    var files_array = []
+    var numFiles = input.files.length;
+
+    if (input.files && input.files[0]) {
+
+      var reader = new FileReader();
+      reader.onload = function (e) {
+
+          var form_data = new FormData($('#post_form')[0]);
+
+          $.ajax({
+                type: 'POST',
+                url: '/post' ,
+                data: form_data,
+                contentType: false,
+                cache: false,
+                processData: false,
+                async: false,
+                success: function(response) {
+                    console.log(response.status);
+                    
+                },
+                error: function(error) {
+                    console.log(error);
+                }
+            });
+
+          for (var value of form_data.values()) {
+
+            files_array.push(value)
+             console.log(value); 
+          }
+          console.log('form_data', files_array); 
+          return files_array
+      }
+      reader.readAsDataURL(input.files[0]);
+    }
+}
+function img_upload(callback) {
+  input = $('#my-file')[0]
+    var files_array = []
+    var numFiles = input.files.length;
+
+    if (input.files && input.files[0]) {
+
+      var reader = new FileReader();
+
+
+      reader.onload = function (e) {
+
+          var form_data = new FormData($('#post_form')[0]);
+
+          
+          for (var value of form_data.values()) {
+            console.log('infunc', value)
+             
+          }
+          callback(form_data); 
+          
+      }
+      reader.readAsDataURL(input.files[0]);
+    }else{
+      callback(undefined); 
+    }
+}
+
+
 $(document).on('click', '.post_btn', function(e) {
     e.preventDefault()
+
+    
 
     var text = $('.create_post_textarea').html()
     text = text.split('')
     var image_being = $('.post_images').length
 
-    var tags_array = [];
-
-    $('.create_post_textarea .hastag_changed').each(function(){
-         console.log('found!')
-        tags_array.push($(this).val())
-    })
+    
 
     var delete_cur
     var aditional = 0
@@ -945,60 +871,145 @@ $(document).on('click', '.post_btn', function(e) {
             text.splice(delete_cur, i-aditional - delete_cur + 1)
         }
     }
-    console.log(text)
+
     if (text.length == 0 && image_being == 1) {
       console.log('leer')
       return
     }
     modal.style.display = "none";
 
-    text = text.join('')
-    city = $('.place_check').html()
-    id = Math.floor(Math.random() * 99999899999) + 999999
+    text = text.join('');
 
-    $(".new_posts_div" ).prepend( '<div class="post" id="'+id+'"><div class="post_header"><img src="{{ url_for('static', filename='images/') }}{{user.user_photo.split(',')[0]}}" class="user_photo"><div class="post_header_text"><a href="#"><p class="user_name">{{user.first_name}} {{user.last_name}}</p></a><p class="post_info">' + new Date().toLocaleString() +', ' + city + '</p></div><div class="post_tags_div"></div><div class="post_dropdown dropbtn"><div class="dots_container dropbtn"><div class="dots"></div></div><div id="myDropdown" class="dropdown-content"><a href="#">Change Privacy</a><a href="#">Hide</a></div></div></div><div class="post_body"><p class="post_text">' + text +'</p><div class="post_images"></div></div><hr><div class="post_footer"><div class="footer_div reactions_div"><div class="reactions hide pointer"><i class="fa fa-heart-o react_btn like" aria-hidden="true"></i><span class="react_btn react2">😂</span><span class="react_btn react3">😯</span> <span class="react_btn react4">🙂</span> <span class="react_btn react5">👏</span> </div><span class="like_bottom pointer"><i class="fa fa-heart-o like_btn like" aria-hidden="true"></i></span><span class="react_btn like_btn none">😂</span><span class="react_btn like_btn none">😯</span> <span class="react_btn like_btn none">🙂</span> <span class="react_btn like_btn none">👏</span> <div class="connection"></div></div><div class="footer_div"><i class="fa fa-comment-o comment_btn pointer" aria-hidden="true"></i></div><div class="footer_div hey"><i class="fa fa-share share_btn pointer" aria-hidden="true"></i></div><div class="quantity"><p><span class="likes_quantity pointer">0</span> reactions,</p><p> <span class="comments_quantity pointer">0</span> comments,</p><p> <span class="shares_quantity pointer">0</span> shares</p></div></div><hr class="hr_none none"><div class="post_comments none"><div class="view_more pointer none"><p class="view_more_text">View More Comments...</p><p class="view_more_text none">Hide More Comments</p></div><div class="my_comment"><img src="{{ url_for('static', filename='images/') }}{{user.user_photo.split(',')[0]}}" class="comment_img my_img"><p class="comm_username tagbe_hover my_name">{{user.first_name}} {{user.last_name}}</p><form class="comment_form comm_form submit" method="get" action="" onsubmit="return false"><div class="textarea-container"><textarea class="my_textarea"></textarea><div class="textarea-size"></div></div><i class="fa fa-smile-o smile_icon right50" aria-hidden="true"></i><i class="fa fa-file-image-o smile_icon" aria-hidden="true"></i><p class="input_tip">Press Enter to submit</p></form></div></div></div>' );
+    console.log('1')
+    img_upload(function(result){
+      form_data = result
+      console.log('heyhey',  form_data);
 
-    var src
-    $('.create_post_images .upload_div').each(function(){
-        src = $(this).find('.image_uploaded').attr('src');
-        console.log('qwerty', id, $('#'+id+ ' .post_images'), '#'+id+ ' .post_images')
-        $('#'+id+ ' .post_images').append('<div class="img_container"><img src=" '+ src +' " class="post_img"></div>')
-    })
+      
 
-    for (var i = 0; i <= tags_array.length-1; i++) {
-      if (tags_array[i].split('')[0] == '') {
-        var symbol = ' #'
-        tags_array[i] = tags_array[i].substr(1);
+      city = $('.place_check').html();
+      var tags_array = [];
+
+    $('.create_post_textarea .hastag_changed').each(function(){
+         console.log('found!')
+        tags_array.push($(this).val())
+    });
+
+      if (form_data != undefined) {
+
+          for (var value of form_data.values()) {
+            console.log('outfunc', value)
+             
+          }
+          
+          form_data.append('text', text)
+          form_data.append('tags', tags_array)
+          form_data.append('location', city)
+          form_data.append('date', new Date().toLocaleString())
+
+          $.ajax({
+                type: 'POST',
+                url: '/post' ,
+                data: form_data,
+                contentType: false,
+                cache: false,
+                processData: false,
+                async: false,
+                success: function(response) {
+                    console.log(response.status, response.post_id, 'searching');
+                    $('#new_posts_status').text(response.post_id)
+                },
+                error: function(error) {
+                    console.log(error);
+                }
+            });
       }else{
-        var symbol = ' '
+          console.log('else')
+          var form_data = new FormData($('#post_form')[0]);
+
+          form_data.append('text', text)
+          form_data.append('tags', tags_array)
+          form_data.append('location', city)
+          form_data.append('date', new Date().toLocaleString())
+
+          $.ajax({
+                type: 'POST',
+                url: '/post' ,
+                data: form_data,
+                contentType: false,
+                cache: false,
+                processData: false,
+                async: false,
+                success: function(response) {
+                    console.log(response.status, response.post_id, 'searching');
+                    $('#new_posts_status').text(response.post_id)
+                    
+                },
+                error: function(error) {
+                    console.log(error);
+                }
+            });
       }
 
-      $('#'+id+ ' .post_tags_div').append('<a href="#"><p class="post_tag">'+ symbol + tags_array[i] +', </p></a>')
 
-    }
+      city = $('.place_check').html();
+      
+
+      id = $('#new_posts_status').html()
+
+      $(".new_posts_div" ).prepend( '<div class="post" id="'+id+'"><div class="post_header"><img src="{{ url_for('static', filename='images/') }}{{user.user_photo.split(',')[0]}}" class="user_photo"><div class="post_header_text"><a href="#"><p class="user_name">{{user.first_name}} {{user.last_name}}</p></a><p class="post_info">' + new Date().toLocaleString() +', ' + city + '</p></div><div class="post_tags_div"></div><div class="post_dropdown dropbtn"><div class="dots_container dropbtn"><div class="dots"></div></div><div id="myDropdown" class="dropdown-content"><a href="#">Change Privacy</a><a href="#">Hide</a></div></div></div><div class="post_body"><p class="post_text">' + text +'</p><div class="post_images"></div></div><hr><div class="post_footer"><div class="footer_div reactions_div"><div class="reactions hide pointer"><i class="fa fa-heart-o react_btn like" aria-hidden="true"></i><span class="react_btn react2">😂</span><span class="react_btn react3">😯</span> <span class="react_btn react4">🙂</span> <span class="react_btn react5">👏</span> </div><span class="like_bottom pointer"><i class="fa fa-heart-o like_btn like" aria-hidden="true"></i></span><span class="react_btn like_btn none">😂</span><span class="react_btn like_btn none">😯</span> <span class="react_btn like_btn none">🙂</span> <span class="react_btn like_btn none">👏</span> <div class="connection"></div></div><div class="footer_div"><i class="fa fa-comment-o comment_btn pointer" aria-hidden="true"></i></div><div class="footer_div hey"><i class="fa fa-share share_btn pointer" aria-hidden="true"></i></div><div class="quantity"><p><span class="likes_quantity pointer">0</span> reactions,</p><p> <span class="comments_quantity pointer">0</span> comments,</p><p> <span class="shares_quantity pointer">0</span> shares</p></div></div><hr class="hr_none none"><div class="post_comments none" start="0" end="1"><div class="view_more pointer none"><p class="view_more_text">View More Comments...</p><br><p class="view_more_text none">Hide Comments</p></div><div class="my_comment"><img src="{{ url_for('static', filename='images/') }}{{user.user_photo.split(',')[0]}}" class="comment_img my_img"><p class="comm_username tagbe_hover my_name">{{user.first_name}} {{user.last_name}}</p><form class="comment_form comm_form submit" method="get" action="" onsubmit="return false"><div class="textarea-container"><textarea class="my_textarea"></textarea><div class="textarea-size"></div></div><i class="fa fa-smile-o smile_icon right50" aria-hidden="true"></i><i class="fa fa-file-image-o smile_icon" aria-hidden="true"></i><p class="input_tip">Press Enter to submit</p></form></div></div></div>' );
+
+      var src
+      $('.create_post_images .upload_div').each(function(){
+          src = $(this).find('.image_uploaded').attr('src');
+          console.log('qwerty', id, $('#'+id+ ' .post_images'), '#'+id+ ' .post_images')
+          $('#'+id+ ' .post_images').append('<div class="img_container"><img src=" '+ src +' " class="post_img"></div>')
+      })
+
+      tags_array = [];
+
+      $('.create_post_textarea .hastag_changed').each(function(){
+           console.log('found!')
+          tags_array.push($(this).val())
+      });
+
+      for (var i = 0; i <= tags_array.length-1; i++) {
+        if (tags_array[i].split('')[0] == '') {
+          var symbol = ' #'
+          tags_array[i] = tags_array[i].substr(1);
+        }else{
+          var symbol = ' '
+        }
+
+        $('#'+id+ ' .post_tags_div').append('<a href="#"><p class="post_tag">'+ symbol + tags_array[i] +', </p></a>')
+
+      }
 
 
-    niceImages()
-    aligning()
+      niceImages()
+      aligning()
 
-    $("body").css("overflow", "auto");
+      $("body").css("overflow", "auto");
 
-    $('.place_check').addClass('none')
-    $('.default_text').removeClass('none')
+      $('.place_check').addClass('none')
+      $('.default_text').removeClass('none')
 
-    $('.create_post_images').empty()
+      $('.create_post_images').empty()
 
-    $( "#trigger_class" ).trigger( "click" );
+      $( "#trigger_class" ).trigger( "click" );
 
-    $('.alert').addClass('appear_alert')
+      $('.alert').addClass('appear_alert')
 
-    setTimeout(function(){
-      $('.alert').removeClass('appear_alert')
-      $('.alert').addClass('hide_alert')
-    },2000);
-    setTimeout(function(){
-      $('.alert').removeClass('hide_alert')
-    },2500);
+      setTimeout(function(){
+        $('.alert').removeClass('appear_alert')
+        $('.alert').addClass('hide_alert')
+      },2000);
+      setTimeout(function(){
+        $('.alert').removeClass('hide_alert')
+      },2500);
+    });
+    
+    
 });
 
 // empty all inputs
@@ -1328,74 +1339,7 @@ jQuery.each(jQuery('textarea[data-autoresize]'), function() {
 
 
 
-<script>
-
-
-$(window).on('load', function(){
-    aligning()
-});
-
-
-$(document).ready(function(){
-    niceImages()
-})
-function niceImages(){
-  $( ".post" ).each(function() {
-        id = Number($(this).attr('id'))
-
-        length = $('#'+id+ ' .post_body img').length
-
-        console.log(length)
-        if (length == 1){
-            $('#'+id+ ' .post_body .img_container').addClass('width100')
-        }
-        if (length == 2 || length == 4){
-            $('#'+id+ ' .post_body .img_container').addClass('width50')
-        }
-        if (length == 3){
-            $('#'+id+ ' .post_body .img_container').addClass('width50')
-            $('#'+id+ ' .post_body .img_container:nth-child(3)').addClass('three_img')
-            var divHeight = $('.post_images').width() / 2;
-        }
-    });
-}
-function aligning(){
-    $( ".post" ).each(function() {
-      id = Number($(this).attr('id'))
-
-      length = $('#'+id+ ' .post_body img').length
-      var divWidth = $('.post_images').width() / 2;
-      if (length != 1){
-          $( '#'+id+ " .post_body img" ).each(function() {
-          if ($(this).height() < $(this).width()){
-              $(this).css('height', divWidth+'px');
-              $(this).css('width', 'auto');
-              $(this).parent().css('overflow', 'scroll');
-              $('#'+id+ ' .post_body img').addClass('vertical_align_bottom')
-              $('#'+id+ ' .post_body .img_container').addClass('vertical_align_bottom')
-          }else{
-              // if (length == 3){
-              //     $('#'+id+ ' .post_body .img_container:nth-child(3) img').css('marginTop','-'+divWidth/2+'px');
-              //     $('#'+id+ ' .post_body .img_container:nth-child(3)').css('height', divWidth+'px');
-              // }
-              $(this).parent().css('height', divWidth+'px');
-              $(this).parent().css('overflow', 'scroll');
-              $('#'+id+ ' .post_body img').addClass('vertical_align_bottom')
-              $('#'+id+ ' .post_body .img_container').addClass('vertical_align_bottom')
-          }
-          });
-      }
-    });
-}
-
-
-</script>
-
-
-
-
-
-
+<script src="{{ url_for('static', filename='js/aligning.js') }}"></script>
 
 
 <script>
@@ -1506,22 +1450,29 @@ $(document).on('click', '.delete_comm', function(e) {
 
 $(document).on('click', '.like', function(e){
     var parent = $(this).parent().parent().parent().parent().attr('id')
+    addReaction(1, parent)
 
     if (!$('#'+ parent +' .like').hasClass('fa-heart') && !$('#'+ parent +' .like_bottom').hasClass('none')) {
         num = Number($('#'+ parent +' .likes_quantity').html()) + 1
         $('#'+ parent + ' .likes_quantity').html(num)
+        
     }else{
         if (!$('#'+ parent + ' .like_bottom').hasClass('none')) {
             num = Number($('#'+ parent + ' .likes_quantity').html()) - 1
             $('#'+ parent + ' .likes_quantity').html(num)
+            removeReaction(1, parent)
         }
+
+        
     }
 
     $('#'+ parent + ' .footer_div > span').addClass('none')
     $('#'+ parent + ' .footer_div > span:nth-child(2)').toggleClass('none')
     $('#'+ parent + ' .like').toggleClass('fa-heart-o fa-heart')
-});
 
+
+
+});
 
 $(document).on('click', '.react2', function(e){
     var parent = $(this).parent().parent().parent().parent().attr('id')
@@ -1529,8 +1480,9 @@ $(document).on('click', '.react2', function(e){
     if (!$('#'+ parent + ' .like_bottom').hasClass('none') && $('#'+ parent + ' .like').hasClass('fa-heart-o')) {
         num = Number($('#'+ parent + ' .likes_quantity').html()) + 1
         $('#'+ parent + ' .likes_quantity').html(num)
+        
     }
-
+    addReaction(2, parent)
     $('#'+ parent + ' .like').removeClass('fa-heart')
     $('#'+ parent + ' .like').addClass('fa-heart-o')
     $('#'+ parent + ' .footer_div > span').addClass('none')
@@ -1544,8 +1496,9 @@ $(document).on('click', '.react3', function(e){
     if (!$('#'+ parent + ' .like_bottom').hasClass('none') && $('#'+ parent + ' .like').hasClass('fa-heart-o')) {
         num = Number($('#'+ parent + ' .likes_quantity').html()) + 1
         $('#'+ parent + ' .likes_quantity').html(num)
+        
     }
-
+    addReaction(3, parent)
     $('#'+ parent + ' .like').removeClass('fa-heart')
     $('#'+ parent + ' .like').addClass('fa-heart-o')
     $('#'+ parent + ' .footer_div > span').addClass('none')
@@ -1559,8 +1512,9 @@ $(document).on('click', '.react4', function(e){
     if (!$('#'+ parent + ' .like_bottom').hasClass('none') && $('#'+ parent + ' .like').hasClass('fa-heart-o')) {
         num = Number($('#'+ parent + ' .likes_quantity').html()) + 1
         $('#'+ parent + ' .likes_quantity').html(num)
+        
     }
-
+    addReaction(4, parent)
     $('#'+ parent + ' .like').removeClass('fa-heart')
     $('#'+ parent + ' .like').addClass('fa-heart-o')
     $('#'+ parent + ' .footer_div > span').addClass('none')
@@ -1574,8 +1528,10 @@ $(document).on('click', '.react5', function(e){
     if (!$('#'+ parent + ' .like_bottom').hasClass('none') && $('#'+ parent + ' .like').hasClass('fa-heart-o')) {
         num = Number($('#'+ parent + ' .likes_quantity').html()) + 1
         $('#'+ parent + ' .likes_quantity').html(num)
-    }
 
+        
+    }
+    addReaction(5, parent)
     $('#'+ parent + ' .like').removeClass('fa-heart')
     $('#'+ parent + ' .like').addClass('fa-heart-o')
     $('#'+ parent + ' .footer_div > span').addClass('none')
@@ -1588,10 +1544,13 @@ $(document).on('dblclick', '.post', function(e){
     if (!$('#'+ parent + ' .like').hasClass('fa-heart') && !$('#'+ parent + ' .like_bottom').hasClass('none')) {
         num = Number($('#'+ parent + ' .likes_quantity').html()) + 1
         $('#'+ parent + ' .likes_quantity').html(num)
+        addReaction(1, parent)
     }else{
         if (!$('#'+ parent + ' .like_bottom').hasClass('none')) {
             num = Number($('#'+ parent + ' .likes_quantity').html()) - 1
             $('#'+ parent + ' .likes_quantity').html(num)
+
+            removeReaction(1, parent)
         }
     }
 
@@ -1603,9 +1562,40 @@ $(document).on('dblclick', '.post', function(e){
         $('#'+ parent + ' .reactions span:nth-child(3), .reactions span:nth-child(4), .reactions span:nth-child(5), .reactions span:nth-child(6)').removeClass('none')
         num = Number($('#'+ parent + ' .likes_quantity').html()) - 1
         $('#'+ parent + ' .likes_quantity').html(num)
+
+        removeReaction(1, parent)
     }
 });
 
+function addReaction(reaction, post_id){
+    $.ajax({
+        url: '/reaction',
+        data: JSON.stringify({'reaction': reaction, 'post_id': post_id, 'date': Date().toLocaleString()}, null, '\t'),
+        type: 'POST',
+        contentType: 'application/json;charset=UTF-8',
+        success: function(response) {
+            console.log(response.status);
+        },
+        error: function(error) {
+            console.log(error);
+        }
+    });
+}
+
+function removeReaction(reaction, post_id){
+    $.ajax({
+        url: '/remove_reaction',
+        data: JSON.stringify({'reaction': reaction, 'post_id': post_id}, null, '\t'),
+        type: 'POST',
+        contentType: 'application/json;charset=UTF-8',
+        success: function(response) {
+            console.log(response.status);
+        },
+        error: function(error) {
+            console.log(error);
+        }
+    });
+}
 
 var textContainer, textareaSize, input;
 var autoSize = function () {
@@ -1646,49 +1636,154 @@ function CountComments(parent){
 
 $(document).on('click', '.comment_btn', function(e){
     var parent = $(this).parent().parent().parent().attr('id')
-    CountComments(parent)
+    var parent_div = $(this).parent().parent().parent()
+    if ($(this).parent().parent().parent().find('.post_comments').hasClass('none')) {
+        var start = $(this).parent().parent().parent().find('.post_comments').attr('start')
+        var end = $(this).parent().parent().parent().find('.post_comments').attr('end')
 
+        $.ajax({
+            url: '/get_comments',
+            data: JSON.stringify({'post_id': parent, 'start': start, 'end': end}, null, '\t'),
+            type: 'POST',
+            contentType: 'application/json;charset=UTF-8',
+            success: function(response) {
+                console.log(response.status);
+                console.log(response.comments_list);
+                $('#'+ parent + ' .comment_btn').toggleClass('fa-comment-o fa-comment')
+                $('#'+ parent + ' .post_comments').toggleClass('none')
+                $('#'+ parent + ' .hr_none').toggleClass('none')
+                $('#'+ parent + ' .comment_form textarea').focus();
+                for (var i = 0; i <= response.comments_list.length - 1; i++) {
+                    console.log(response.comments_list[i]);
+                    $( '#'+ focusId + " .post_comments" ).prepend( '<div class="comment" id ="'+response.comments_list[i][1]+'"><img src="static/images/'+response.comments_list[i][6][5].split(',')[0]+'" class="comment_img"><p class="comm_username tagbe_hover">'+response.comments_list[i][6][1]+ ' ' + response.comments_list[i][6][2]+'</p><form class="comment_form"><div class="comm_text width100"><div>'+response.comments_list[i][4]+'</div></div></form><div class="dropbtn comm_hover none"><div class="comm_dropdown_div dots_container dropbtn"><div class="dots"></div></div><div class="dropdown-content comm_dropdown"><a class="delete_comm">Delete</a></div></div></div>' );
+                }
+                if (response.end_of_comm == 'false') {
+                    $('#'+ parent + ' .view_more').removeClass('none')
+                    $('#'+ parent + ' .view_more .view_more_text:nth-child(1)').removeClass('none')
+                }else{
+                    $('#'+ parent + ' .view_more .view_more_text:nth-child(1)').addClass('none')
+                }
 
-    $('#'+ parent + ' .comment_btn').toggleClass('fa-comment-o fa-comment')
-    $('#'+ parent + ' .post_comments').toggleClass('none')
-    $('#'+ parent + ' .hr_none').toggleClass('none')
-    $('#'+ parent + ' .comment_form textarea').focus();
+                console.log('dmytro')
+                parent_div.find('.post_comments').attr('start', '1')
+                parent_div.find('.post_comments').attr('end', '6')
+                console.log('dmytro', parent_div.find('.post_comments'))
+                $('#'+ parent + ' .view_more_text').removeClass('none')
+            },
+            error: function(error) {
+                console.log(error);
+            }
+        });
+
+    }else{
+        $(this).parent().parent().parent().find('.post_comments .comment').remove()
+        $('#'+ parent + ' .comment_btn').toggleClass('fa-comment-o fa-comment')
+        $('#'+ parent + ' .post_comments').toggleClass('none')
+        $('#'+ parent + ' .hr_none').toggleClass('none')
+        $('#'+ parent + ' .comment_form textarea').focus()
+        $(this).parent().parent().parent().find('.post_comments').attr('start', '0')
+        $(this).parent().parent().parent().find('.post_comments').attr('end', '1')
+                
+    }
+    
+    
 });
 
 $(document).on('click', '.view_more_text', function(e){
     var parent = $(this).parent().parent().parent().attr('id')
+    console.log('here', $(this).text())
+    if($(this).text() == 'View More Comments...'){
+        var parent_div = $(this).parent().parent().parent()
+        // $('#'+ parent + ' .view_more_text').toggleClass('none')
+        // $('#'+ parent + ' .more_comm').toggleClass('none')
 
-    $('#'+ parent + ' .view_more_text').toggleClass('none')
-    $('#'+ parent + ' .more_comm').toggleClass('none')
+        var start = $(this).parent().parent().parent().find('.post_comments').attr('start')
+        var end = $(this).parent().parent().parent().find('.post_comments').attr('end')
+
+        $.ajax({
+            url: '/get_comments',
+            data: JSON.stringify({'post_id': parent, 'start': start, 'end': end}, null, '\t'),
+            type: 'POST',
+            contentType: 'application/json;charset=UTF-8',
+            success: function(response) {
+                console.log(response.status);
+                console.log(response.comments_list);
+                for (var i = 0; i <= response.comments_list.length - 1; i++) {
+                    console.log(response.comments_list[i]);
+                    $( '#'+ focusId + " .post_comments" ).prepend( '<div class="comment" id ="'+response.comments_list[i][1]+'"><img src="static/images/'+response.comments_list[i][6][5].split(',')[0]+'" class="comment_img"><p class="comm_username tagbe_hover">'+response.comments_list[i][6][1]+ ' ' + response.comments_list[i][6][2]+'</p><form class="comment_form"><div class="comm_text width100"><div>'+response.comments_list[i][4]+'</div></div></form><div class="dropbtn comm_hover none"><div class="comm_dropdown_div dots_container dropbtn"><div class="dots"></div></div><div class="dropdown-content comm_dropdown"><a class="delete_comm">Delete</a></div></div></div>' );
+                }
+                if (response.end_of_comm == 'false') {
+                    $('#'+ parent + ' .view_more').removeClass('none')
+                    $('#'+ parent + ' .view_more .view_more_text:nth-child(1)').removeClass('none')
+                }else{
+                    $('#'+ parent + ' .view_more .view_more_text:nth-child(1)').addClass('none')
+                }
+                //<p class="view_more_text none">Hide Additional Comments</p>
+                parent_div.find('.post_comments').attr('start', Number(start) + 5)
+                parent_div.find('.post_comments').attr('end', Number(end) + 5)
+                
+            },
+            error: function(error) {
+                console.log(error);
+            }
+        });
+
+        $('html,body').animate({
+            scrollTop: $("#"+parent).find('.post_footer').offset().top},
+            'slow');
+    }else{
+        $(this).parent().parent().parent().find('.post_comments .comment').remove()
+        $('#'+ parent + ' .comment_btn').toggleClass('fa-comment-o fa-comment')
+        $('#'+ parent + ' .post_comments').toggleClass('none')
+        $('#'+ parent + ' .hr_none').toggleClass('none')
+        $('#'+ parent + ' .comment_form textarea').focus()
+        $(this).parent().parent().parent().find('.post_comments').attr('start', '0')
+        $(this).parent().parent().parent().find('.post_comments').attr('end', '1')
+
+        $('html,body').animate({
+            scrollTop: $("#"+parent).offset().top},
+            'fast');
+    }
+    
+    
+
 });
 
 function submitData(){
     var href = $('#'+ focusId + ' .my_img').attr('src');
     var name = $('#'+ focusId + " .my_name" ). html()
     var comment_text = $('#'+ focusId + " .my_comment .textarea-size" ). html()
-    var last_comm_id = 0
-    $( ".comment" ).each(function( index ) {
-      console.log('all: '  + $(this).attr('id') + ' and last_comm_id: ' + last_comm_id)
-      if (Number($(this).attr('id')) > last_comm_id){
-        last_comm_id = $(this).attr('id')
-        console.log('bigger: '  + $(this).attr('id'))
-      }
+
+    $.ajax({
+        url: '/add_comment',
+        data: JSON.stringify({'text': comment_text, 'post_id': focusId, 'date': Date().toLocaleString()}, null, '\t'),
+        type: 'POST',
+        contentType: 'application/json;charset=UTF-8',
+        success: function(response) {
+            console.log(response.status, $( '#'+ focusId + " .post_comments .comment" ).last());
+            if ($( '#'+ focusId + " .post_comments .comment" ).length>0) {
+              $( '#'+ focusId + " .post_comments .comment" ).last().after( '<div class="comment" id ="'+response.comm_id+'"><img src="'+href+'" class="comment_img"><p class="comm_username tagbe_hover">'+name+'</p><form class="comment_form"><div class="comm_text width100"><div>'+comment_text+'</div></div></form><div class="dropbtn comm_hover none"><div class="comm_dropdown_div dots_container dropbtn"><div class="dots"></div></div><div class="dropdown-content comm_dropdown"><a class="delete_comm">Delete</a></div></div></div>' );
+            }else{ //if there are no comments, it should be pasted anyway
+                $( '#'+ focusId + " .post_comments" ).prepend( '<div class="comment" id ="'+response.comm_id+'"><img src="'+href+'" class="comment_img"><p class="comm_username tagbe_hover">'+name+'</p><form class="comment_form"><div class="comm_text width100"><div>'+comment_text+'</div></div></form><div class="dropbtn comm_hover none"><div class="comm_dropdown_div dots_container dropbtn"><div class="dots"></div></div><div class="dropdown-content comm_dropdown"><a class="delete_comm">Delete</a></div></div></div>' );
+            }
+            $( '#'+ focusId + ' textarea').val('')
+
+            clear();
+            input.addEventListener('input', clear);
+
+            num = Number($('#'+ focusId +' .comments_quantity').html()) + 1
+            $('#'+ focusId + ' .comments_quantity').html(num)
+
+            
+        },
+        error: function(error) {
+            console.log(error);
+        }
     });
-    last_comm_id = Number(last_comm_id) + 1
-    console.log('last_comm_id '+ last_comm_id)
-    $( '#'+ focusId + " .post_comments .comment" ).addClass('more_comm none')
-    $( '#'+ focusId + " .view_more_text:nth-child(1)" ).removeClass('none')
-    $( '#'+ focusId + " .view_more_text:nth-child(2)" ).addClass('none')
-    $( '#'+ focusId + " .post_comments" ).prepend( '<div class="comment" id ="'+last_comm_id+'"><img src="'+href+'" class="comment_img"><p class="comm_username tagbe_hover">'+name+'</p><form class="comment_form"><div class="comm_text width100"><div>'+comment_text+'</div></div></form><div class="dropbtn comm_hover none"><div class="comm_dropdown_div dots_container dropbtn"><div class="dots"></div></div><div class="dropdown-content comm_dropdown"><a class="delete_comm">Delete</a></div></div></div>' );
-    $( '#'+ focusId + ' textarea').val('')
+    
 
-    clear();
-    input.addEventListener('input', clear);
-
-    num = Number($('#'+ focusId +' .comments_quantity').html()) + 1
-    $('#'+ focusId + ' .comments_quantity').html(num)
-
-    CountComments(focusId)
+    
+    
 }
 
 </script>

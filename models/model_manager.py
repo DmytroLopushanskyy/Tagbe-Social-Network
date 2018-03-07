@@ -2,7 +2,7 @@
 from flask import Flask, render_template, redirect, url_for, request, session
 import sqlite3
 from schematics.models import Model
-from models.models import UserModel, UserAddModel, UserType, GroupUserModel
+from models.models import UserModel, PostModel, UserAddModel, UserType, GroupUserModel
 from models.executeSqlite3 import executeSelectOne, executeSelectAll, executeSQL
 
 conn = sqlite3.connect('database.sqlite3', check_same_thread=False)
@@ -16,6 +16,7 @@ class UserManager():
 
     def __init__(self):
         self.user = UserModel()
+        self.post = PostModel()
 
     def empty(self):
         self.user.add = 123
@@ -48,6 +49,15 @@ class UserManager():
         self.user.add.sex = form.get('sex', '')
         #self.user.add.validate()
         return self.user.add
+
+    def getPostData(self,form, user_id):
+        self.post.user_id = user_id
+        self.post.text = request.form['text']
+        self.post.tags = request.form['tags']
+        self.post.location = request.form['location']
+        self.post.date = request.form['date']
+        #self.user.add.validate()
+        return self
 
     def check_user(self):
         sql = 'SELECT * FROM users WHERE email = "{}"'.format(self.user.email)
@@ -83,6 +93,17 @@ class UserManager():
         curs.execute("INSERT INTO users_add ('age', 'create_time', 'phone', 'address', 'sex', 'user')  VALUES ('{}','{}','{}','{}','{}', '{}')" \
             .format('No info', self.user.create_time, 'No info', 'No info', '0', data[0]))
         conn.commit()
+        return data[0]
+
+    def addNewPost(self):
+        curs = conn.cursor()
+        curs.execute("INSERT INTO posts ('user_id', 'text', 'images', 'tags', 'location', 'date', 'status')  VALUES ('{}','{}','{}','{}','{}','{}','{}')" \
+            .format(self.post.user_id, self.post.text, self.post.images, self.post.tags, self.post.location, self.post.date, 0))
+        conn.commit()
+
+        curs.execute("select id from posts where user_id = '{}' and text = '{}' and images = '{}' and tags = '{}' and location = '{}' and date = '{}'".format(self.post.user_id, self.post.text, self.post.images, self.post.tags, self.post.location, self.post.date))
+        data = curs.fetchone()
+
         return data[0]
 
     def selectUser(self,data=[]):

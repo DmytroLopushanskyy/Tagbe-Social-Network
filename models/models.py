@@ -49,12 +49,12 @@ class GroupUserModel(Model):
 
 class PostModel(Model):
     id = IntType(required=False)
-    title = StringType(required=True)
-    photos = ListType(StringType, required=False, default=[])
+    user_id = IntType(required=True)
+    images = StringType(required=False, default='')
     text = StringType(required=False, default=None)
-    likes = IntType(required=True, default=0)
-    user = ModelType(UserModel, required=True)
-    create_time = DateTimeType(required=True, default=datetime.now())
+    tags = StringType(required=False, default=None)
+    location = StringType(required=False, default=None)
+    date = DateTimeType(required=True, default=datetime.now())
 
 
 class CommentsModel(Model):

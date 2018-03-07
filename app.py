@@ -1098,7 +1098,7 @@ def upload():
     if not os.path.isdir(target):
         os.mkdir(target) #create user folder if it doesn`t exist
 
-
+    print('dd', request.files.getlist(type))
     for file in request.files.getlist(type):
         save(user_model, curs, target, file, type)
 
@@ -1379,6 +1379,244 @@ def get_followers():
     return jsonify({ 'status': 'success!', 'end_of_friends': end_of_friends, 'friends_list': friends_list, 'quantity': fr_quantity })
 
 
+@app.route('/post', methods=['POST'])
+def post():
+    curs = conn.cursor()
+    user_model = user_info(curs, session['email'])
+
+    #if user_type == 'group':
+        #target = os.path.join(APP_ROOT, 'static/images/' + str(user_model.id)) #path to user folder
+
+    target = os.path.join(APP_ROOT, 'static/images/' + str(user_model.id)) #path to user folder
+    print(target)
+
+    if not os.path.isdir(target):
+        os.mkdir(target) #create user folder if it doesn`t exist
+
+    print(request.files, request.files.getlist('new_post_images'))
+
+    try:
+        post = UserManager().getPostData(request.form, user_model.id)
+    except schematics.exceptions.DataError:
+        context = {'errors': 'Wrong Data'}
+        return jsonify({ 'status': 'Error' })
+
+
+    post_id = post.addNewPost()
+
+    print(post_id)
+
+
+
+    count = 0
+    for file in request.files.getlist('new_post_images'):
+        count += 1
+        if count < 5:
+            print(file)
+            save2(user_model, curs, target, file, post_id, count)
+
+
+
+
+    return jsonify({ 'status': 'Success', 'post_id': post_id})
+
+
+def save2(user_model, curs, target, file, id, count):
+    print(file)
+
+    filename_origin = file.filename.split('.')[-1] #get file extension
+
+
+    filename = 'post_' + str(id) + '_' + str(count + 1) + '.' + str(filename_origin)
+
+    destination = "/".join([target, filename]) #where to save
+
+    post_photo = curs.execute("SELECT images FROM posts WHERE id  = '{}'".format(id)).fetchone()[0]
+    print('post_photo:', post_photo, destination)
+
+    if post_photo != '':
+        print('if')
+        database_destination = post_photo + destination.split(APP_ROOT + '/static/images/')[1] + ','
+    else:
+        print('else')
+        database_destination = destination.split(APP_ROOT + '/static/images/')[1] + ','
+
+    print(database_destination)
+
+    curs.execute("UPDATE posts SET 'images' = '{}' WHERE id  = '{}'".format(database_destination, id))
+    conn.commit()
+
+    try:
+        file.save(destination)
+    except:
+        return jsonify({ 'status': 'Failed' })
+
+@app.route('/get_posts', methods=['POST'])
+def get_posts():
+    id = request.json['id']
+    action = request.json['action']
+    start = request.json['start']
+    end = request.json['end']
+
+    curs = conn.cursor()
+
+    posts_list = curs.execute("SELECT id FROM posts WHERE user_id  = '{0}' ORDER BY id DESC LIMIT '{1}', '{2}'".format(id, start, 5)).fetchall()
+
+    posts_list_new = posts_list
+
+    print(posts_list_new)
+
+    if len(posts_list_new) < int(end) - int(start):
+        end_of_posts = 'true'
+    else:
+        end_of_posts = 'false'
+
+    posts_list = []
+    for b in posts_list_new:
+
+        post_info = list(curs.execute("SELECT id, user_id, text, images, tags, location, date, status FROM posts WHERE id  = '{}'".format(b[0])).fetchone())
+        post_reactions_quantity = curs.execute("select count(*) from reactions where post_id = '{0}'".format(b[0])).fetchone()[0]
+        post_comm_quantity = curs.execute("select count(*) from comments where post_id = '{0}'".format(b[0])).fetchone()[0]
+        post_reactions = curs.execute("SELECT user_id, reaction FROM reactions WHERE post_id  = '{}'".format(b[0])).fetchall()
+        post_user = curs.execute("SELECT * FROM users WHERE id  = '{}'".format(post_info[1])).fetchone()
+
+        post_info.append(post_reactions_quantity)
+        post_info.append(post_reactions)
+        post_info.append(post_user)
+        post_info.append(post_comm_quantity)
+        print('post_info', post_info)
+        posts_list.append(post_info)
+
+
+
+    print('blabla', id, action, start, end, posts_list, posts_list_new)
+
+    return jsonify({ 'status': 'success!', 'end_of_posts': end_of_posts, 'posts_list': posts_list })
+
+@app.route('/reaction', methods=['POST'])
+def reaction():
+    curs = conn.cursor()
+    user_model = user_info(curs, session['email'])
+
+    reaction = request.json['reaction']
+    post_id = request.json['post_id']
+    date = request.json['date']
+
+    curs.execute("DELETE FROM reactions WHERE user_id = '{}' and post_id = '{}'".format(user_model.id, post_id))
+    conn.commit()
+    curs.execute("INSERT INTO reactions ('user_id', 'post_id', 'reaction', 'date')  VALUES ('{}','{}','{}','{}')" \
+            .format(user_model.id, post_id, reaction, date))
+    conn.commit()
+
+    return jsonify({ 'status': 'success!' })
+
+@app.route('/remove_reaction', methods=['POST'])
+def remove_reaction():
+    curs = conn.cursor()
+    user_model = user_info(curs, session['email'])
+
+    post_id = request.json['post_id']
+
+    curs.execute("DELETE FROM reactions WHERE user_id = '{}' and post_id = '{}'".format(user_model.id, post_id))
+
+    conn.commit()
+
+    return jsonify({ 'status': 'success!' })
+
+@app.route('/add_comment', methods=['POST'])
+def add_comment():
+    curs = conn.cursor()
+    user_model = user_info(curs, session['email'])
+
+    text = request.json['text']
+    post_id = request.json['post_id']
+    date = request.json['date']
+
+
+    curs.execute("INSERT INTO comments ('user_id', 'post_id', 'text', 'date')  VALUES ('{}','{}','{}','{}')" \
+            .format(user_model.id, post_id, text, date))
+
+    conn.commit()
+
+    id = curs.execute("SELECT id FROM comments WHERE user_id  = '{}' and post_id  = '{}' and text  = '{}' and date  = '{}'".format(user_model.id, post_id, text, date)).fetchall()
+    print(id[0][0])
+    curs.execute("UPDATE comments SET comm_id = '{}' WHERE id = '{}'".format('comm_'+str(id[0][0]), id[0][0]))
+
+    conn.commit()
+
+    return jsonify({ 'status': 'success!' , 'comm_id': 'comm_'+str(id[0][0])})
+
+@app.route('/get_comments', methods=['POST'])
+def get_comments():
+    curs = conn.cursor()
+    user_model = user_info(curs, session['email'])
+
+    post_id = request.json['post_id']
+    start = request.json['start']
+    end = request.json['end']
+
+    comments_list = list(curs.execute("SELECT * FROM comments WHERE post_id  = '{}' ORDER BY id DESC LIMIT '{}', '{}'".format(post_id, start, int(end)-int(start))).fetchall())
+    comments_quantity = curs.execute("select count(*) from comments where post_id = '{}'".format(post_id)).fetchone()[0]
+
+    comments_list_new = []
+    for b in comments_list:
+        b=list(b)
+        comment_user = list(curs.execute("SELECT * FROM users WHERE id  = '{}'".format(b[2])).fetchone())
+        print(b,comment_user)
+        b.append(comment_user)
+        comments_list_new.append(b)
+
+    print(len(comments_list_new), int(end), int(start))
+
+    if len(comments_list_new) < int(end) - int(start):
+        end_of_comm = 'true'
+    else:
+        end_of_comm = 'false'
+
+    if int(start) == 0:
+        if comments_quantity > 1:
+            end_of_comm = 'false'
+        else:
+            end_of_comm = 'true'
+
+
+    print(comments_list_new, comments_quantity, end_of_comm)
+
+    return jsonify({ 'status': 'success!', 'comments_list': comments_list_new, 'comments_quantity': comments_quantity, 'end_of_comm': end_of_comm })
+
+@app.route('/get_reactions', methods=['POST'])
+def get_reactions():
+    print(request.json)
+    post_id = request.json['post_id']
+    start = request.json['start']
+    end = request.json['end']
+
+    curs = conn.cursor()
+
+    react_list = curs.execute("SELECT user_id, reaction FROM reactions WHERE post_id  = '{0}' ORDER BY id DESC LIMIT '{1}', '{2}'".format(post_id, start, 10)).fetchall()
+
+    react_list_new = react_list
+
+    print(react_list)
+
+    if len(react_list_new) < int(end) - int(start):
+        end_of_reacts = 'true'
+    else:
+        end_of_reacts = 'false'
+
+    react_list = []
+    for b in react_list_new:
+        b = list(b)
+        react_user = curs.execute("SELECT * FROM users WHERE id  = '{}'".format(b[0])).fetchone()
+        b.append(react_user)
+
+        react_list.append(b)
+
+
+
+    print('blabla', id, start, end, react_list, react_list_new)
+
+    return jsonify({ 'status': 'success!', 'end_of_reacts': end_of_reacts, 'react_list': react_list })
 
 
 
