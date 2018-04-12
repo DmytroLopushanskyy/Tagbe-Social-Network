@@ -26,3 +26,8 @@ input[type=text]:focus {
 .my_btn{
 	background-color: red;
 }
+.сategorie{
+    background-color: #6AA3F0 !important;
+    outline: 0 !important;
+    border: 0 !important;
+}

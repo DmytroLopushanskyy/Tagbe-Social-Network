@@ -9,7 +9,7 @@
             <div class="ava">
                 <img src="{{ url_for('static', filename='images/') }}{{user.user_photo.split(',')[0]}}" class="profile_photo_user">
                 <div class="overlay none">
-                  <div class="text">Change Profile Photo</div>
+                  <div class="text">Змінити аватарку</div>
                   <form id="form_ava" enctype="multipart/form-data">
                     <input type="file" name="ava" class="back_file" id="profile_photo" accept="image/*">
                   </form>
@@ -17,7 +17,7 @@
                 </div>
             </div>
             <div class="overlay none">
-              <div class="text">Change Background Photo</div>
+              <div class="text">Змінити заднє фото</div>
               <form id="form_back" enctype="multipart/form-data">
                 <input type="file" name="back" class="back_file" id="back_photo" accept="image/*">
               </form>
@@ -31,80 +31,80 @@
         <div class="profile_text">
               <input type="name" class="form-control" name="id" id="us_id" value="{{user.id}}" style="display:none">
             <div class="control_btn">
-                <a href="#"><i class="fa fa-tags" aria-hidden="true"></i><br>Tags</a>
+                <a href="#"><i class="fa fa-tags" aria-hidden="true"></i><br>Теги</a>
                 <!-- <a href="#"><i class="fa fa-plus" aria-hidden="true"></i><br>Add Friend</a> -->
-                <a href="#" class="padding5"><i class="fa fa-comment" aria-hidden="true"></i><br>Message</a>
-                <a href="#" class="padding5" id="friends"><i class="fa fa-handshake-o" aria-hidden="true"></i><br>Friends</a>
-                <a href="#" id="groups"><i class="fa fa-users" aria-hidden="true"></i><br>Groups</a>
-                <a href="#" id="about"><i class="fa fa-info" aria-hidden="true"></i><br>About</a>
-                <a href="#"><i class="fa fa-file-image-o" aria-hidden="true"></i><br>Photos</a>
+                <a href="#" class="padding5"><i class="fa fa-comment" aria-hidden="true"></i><br>Написати</a>
+                <a href="#" class="padding5" id="friends"><i class="fa fa-handshake-o" aria-hidden="true"></i><br>Друзі</a>
+                <a href="#" id="groups"><i class="fa fa-users" aria-hidden="true"></i><br>Групи</a>
+                <a href="#" id="about"><i class="fa fa-info" aria-hidden="true"></i><br>Про</a>
+                <a href="#"><i class="fa fa-file-image-o" aria-hidden="true"></i><br>Фото</a>
             </div>
         </div>
         <div class="edit_div none" id="editting">
                 <input type="hidden" class="form-control edit_field" id="f_id" name="new_pass" value="{{user.id}}">
                 <form class="edit_form">
-                    <label class="edit_label" for="name">First name:</label>
-                    <label class="edit_label" for="name">Last name:</label>
+                    <label class="edit_label" for="name">Ім'я:</label>
+                    <label class="edit_label" for="name">Прізвище:</label>
 
                     <input type="name" class="form-control edit_field" id="f_f_name" name="f_name" value="{{user.first_name}}">
                     <input type="name" class="form-control edit_field" id="f_l_name" name="l_name" value="{{user.last_name}}">
 
-                    <label class="edit_label" for="password">Password:</label>
-                    <label class="edit_label" for="email">Email:</label>
+                    <label class="edit_label" for="password">Пароль:</label>
+                    <label class="edit_label" for="email">Емейл:</label>
 
                     <input type="password" class="form-control edit_field" id="f_password" name="new_pass" value="{{user.password}}">
                     <input type="text" class="form-control edit_field" id="f_email"  name="new_email" placeholder="{{user.email}}">
 
-                    <label class="edit_label" for="age">Your age:</label>
-                    <label class="edit_label" for="phone">Your phone number:</label>
+                    <label class="edit_label" for="age">Ваш вік:</label>
+                    <label class="edit_label" for="phone">Ваш номер телефону:</label>
 
                     <input type="name" class="form-control edit_field" id="f_age" name="age" value="{{user.add.age}}">
                     <input type="name" class="form-control edit_field" id="f_phone" name="phone" value="{{user.add.phone}}">
 
-                    <label class="edit_label" for="sex">Your sex:</label>
-                    <label class="edit_label" for="address">Your address:</label>
+                    <label class="edit_label" for="sex">Ваша стать:</label>
+                    <label class="edit_label" for="address">Ваша адреса:</label>
 
                     <input type="sex" class="form-control edit_field" id="f_sex" name="sex" value="{{user.add.sex}}">
                     <input type="name1" class="form-control edit_field" id="f_address" name="address" value="{{user.add.address}}">
 
-                    <button class="refresh" id="refresh">REFRESH</button>
+                    <button class="refresh" id="refresh">ОНОВИТИ</button>
                 </form>
             </div>
         <div class="edit_div user_info none" id="info">
-              <div class="label_name">Email:</div>
+              <div class="label_name">Емейл:</div>
               <div class="user_info_statement">{{user.email}}</div>
-              <div class="label_name">Age:</div>
+              <div class="label_name">Вік:</div>
               <div class="user_info_statement">{{user.add.age}}</div>
-              <div class="label_name">Phone Number:</div>
+              <div class="label_name">Номер телефону:</div>
               <div class="user_info_statement">{{user.add.phone}}</div>
-              <div class="label_name">Sex:</div>
+              <div class="label_name">Стать:</div>
               <div class="user_info_statement">{{user.add.sex}}</div>
-              <div class="label_name">Address:</div>
+              <div class="label_name">Адреса:</div>
               <div class="user_info_statement">{{user.add.address}}</div>
-              <button class="refresh" id="edit">EDIT INFO</button>
+              <button class="refresh" id="edit">Змінити</button>
         </div>
         <div class="edit_div user_info friends_div none">
             <div class="row">
-              <p><u><b>{{user.first_name}}'s friends (<span id="fr_quantity"></span>)</b></u></p>
+              <p><u><b>Друзі користувача {{user.first_name}} (<span id="fr_quantity"></span>)</b></u></p>
 
             </div>
-            <button class="refresh" id="view_more_friends" start="0" end="8">View More Friends</button>
-            <button class="refresh" id="view_friends">View All Friends</button>
+            <button class="refresh" id="view_more_friends" start="0" end="8">Подивитись більше</button>
+            <button class="refresh" id="view_friends">Подивитись всіх друзів</button>
         </div>
         <div class="edit_div user_info groups_div none">
             <div class="row">
-              <p><u><b>{{user.first_name}}'s groups (<span id="gr_quantity"></span>)</b></u></p>
+              <p><u><b>Групи користувача {{user.first_name}} (<span id="gr_quantity"></span>)</b></u></p>
 
             </div>
-            <button class="refresh" id="view_more_groups" start="0" end="8">View More Groups</button>
-            <button class="refresh" id="view_groups">View All Groups</button>
+            <button class="refresh" id="view_more_groups" start="0" end="8">Подивитись більше</button>
+            <button class="refresh" id="view_groups">Подивитись всі групи</button>
         </div>
     </div>
     <!-- endof profile info -->
     <div class="create_post white">
         <div class="create_post_div my_comment">
             <img src="{{ url_for('static', filename='images/') }}{{user.user_photo.split(',')[0]}}" class="comment_img my_img">
-            <p class="click_to_post" id="myBtn">Click To Share Something Interesting Here 🙂</p>
+            <p class="click_to_post" id="myBtn">Натисни тут, щоб поширити щось цікаве 🙂</p>
         </div>
     </div>
     <div class="new_posts_div" start="0" end="5">

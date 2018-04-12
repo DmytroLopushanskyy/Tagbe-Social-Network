@@ -33,7 +33,7 @@
                   <div class="search">
                       <div id="custom-search-input">
                           <div class="input-group col-md-12 input_parent">
-                              <input type="text" class="form-control input-lg my_input" placeholder="Search on Tagbe" id="tagbe_search" />
+                              <input type="text" class="form-control input-lg my_input" placeholder="Пошук у Tagbe" id="tagbe_search" />
                               <span class="input-group-btn">
                                   <button class="btn btn-info btn-lg" type="button">
                                       <i class="glyphicon glyphicon-search"></i>
@@ -48,12 +48,12 @@
           <ul class="nav navbar-nav navbar-right welcome_nav">
               <a href="login">
                 <li class="fa_icon nav_li">
-                    <div class="navbar_item"><i class="fa fa-sign-in" aria-hidden="true"></i> Login</div>
+                    <div class="navbar_item"><i class="fa fa-sign-in" aria-hidden="true"></i> Увійти</div>
                 </li>
               </a>
               <a href="signup">
                 <li class="fa_icon nav_li">
-                    <div class="navbar_item"><i class="fa fa-user-plus" aria-hidden="true"></i> Sign Up</div>
+                    <div class="navbar_item"><i class="fa fa-user-plus" aria-hidden="true"></i> Зареєструватись</div>
                 <li>
               </a>
           </ul>
@@ -64,17 +64,17 @@
     <div class="container form_div">
 		<form method="POST" action="/" action="{{ url_for('login') }}">
 		  <div class="form-group">
-			<label for="name">Your email:</label>
+			<label for="name">Емейл:</label>
 			<input type="name" class="form-control" name="email">
 		  </div>
 		  <div class="form-group">
-			<label for="pwd">Password:</label>
+			<label for="pwd">Пароль:</label>
 			<input type="password" class="form-control" name="pwd">
 		  </div>
 		  <div class="checkbox">
-			<label><input type="checkbox"> Remember me</label>
+			<label><input type="checkbox"> Запам'ятати мене</label>
 		  </div>
-		  <button type="submit" class="btn btn-default my_btn">Submit</button>
+		  <button type="submit" class="btn btn-default my_btn">Надіслати</button>
 		</form>
 	</div>
 </div>

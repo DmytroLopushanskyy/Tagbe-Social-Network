@@ -18,7 +18,7 @@
                 <input type="name" class="form-control" name="id" value="{{id}}" style="display:none">
                 <input type="name" class="form-control" name="action" value="unblock" style="display:none">
 
-                <a href="#" id="unblock" class="padding5"><i class="fa fa-unlock" aria-hidden="true"></i><br>Unblock</a>
+                <a href="#" id="unblock" class="padding5"><i class="fa fa-unlock" aria-hidden="true"></i><br>Розблокувати</a>
             </div>
         </div>
     </div>
@@ -41,41 +41,41 @@
                 <!-- <a href="#"><i class="fa fa-tags" aria-hidden="true"></i><br>Tags</a> -->
                 <input type="name" class="form-control" name="id" id="us_id" value="{{id}}" style="display:none">
                 {% if friends == True %}
-                <a href="#" class="padding5" id="friends"><i class="fa fa-handshake-o" aria-hidden="true"></i><br>Friends</a>
-                <a href="#" class="padding5" id="unfriend"><i class="fa fa-times" aria-hidden="true"></i><br>Unfriend</a>
-                <a href="#" id="block"><i class="fa fa-ban" aria-hidden="true"></i><br>Block</a>
-                <a href="#" class="padding5"><i class="fa fa-comment" aria-hidden="true"></i><br>Message</a>
-                <a href="#" id="groups"><i class="fa fa-users" aria-hidden="true"></i><br>Groups</a>
-                <a href="#" class="padding5" id="about"><i class="fa fa-info" aria-hidden="true"></i><br>About</a>
-                <a href="#" class="padding5"><i class="fa fa-file-image-o" aria-hidden="true"></i><br>Photos</a>
+                <a href="#" class="padding5" id="friends"><i class="fa fa-handshake-o" aria-hidden="true"></i><br>Друзі</a>
+                <a href="#" class="padding5" id="unfriend"><i class="fa fa-times" aria-hidden="true"></i><br>Вилучити</a>
+                <a href="#" id="block"><i class="fa fa-ban" aria-hidden="true"></i><br>Блок</a>
+                <a href="#" class="padding5"><i class="fa fa-comment" aria-hidden="true"></i><br>Написати</a>
+                <a href="#" id="groups"><i class="fa fa-users" aria-hidden="true"></i><br>Групи</a>
+                <a href="#" class="padding5" id="about"><i class="fa fa-info" aria-hidden="true"></i><br>Про</a>
+                <a href="#" class="padding5"><i class="fa fa-file-image-o" aria-hidden="true"></i><br>Фото</a>
                 {% elif friends == 'waiting' %}
                   {% if sender_id != False or sender_id != 'NotLoggedIn' %}
                       {% if sender_id == current_id %}
-                <a href="#" class="padding0" id="block"><i class="fa fa-ban" aria-hidden="true"></i><br>Block</a>
-                <a href="#" class="padding5" id="redo_request"><i class="fa fa-undo" aria-hidden="true"></i><br>Redo request</a>
-                <a href="#" class="padding5"><i class="fa fa-comment" aria-hidden="true"></i><br>Message</a>
-                <a href="#" class="padding5" id="groups"><i class="fa fa-users" aria-hidden="true"></i><br>Groups</a>
-                <a href="#" class="padding5" id="friends"><i class="fa fa-handshake-o" aria-hidden="true"></i><br>Friends</a>
-                <a href="#" class="padding5" id="about"><i class="fa fa-info" aria-hidden="true"></i><br>About</a>
-                <a href="#" class="padding5"><i class="fa fa-file-image-o" aria-hidden="true"></i><br>Photos</a>
+                <a href="#" class="padding0" id="block"><i class="fa fa-ban" aria-hidden="true"></i><br>Блок</a>
+                <a href="#" class="padding5" id="redo_request"><i class="fa fa-undo" aria-hidden="true"></i><br>Забрати запит</a>
+                <a href="#" class="padding5"><i class="fa fa-comment" aria-hidden="true"></i><br>Написати</a>
+                <a href="#" class="padding5" id="groups"><i class="fa fa-users" aria-hidden="true"></i><br>Групи</a>
+                <a href="#" class="padding5" id="friends"><i class="fa fa-handshake-o" aria-hidden="true"></i><br>Друзі</a>
+                <a href="#" class="padding5" id="about"><i class="fa fa-info" aria-hidden="true"></i><br>Про</a>
+                <a href="#" class="padding5"><i class="fa fa-file-image-o" aria-hidden="true"></i><br>Фото</a>
                       {% else %}
-                <a href="#" id="block"><i class="fa fa-ban" aria-hidden="true"></i><br>Block</a>
-                <a href="#" class="padding5" id="accept"><i class="fa fa-check" aria-hidden="true"></i><br>Accept?</a>
-                <a href="#" class="padding5" id="friends"><i class="fa fa-handshake-o" aria-hidden="true"></i><br>Friends</a>
-                <a href="#" class="padding5"><i class="fa fa-comment" aria-hidden="true"></i><br>Message</a>
-                <a href="#" id="groups" class="padding5"><i class="fa fa-users" aria-hidden="true"></i><br>Groups</a>
-                <a href="#" class="padding0" id="about"><i class="fa fa-info" aria-hidden="true"></i><br>About</a>
-                <a href="#" class="padding5"><i class="fa fa-file-image-o" aria-hidden="true"></i><br>Photos</a>
+                <a href="#" id="block"><i class="fa fa-ban" aria-hidden="true"></i><br>Блок</a>
+                <a href="#" class="padding5" id="accept"><i class="fa fa-check" aria-hidden="true"></i><br>Прийняти?</a>
+                <a href="#" class="padding5" id="friends"><i class="fa fa-handshake-o" aria-hidden="true"></i><br>Друзі</a>
+                <a href="#" class="padding5"><i class="fa fa-comment" aria-hidden="true"></i><br>Написати</a>
+                <a href="#" id="groups" class="padding5"><i class="fa fa-users" aria-hidden="true"></i><br>Групи</a>
+                <a href="#" class="padding0" id="about"><i class="fa fa-info" aria-hidden="true"></i><br>Про</a>
+                <a href="#" class="padding5"><i class="fa fa-file-image-o" aria-hidden="true"></i><br>Фото</a>
                       {% endif %}
                     {% endif %}
                 {% elif friends == False %}
-                <a href="#" class="padding0" id="add_friend"><i class="fa fa-plus" aria-hidden="true"></i><br>Add Friend</a>
-                <a href="#" class="padding5" id="block"><i class="fa fa-ban" aria-hidden="true"></i><br>Block</a>
-                <a href="#" class="padding5" id="friends"><i class="fa fa-handshake-o" aria-hidden="true"></i><br>Friends</a>
-                <a href="#" class="padding5"><i class="fa fa-comment" aria-hidden="true"></i><br>Message</a>
-                <a href="#" class="padding5" id="groups"><i class="fa fa-users" aria-hidden="true"></i><br>Groups</a>
-                <a href="#" class="padding5" id="about"><i class="fa fa-info" aria-hidden="true"></i><br>About</a>
-                <a href="#" class="padding5"><i class="fa fa-file-image-o" aria-hidden="true"></i><br>Photos</a>
+                <a href="#" class="padding0" id="add_friend"><i class="fa fa-plus" aria-hidden="true"></i><br>Додати</a>
+                <a href="#" class="padding5" id="block"><i class="fa fa-ban" aria-hidden="true"></i><br>Блок</a>
+                <a href="#" class="padding5" id="friends"><i class="fa fa-handshake-o" aria-hidden="true"></i><br>Друзі</a>
+                <a href="#" class="padding5"><i class="fa fa-comment" aria-hidden="true"></i><br>Написати</a>
+                <a href="#" class="padding5" id="groups"><i class="fa fa-users" aria-hidden="true"></i><br>Групи</a>
+                <a href="#" class="padding5" id="about"><i class="fa fa-info" aria-hidden="true"></i><br>Про</a>
+                <a href="#" class="padding5"><i class="fa fa-file-image-o" aria-hidden="true"></i><br>Фото</a>
                 {% elif friends == 'NotLoggedIn' %}
                 <a href="#"><br>Log in to view info</a>
                 {% else %}
@@ -84,32 +84,32 @@
             </div>
         </div>
         <div class="edit_div user_info none" id="user_info">
-              <div class="label_name">Email:</div>
+              <div class="label_name">Емейл:</div>
               <div class="user_info_statement">{{email}}</div>
-              <div class="label_name">Age:</div>
+              <div class="label_name">Вік:</div>
               <div class="user_info_statement">{{age}}</div>
-              <div class="label_name">Phone Number:</div>
+              <div class="label_name">Номер телефону:</div>
               <div class="user_info_statement">{{phone}}</div>
-              <div class="label_name">Sex:</div>
+              <div class="label_name">Стать:</div>
               <div class="user_info_statement">{{sex}}</div>
-              <div class="label_name">Address:</div>
+              <div class="label_name">Адреса:</div>
               <div class="user_info_statement">{{address}}</div>
         </div>
         <div class="edit_div user_info friends_div none">
             <div class="row">
-              <p><u><b>{{friend[1]}}'s friends (<span id="fr_quantity"></span>)</b></u></p>
-              
-            </div>  
+              <p><u><b>Друзі користувача {{friend[1]}} (<span id="fr_quantity"></span>)</b></u></p>
+
+            </div>
             <button class="refresh" id="view_more_friends" start="0" end="8">View More Friends</button>
             <button class="refresh" id="view_friends">View All Friends</button>
         </div>
         <div class="edit_div user_info groups_div none">
             <div class="row">
-              <p><u><b>{{friend[1]}}'s groups (<span id="gr_quantity"></span>)</b></u></p>
-              
-            </div>  
-            <button class="refresh" id="view_more_groups" start="0" end="8">View More Groups</button>
-            <button class="refresh" id="view_groups">View All Groups</button>
+              <p><u><b>Групи користувача {{friend[1]}}(<span id="gr_quantity"></span>)</b></u></p>
+
+            </div>
+            <button class="refresh" id="view_more_groups" start="0" end="8">Подивитись більше</button>
+            <button class="refresh" id="view_groups">Подивитись всі групи</button>
         </div>
     </div>
     <!-- endof profile info -->
@@ -126,7 +126,7 @@
     </div>
 </div>
 {% endif %}
-{% endblock%}      
+{% endblock%}
 
 {%block scripts_and_rest %}
 
@@ -142,7 +142,7 @@
                         <p class="user_name non_hover">Dmytro Lopushanskyy</p>
                     </div>
                     <div class="post_tags_div">
-                        
+
                     </div>
                     <span class="close" ng-click="place ='' ">&times;</span>
                 </div>
@@ -159,7 +159,7 @@
                 <hr>
                 <div class="post_add_div">
                     <form action="#" id="post_form">
-                      <div class="input-file-container">  
+                      <div class="input-file-container">
                         <input class="input-file" id="my-file" type="file" multiple="multiple" accept="image/jpg, image/jpeg, image/png">
                         <label tabindex="0" for="my-file" class="input-file-trigger"><i class="fa fa-file-image-o" aria-hidden="true"></i>Add Images (<span class="img_num">4</span>)</label>
                         <label tabindex="0" for="check_in" class="input-file-trigger" id="check_in_div">
@@ -200,7 +200,7 @@
                           <div class="f_circleG" id="frotateG_08"></div>
                     </div>
                 </div>
-                
+
             </div>
   </div>
 </div>
@@ -245,8 +245,8 @@ $(document).on('click', '.quantity p:first-child', function(e){
             }
 
             for (var i = 0; i <= response.react_list.length - 1; i++) {
-                
-                
+
+
                 var curr = $('#reactions_list .post_body').prepend('<a href="'+ 'special?id='+ response.react_list[i][2][0] +'"><div class="user_reacted_div"><img src="'+ '/static/images/'+ response.react_list[i][2][5].split(',')[0] +'" class="user_photo"><div class="post_header_text"><p class="user_name non_hover">'+ response.react_list[i][2][1] + ' ' + response.react_list[i][2][2] +' </p></div><div class="user_reactions_div"><span class="user_reaction none">👍</span><span class="user_reaction none">😂</span><span class="user_reaction none">😯</span><span class="user_reaction none">🙂</span><span class="user_reaction none">👏</span></div></div></a><hr class="hr_btw_reactions">')
 
                 console.log('d',curr, response.react_list[i], response.react_list[i][2][5].split(',')[0], $('#reactions_list .post_body a:first-child .user_reactions_div .user_reaction:nth-child('+response.react_list[i][1]+')'), response.react_list[i][1])
@@ -276,7 +276,7 @@ $(document).on('click', '.close_btn', function(e){
 
 
 <script>
-  
+
 // getting posts
 
 $(document).ready(function (event) {
@@ -314,7 +314,7 @@ function loadNewPosts (){
 
             console.log('ddd')
             for (var i = 0; i <= response.posts_list.length - 1; i++) {
-                
+
                 $(".new_posts_div" ).append( '<div class="post" id="'+response.posts_list[i][0]+'"><div class="post_header"><img src="/static/images/'+ response.posts_list[i][10][5].split(',')[0] +'" class="user_photo"><div class="post_header_text"><a href="#"><p class="user_name">'+ response.posts_list[i][10][1] + ' '+  response.posts_list[i][10][2] +'</p></a><p class="post_info">' + response.posts_list[i][6] +', ' + response.posts_list[i][5] + '</p></div><div class="post_tags_div"></div><div class="post_dropdown dropbtn"><div class="dots_container dropbtn"><div class="dots"></div></div><div id="myDropdown" class="dropdown-content"><a href="#">Change Privacy</a><a href="#">Hide</a></div></div></div><div class="post_body"><p class="post_text">' + response.posts_list[i][2] +'</p><div class="post_images"></div></div><hr><div class="post_footer"><div class="footer_div reactions_div"><div class="reactions hide pointer"><i class="fa fa-heart-o react_btn like" aria-hidden="true"></i><span class="react_btn react2">😂</span><span class="react_btn react3">😯</span> <span class="react_btn react4">🙂</span> <span class="react_btn react5">👏</span> </div><span class="like_bottom pointer"><i class="fa fa-heart-o like_btn like" aria-hidden="true"></i></span><span class="react_btn like_btn none">😂</span><span class="react_btn like_btn none">😯</span> <span class="react_btn like_btn none">🙂</span> <span class="react_btn like_btn none">👏</span> <div class="connection"></div></div><div class="footer_div"><i class="fa fa-comment-o comment_btn pointer" aria-hidden="true"></i></div><div class="footer_div hey"><i class="fa fa-share share_btn pointer" aria-hidden="true"></i></div><div class="quantity"><p><span class="likes_quantity pointer">' + response.posts_list[i][8] +'</span> reactions,</p><p> <span class="comments_quantity pointer">' + response.posts_list[i][11] +'</span> comments,</p><p> <span class="shares_quantity pointer">0</span> shares</p></div></div><hr class="hr_none none"><div class="post_comments none" start="0" end="1"><div class="view_more pointer none"><p class="view_more_text">View More Comments...</p><br><p class="view_more_text none">Hide All Comments</p></div><div class="my_comment"><img src="{{ url_for('static', filename='images/') }}{{user.user_photo.split(',')[0]}}" class="comment_img my_img"><p class="comm_username tagbe_hover my_name">{{user.first_name}} {{user.last_name}}</p><form class="comment_form comm_form submit" method="get" action="" onsubmit="return false"><div class="textarea-container"><textarea class="my_textarea"></textarea><div class="textarea-size"></div></div><i class="fa fa-smile-o smile_icon right50" aria-hidden="true"></i><i class="fa fa-file-image-o smile_icon" aria-hidden="true"></i><p class="input_tip">Press Enter to submit</p></form></div></div></div>' );
 
                 console.log('ddd', response.posts_list[i][3], response.posts_list[i][3].split(',') )
@@ -341,16 +341,16 @@ function loadNewPosts (){
                   }
                 }
 
-                
 
-                
+
+
                 if (response.posts_list[i][3] != '') {
                     for (var b = 0; b <= response.posts_list[i][3].split(',').length - 2; b++) {
                       console.log(response.posts_list[i][3].split(',')[b])
                       $('#'+response.posts_list[i][0]+ ' .post_images').append('<div class="img_container"><img src=" '+ '/static/images/' + response.posts_list[i][3].split(',')[b]  +' " class="post_img"></div>')
                     }
                 }
-                
+
 
 
                 tags_array = response.posts_list[i][4]
@@ -376,7 +376,7 @@ function loadNewPosts (){
                 }
                 $('#new_posts_status').attr('status', '')
             }
-            
+
 
 
             niceImages()
@@ -494,7 +494,7 @@ function friends_avas(){
     })
     $('.friends_div').css('height', width_item * 3 + 23)
 }
-  
+
 $('#view_groups').click(function(){
     window.location.href = 'groups_list?user=' + {{friend[0]}};
 })
@@ -678,7 +678,7 @@ $(document).on('click', '#unfriend', function(e) {
             $('#block').remove()
             $('#unfriend').remove()
             $('.control_btn').prepend('<a href="#" id="block"><i class="fa fa-ban" aria-hidden="true"></i><br>Block</a><a href="#" class="padding5" id="accept"><i class="fa fa-check" aria-hidden="true"></i><br>Accept?</a>')
-            
+
             $('#about').css('padding', 0)
         },
         error: function(error) {
@@ -799,7 +799,7 @@ $(document).on('mouseover', '.photos_container', function(e) {
     if ($('.ava').children('.overlay').hasClass('none')) {
       $(this).children('.overlay').removeClass('none')
     }
-    
+
 });
 $(document).on('mouseleave', '.photos_container', function(e) {
     $(this).children('.overlay').addClass('none')
@@ -824,7 +824,7 @@ $(document).ready(function(e) {
     $('.height100').css('height', bodyHeight)
 
      friends_avas()
-    
+
     width()
 });
 
@@ -835,7 +835,7 @@ $(document).ready(function(e) {
 
 
 <script>
-  
+
 $(document).on('click', "#check_in_div", function(e){
     $('.check_icon').addClass('none')
     $('.default_text').addClass('none')
@@ -851,7 +851,7 @@ $("#check_in").focusout(function(){
     }else{
         $('.default_text').removeClass('none')
     }
-    
+
     $('#check_in').addClass('none')
     $('#check_in_div').removeClass('blue_color')
 });
@@ -861,22 +861,22 @@ $("#check_in").focusout(function(){
 
 
 <script>
-  
+
 document.querySelector("html").classList.add('js');
 
-var fileInput  = document.querySelector( ".input-file" ),  
+var fileInput  = document.querySelector( ".input-file" ),
     button     = document.querySelector( ".input-file-trigger" ),
     the_return = document.querySelector(".file-return");
-      
-button.addEventListener( "keydown", function( event ) {  
-    if ( event.keyCode == 13 || event.keyCode == 32 ) {  
-        fileInput.focus();  
-    }  
+
+button.addEventListener( "keydown", function( event ) {
+    if ( event.keyCode == 13 || event.keyCode == 32 ) {
+        fileInput.focus();
+    }
 });
 button.addEventListener( "click", function( event ) {
    fileInput.focus();
    return false;
-});  
+});
 
 function readURL(input) {
     var numFiles = input.files.length;
@@ -924,7 +924,7 @@ var btn2 = document.getElementById("myBtn2");
 // Get the <span> element that closes the modal
 var span = document.getElementsByClassName("close")[0];
 
-// When the user clicks the button, open the modal 
+// When the user clicks the button, open the modal
 btn.onclick = function() {
     modal.style.display = "block";
     $("body").css("overflow", "hidden");
@@ -946,10 +946,10 @@ span.onclick = function() {
         $('.default_text').removeClass('none')
 
         $('.create_post_images').empty()
-        
+
         $( "#trigger_class" ).trigger( "click" );
     } else {
-        
+
     }
 
 }
@@ -963,7 +963,7 @@ $('#trigger_class').on('click', function(e){
     $('.create_post_textarea').html('')
     $('.create_post_textarea').css('height', 'auto')
     $('.img_num').html(4)
-    
+
 });
 
 
@@ -972,7 +972,7 @@ $('#trigger_class').on('click', function(e){
 
 jQuery.each(jQuery('textarea[data-autoresize]'), function() {
     var offset = this.offsetHeight - this.clientHeight;
- 
+
     var resizeTextarea = function(el) {
         jQuery(el).css('height', 'auto').css('height', el.scrollHeight + offset);
     };
@@ -1103,7 +1103,7 @@ $(document).on('click', '.like', function(e){
     if (!$('#'+ parent +' .like').hasClass('fa-heart') && !$('#'+ parent +' .like_bottom').hasClass('none')) {
         num = Number($('#'+ parent +' .likes_quantity').html()) + 1
         $('#'+ parent + ' .likes_quantity').html(num)
-        
+
     }else{
         if (!$('#'+ parent + ' .like_bottom').hasClass('none')) {
             num = Number($('#'+ parent + ' .likes_quantity').html()) - 1
@@ -1111,7 +1111,7 @@ $(document).on('click', '.like', function(e){
             removeReaction(1, parent)
         }
 
-        
+
     }
 
     $('#'+ parent + ' .footer_div > span').addClass('none')
@@ -1128,7 +1128,7 @@ $(document).on('click', '.react2', function(e){
     if (!$('#'+ parent + ' .like_bottom').hasClass('none') && $('#'+ parent + ' .like').hasClass('fa-heart-o')) {
         num = Number($('#'+ parent + ' .likes_quantity').html()) + 1
         $('#'+ parent + ' .likes_quantity').html(num)
-        
+
     }
     addReaction(2, parent)
     $('#'+ parent + ' .like').removeClass('fa-heart')
@@ -1144,7 +1144,7 @@ $(document).on('click', '.react3', function(e){
     if (!$('#'+ parent + ' .like_bottom').hasClass('none') && $('#'+ parent + ' .like').hasClass('fa-heart-o')) {
         num = Number($('#'+ parent + ' .likes_quantity').html()) + 1
         $('#'+ parent + ' .likes_quantity').html(num)
-        
+
     }
     addReaction(3, parent)
     $('#'+ parent + ' .like').removeClass('fa-heart')
@@ -1160,7 +1160,7 @@ $(document).on('click', '.react4', function(e){
     if (!$('#'+ parent + ' .like_bottom').hasClass('none') && $('#'+ parent + ' .like').hasClass('fa-heart-o')) {
         num = Number($('#'+ parent + ' .likes_quantity').html()) + 1
         $('#'+ parent + ' .likes_quantity').html(num)
-        
+
     }
     addReaction(4, parent)
     $('#'+ parent + ' .like').removeClass('fa-heart')
@@ -1177,7 +1177,7 @@ $(document).on('click', '.react5', function(e){
         num = Number($('#'+ parent + ' .likes_quantity').html()) + 1
         $('#'+ parent + ' .likes_quantity').html(num)
 
-        
+
     }
     addReaction(5, parent)
     $('#'+ parent + ' .like').removeClass('fa-heart')
@@ -1331,10 +1331,10 @@ $(document).on('click', '.comment_btn', function(e){
         $('#'+ parent + ' .comment_form textarea').focus()
         $(this).parent().parent().parent().find('.post_comments').attr('start', '0')
         $(this).parent().parent().parent().find('.post_comments').attr('end', '1')
-                
+
     }
-    
-    
+
+
 });
 
 $(document).on('click', '.view_more_text', function(e){
@@ -1369,7 +1369,7 @@ $(document).on('click', '.view_more_text', function(e){
                 //<p class="view_more_text none">Hide Additional Comments</p>
                 parent_div.find('.post_comments').attr('start', Number(start) + 5)
                 parent_div.find('.post_comments').attr('end', Number(end) + 5)
-                
+
             },
             error: function(error) {
                 console.log(error);
@@ -1392,8 +1392,8 @@ $(document).on('click', '.view_more_text', function(e){
             scrollTop: $("#"+parent).offset().top},
             'fast');
     }
-    
-    
+
+
 
 });
 
@@ -1422,22 +1422,22 @@ function submitData(){
             num = Number($('#'+ focusId +' .comments_quantity').html()) + 1
             $('#'+ focusId + ' .comments_quantity').html(num)
 
-            
+
         },
         error: function(error) {
             console.log(error);
         }
     });
-    
 
-    
-    
+
+
+
 }
 
 </script>
 
 <script>
-  
+
 // input auto resi
 function onReady(f) {
     "complete" === document.readyState
@@ -1468,11 +1468,11 @@ function registerInput(el) {
 
     function adjust() {
 
-        // reset to smaller size (for if text deleted) 
+        // reset to smaller size (for if text deleted)
         el.style.width = "";
 
         // getting the scrollWidth should trigger a reflow
-        // and give you what the width would be in px if 
+        // and give you what the width would be in px if
         // original style, less any box-sizing
         var newWidth = el.scrollWidth + boxSizing;
 

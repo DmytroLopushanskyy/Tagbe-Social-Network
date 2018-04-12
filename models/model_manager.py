@@ -107,7 +107,6 @@ class UserManager():
         return data[0]
 
     def selectUser(self,data=[]):
-        self.user.id = data[0]
         self.user.first_name = data[1]
         self.user.last_name = data[2]
         self.user.type = data[3]
@@ -116,15 +115,29 @@ class UserManager():
         self.user.create_time = data[9]
         self.user.descr = data[4]
         self.user.user_photo = data[5]
+        self.user.id = data[0]
         curs = conn.cursor()
-        curs.execute("select * from users_add where user = '{}'".format(self.user.id))
+
+        curs.execute("select * from users_add where user = '{}'".format(data[0]))
         data = curs.fetchone()
+
+        if not data:
+            curs.execute("INSERT INTO users_add ('age', 'create_time', 'phone', 'address', 'sex', 'user')  VALUES ('{}','{}','{}','{}','{}', '{}')" \
+            .format('No info', self.user.create_time, 'No info', 'No info', '0', self.user.id))
+            conn.commit()
+
+            curs.execute("select * from users_add where user = '{}'".format(self.user.id))
+            data = curs.fetchone()
+        print('data', data)
+
         self.user.add = UserManager._selectUserAdd(UserManager(), data)
         return self.user
 
 
 
     def _selectUserAdd(self, data=[]):
+        print(data, self.user.id)
+        self.user.id = data[0]
         self.user.age = data[1]
         self.user.create_time = data[2]
         self.user.phone = data[3]

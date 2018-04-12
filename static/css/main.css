@@ -1995,8 +1995,25 @@ box-shadow: 1px 2px 15px 6px rgba(92,163,246,0.22);
 .hr_btw_reactions{
     margin: 10px 60px 10px 60px;
 }
-
-
+.сategorie{
+    background-color: #6AA3F0 !important;
+    outline: 0 !important;
+    border: 0 !important;
+}
+#сategorie_div:hover{
+    background-color: #6AA3F0 !important;
+}
+.categorie:hover{
+    background-color: #3D85EA !important;
+}
+.big_choose{
+    width: 100%;
+    background-color: white !important;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    padding: 10px 20px !important;
+}
 
 
 

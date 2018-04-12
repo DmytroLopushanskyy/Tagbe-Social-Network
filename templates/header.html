@@ -41,8 +41,8 @@
                                   <div class="col-xs-12 p-0" align="center">
                                       <p class="text-center font_style p-default" id="username"><strong>{{user.first_name}} {{user.last_name}}</strong></p>
                                       <p class="text-center small font_style p-default">{{user.email}}</p>
-                                      <a href="#"><p class="text-left pop_up_icon p-default nav_text"><i class="fa fa-user-o" aria-hidden="true"></i>View Profile</p></a>
-                                      <a href="#"><p class="text-left pop_up_icon p-default nav_text"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Edit My Info</p></a>
+                                      <a href="/"><p class="text-left pop_up_icon p-default nav_text"><i class="fa fa-user-o" aria-hidden="true"></i>Перейти до профілю</p></a>
+                                      <a href="/"><p class="text-left pop_up_icon p-default nav_text"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Змінити "про мене"</p></a>
                                   </div>
                               </div>
                           </div>
@@ -53,8 +53,8 @@
                               <div class="triangle"></div>
                               <div class="row">
                                   <div class="col-xs-12 p-0" align="center">
-                                      <a href="/group_create"><p class="text-left pop_up_icon nav_text p-default"><i class="fa fa-plus-square-o" aria-hidden="true"></i>Create Group</p></a>
-                                      <a href="#"><p class="text-left nav_text pop_up_icon p-default"><i class="fa fa-list-ul" aria-hidden="true"></i>My Groups</p></a>
+                                      <a href="/group_create"><p class="text-left pop_up_icon nav_text p-default"><i class="fa fa-plus-square-o" aria-hidden="true"></i>Створити групу</p></a>
+                                      <a href="/groups_list"><p class="text-left nav_text pop_up_icon p-default"><i class="fa fa-list-ul" aria-hidden="true"></i>Мої групи</p></a>
                                   </div>
                               </div>
                           </div>
@@ -66,17 +66,17 @@
                                   <div class="col-lg-12 p-0">
                                       <a href="#">
                                           <p class="text-left pop_up_icon p-default">
-                                              Settings
+                                              Налаштування
                                           </p>
                                       </a>
                                       <a href="#">
                                           <p class="text-left pop_up_icon p-default">
-                                              Help
+                                              Допомога
                                           </p>
                                       </a>
                                       <a href="logout">
                                           <p class="text-left pop_up_icon p-default">
-                                              Logout
+                                              Вийти
                                           </p>
                                       </a>
                                   </div>
@@ -90,7 +90,7 @@
                                   <div class="col-lg-12 p-0">
                                       <a href="#">
                                           <p class="text-left pop_up_icon p-default red non_hover" id="delete_account">
-                                              Delete Account
+                                              Видалити аккаунт
                                           </p>
                                       </a>
                               </div>
@@ -103,7 +103,7 @@
                   <div class="search">
                       <div id="custom-search-input">
                           <div class="input-group col-md-12 input_parent">
-                              <input type="text" class="form-control input-lg my_input" placeholder="Search on Tagbe" id="tagbe_search" />
+                              <input type="text" class="form-control input-lg my_input" placeholder="Пошук у Tagbe" id="tagbe_search" />
                               <span class="input-group-btn">
                                   <button class="btn btn-info btn-lg" type="button">
                                       <i class="glyphicon glyphicon-search"></i>
@@ -116,15 +116,15 @@
               <li class="website_name non_hover"><img src="{{ url_for('static', filename='materials/tagbe_blue.png') }}" class="tagbe_logo"><!-- <img src="tagbe_name.png" class="tagbe_name"> --></li>
            </ul>
           <ul class="nav navbar-nav navbar-right">
-              <li class="fa_icon nav_li">
-                  <div class="navbar_item"><i class="fa fa-home" aria-hidden="true"></i> Home</div>
-              <li>
-              <li class="fa_icon nav_li">
-                  <div class="navbar_item"><i class="fa fa-bell" aria-hidden="true"></i> Notifications</div>
-              <li>
-              <li class="fa_icon nav_li m-r20">
-                  <div class="navbar_item"><i class="fa fa-globe" aria-hidden="true"></i> Country</div>
-              <li>
+              <!--<li class="fa_icon nav_li">-->
+                  <!--<div class="navbar_item"><i class="fa fa-home" aria-hidden="true"></i> Новини</div>-->
+              <!--<li>-->
+              <!--<li class="fa_icon nav_li m-r20">-->
+                  <!--<div class="navbar_item" style="font-family: Attractive;"><i class="fa fa-bell" aria-hidden="true"></i> Сповіщення</div>-->
+              <!--<li>-->
+              <!--<li class="fa_icon nav_li m-r20">-->
+                  <!--<div class="navbar_item"><i class="fa fa-globe" aria-hidden="true"></i> Країна</div>-->
+              <!--<li>-->
           </ul>
     </div>
 </div>
@@ -135,43 +135,43 @@
             <a href="/">
               <p class="text-left m-l70 side_text p-default active">
                 <i class="fa fa-home" aria-hidden="true"></i>
-              My Profile
+              Мій Профіль
               </p>
             </a>
-            <a href="news.html">
+            <a href="news">
               <p class="text-left m-l70 side_text p-default">
                 <i class="fa fa-newspaper-o" aria-hidden="true"></i>
-              News Feed
+              Стрічка Новин
               </p>
             </a>
             <a href="#">
               <p class="text-left m-l70 side_text p-default">
                 <i class="fa fa-comments-o" aria-hidden="true"></i>
-              Messages
+              Повідомлення
               </p>
             </a>
             <a href="/friends_list">
               <p class="text-left m-l70 side_text p-default">
                 <i class="fa fa-handshake-o" aria-hidden="true"></i>
-              Friends
+              Друзі
               </p>
             </a>
             <a href="/groups_list"><!-- groups.html -->
               <p class="text-left m-l70 side_text p-default">
                 <i class="fa fa-users" aria-hidden="true"></i>
-              Groups
+              Групи
               </p>
             </a>
             <a href="/images">
               <p class="text-left m-l70 side_text p-default">
                 <i class="fa fa-picture-o" aria-hidden="true"></i>
-              My Photos
+              Мої Фото
               </p>
             </a>
-            <a href="my_tags.html">
+            <a href="/tags">
               <p class="text-left m-l70 side_text p-default">
                 <i class="fa fa-hashtag" aria-hidden="true"></i>
-              My Tags
+              Мої Теги
               </p>
             </a>
         </div>
@@ -180,14 +180,14 @@
 
         <div class="col-xs-3 m-t10">
             <p class="text-center text-underlined m-l30 side_text p-default">
-              Popular Tags Ukraine:
+              Популярні теги в Україні:
             </p>
             <a href="#">
               <p class="text-left m-l30 tag_text side_text p-default">
-              #people
+              #люди
               </p>
               <p class="text-left m-l30 tag_undertext side_text p-default non_hover">
-              25K people wrote about it
+              25 людей написали про це
               </p>
             </a>
             <a href="#">
@@ -195,7 +195,7 @@
               🔥war
               </p>
               <p class="text-left m-l30 tag_undertext side_text p-default non_hover">
-              25K people wrote about it
+              25 людей написали про це
               </p>
             </a>
             <a href="#">
@@ -203,7 +203,7 @@
               😂laugh
               </p>
               <p class="text-left m-l30 tag_undertext side_text p-default non_hover">
-              25K people wrote about it
+              25 людей написали про це
               </p>
             </a>
             <a href="#">
@@ -211,7 +211,7 @@
               👏something
               </p>
               <p class="text-left m-l30 tag_undertext side_text p-default non_hover">
-              25K people wrote about it
+              25 людей написали про це
               </p>
             </a>
             <a href="#">
@@ -219,18 +219,18 @@
               😎cool
               </p>
               <p class="text-left m-l30 tag_undertext side_text p-default non_hover">
-              25K people wrote about it
+              25 людей написали про це
               </p>
             </a>
             <p class="text-center text-underlined m-l30 side_text p-default">
-              Popular Tags World:
+              Популярні теги у світі:
             </p>
             <a href="#">
               <p class="text-left m-l30 tag_text side_text p-default">
               #people
               </p>
               <p class="text-left m-l30 tag_undertext side_text p-default non_hover">
-              25K people wrote about it
+              25 людей написали про це
               </p>
             </a>
             <a href="#">
@@ -238,7 +238,7 @@
               🔥war
               </p>
               <p class="text-left m-l30 tag_undertext side_text p-default non_hover">
-              25K people wrote about it
+              25 людей написали про це
               </p>
             </a>
             <a href="#">
@@ -246,7 +246,7 @@
               😂laugh
               </p>
               <p class="text-left m-l30 tag_undertext side_text p-default non_hover">
-              25K people wrote about it
+              25 людей написали про це
               </p>
             </a>
             <a href="#">
@@ -254,7 +254,7 @@
               👏something
               </p>
               <p class="text-left m-l30 tag_undertext side_text p-default non_hover">
-              25K people wrote about it
+              25 людей написали про це
               </p>
             </a>
             <a href="#">
@@ -262,18 +262,18 @@
               😎cool
               </p>
               <p class="text-left m-l30 tag_undertext side_text p-default non_hover">
-              25K people wrote about it
+              25 людей написали про це
               </p>
             </a>
             <p class="text-center text-underlined m-l30 side_text p-default">
-              Tags For You:
+              Хештеги для тебе:
             </p>
             <a href="#">
               <p class="text-left m-l30 tag_text side_text p-default">
               #people
               </p>
               <p class="text-left m-l30 tag_undertext side_text p-default non_hover">
-              25K people wrote about it
+              25 людей написали про це
               </p>
             </a>
             <a href="#">
@@ -281,7 +281,7 @@
               🔥war
               </p>
               <p class="text-left m-l30 tag_undertext side_text p-default non_hover">
-              25K people wrote about it
+              25 людей написали про це
               </p>
             </a>
             <a href="#">
@@ -289,7 +289,7 @@
               😂laugh
               </p>
               <p class="text-left m-l30 tag_undertext side_text p-default non_hover">
-              25K people wrote about it
+              25 людей написали про це
               </p>
             </a>
             <a href="#">
@@ -297,7 +297,7 @@
               👏something
               </p>
               <p class="text-left m-l30 tag_undertext side_text p-default non_hover">
-              25K people wrote about it
+              25 людей написали про це
               </p>
             </a>
             <a href="#">
@@ -305,7 +305,7 @@
               😎cool
               </p>
               <p class="text-left m-l30 tag_undertext side_text p-default non_hover">
-              25K people wrote about it
+              25 людей написали про це
               </p>
             </a>
         </div>

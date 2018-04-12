@@ -1,333 +1,50 @@
-<!DOCTYPE html>
-<html>
-<head>
-      <title>TAGBE</title>
-      <meta charset = "utf-8">
-      <meta http-equiv = "X-UA-Compatible" content = "IE = edge chrome=1">
-      <meta name = "viewport" content = "width = device-width, initial-scale = 1, user-scalable=no">      
-      <!-- Bootstrap -->
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-      <link rel="shortcut icon" href="tagbe_blue.ico" />
-      <!-- Icons -->
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-      <!-- Custom style -->
-      <link rel="stylesheet" type="text/css" href="style.css">
-      <!-- JQuery -->
-      <script src="http://code.jquery.com/jquery-1.8.3.js">
-      </script>
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-      <!-- <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> -->
-      <meta content="width=1280" name="viewport">
-      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
-    </script>
-</head>
-<body>
+{%extends 'header.html'%}
+{%block center_part %}
 
-<div class="navbar navbar-default my_navbar navbar-fixed-top" role="navigation">
-    <div class="container"> 
-          <ul class="nav navbar-nav">
-              <li class="dropdown non_hover">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="id_a">
-                      <img class="profile_photo" src="https://scontent.fhen1-1.fna.fbcdn.net/v/t1.0-9/20429627_1918501131738523_4099807999573759335_n.jpg?oh=1caa18efbfe583ad7753da85b4c358be&oe=5AB96743">
-                  </a>
-                  <ul class="dropdown-menu">
-                      <li class="non_hover">
-                          <div class="navbar-login">
-                              <div class="triangle"></div>
-                              <div class="row">
-                                  <div class="col-xs-12 p-0" align="center">
-                                      <p class="text-center font_style p-default" id="username"><strong>Dmytro Lopushanskyy</strong></p>
-                                      <p class="text-center small font_style p-default">dmutrolopushanskyy@gmail.com</p>
-                                      <a href="#"><p class="text-left pop_up_icon p-default nav_text"><i class="fa fa-user-o" aria-hidden="true"></i>View Profile</p></a>
-                                      <a href="#"><p class="text-left pop_up_icon p-default nav_text"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Edit My Info</p></a>
-                                  </div>
-                              </div>
-                          </div>
-                      </li>
-                      <li class="divider"></li>
-                      <li class="non_hover">
-                          <div class="navbar-login">
-                              <div class="triangle"></div>
-                              <div class="row">
-                                  <div class="col-xs-12 p-0" align="center">
-                                      <a href="#"><p class="text-left pop_up_icon nav_text p-default"><i class="fa fa-plus-square-o" aria-hidden="true"></i>Create Group</p></a>
-                                      <a href="#"><p class="text-left nav_text pop_up_icon p-default"><i class="fa fa-list-ul" aria-hidden="true"></i>My Groups</p></a>
-                                  </div>
-                              </div>
-                          </div>
-                      </li>
-                      <li class="divider"></li>
-                      <li class="non_hover">
-                          <div class="navbar-login navbar-login-session p-0">
-                              <div class="row p-0">
-                                  <div class="col-lg-12 p-0">
-                                      <a href="#">
-                                          <p class="text-left pop_up_icon p-default">
-                                              Settings
-                                          </p>
-                                      </a>
-                                      <a href="#">
-                                          <p class="text-left pop_up_icon p-default">
-                                              Help
-                                          </p>
-                                      </a>
-                                      <a href="#">
-                                          <p class="text-left pop_up_icon p-default">
-                                              Logout
-                                          </p>
-                                      </a>
-                                  </div>
-                              </div>
-                          </div>
-                      </li>
-                  </ul>
-              </li>
-              <li class="non_hover fa_icon plus_container" id="myBtn2" ><i class="fa fa-plus plus_sign" aria-hidden="true"></i></li>
-              <li class="non_hover">
-                  <div class="search">
-                      <div id="custom-search-input">
-                          <div class="input-group col-md-12 input_parent">
-                              <input type="text" class="form-control input-lg my_input" placeholder="Search on Tagbe" />
-                              <span class="input-group-btn">
-                                  <button class="btn btn-info btn-lg" type="button">
-                                      <i class="glyphicon glyphicon-search"></i>
-                                  </button>
-                              </span>
-                          </div>
-                      </div>
-                  </div>
-              </li>
-              <li class="website_name non_hover"><img src="tagbe_blue.png" class="tagbe_logo"><!-- <img src="tagbe_name.png" class="tagbe_name"> --></li>             
-           </ul>
-          <ul class="nav navbar-nav navbar-right">
-              <li class="fa_icon nav_li">
-                  <div class="navbar_item"><i class="fa fa-home" aria-hidden="true"></i> Home</div>
-              <li>
-              <li class="fa_icon nav_li">
-                  <div class="navbar_item"><i class="fa fa-bell" aria-hidden="true"></i> Notifications</div>
-              <li>
-              <li class="fa_icon nav_li m-r20">
-                  <div class="navbar_item"><i class="fa fa-globe" aria-hidden="true"></i> Country</div>
-              <li>
-          </ul>
+
+
+<div class="col-xs-6 post_part m-t15">
+
+    <div class="tag_page_header">
+          <p class="tag_head">#майбутнє</p>
+          <p class="tag_undertext">2 людей написали про це</p>
+          <button class="tag_follow">Підписатись</button>
     </div>
-</div>
-
-
-<div class="container m-t50">
-    <div class="row p-20">
-        <div class="col-xs-3 m-t10 height100">
-            <a href="profile.html">
-              <p class="text-left m-l70 side_text p-default active">
-                <i class="fa fa-home" aria-hidden="true"></i>
-              My Profile
-              </p>
-            </a>
-            <a href="#">
-              <p class="text-left m-l70 side_text p-default">
-                <i class="fa fa-newspaper-o" aria-hidden="true"></i>
-              News Feed
-              </p>
-            </a>
-            <a href="#">
-              <p class="text-left m-l70 side_text p-default">
-                <i class="fa fa-comments-o" aria-hidden="true"></i>
-              Messages
-              </p>
-            </a>
-            <a href="#">
-              <p class="text-left m-l70 side_text p-default">
-                <i class="fa fa-users" aria-hidden="true"></i>
-              Groups
-              </p>
-            </a>
-            <a href="#">
-              <p class="text-left m-l70 side_text p-default">
-                <i class="fa fa-picture-o" aria-hidden="true"></i>
-              My Photos
-              </p>
-            </a>
-            <a href="#">
-              <p class="text-left m-l70 side_text p-default">
-                <i class="fa fa-hashtag" aria-hidden="true"></i>
-              My Tags
-              </p>
-            </a>
-        </div>
-        
-        <div class="col-xs-6 post_part group_part m-t15">
-            <div class="search group_search">
-                <div id="custom-search-input" class="group_input">
-                    <div class="input-group col-md-12 input_parent">
-                        <span class="input-group-btn">
-                            <button class="btn btn-info btn-lg" type="button">
-                                <i class="glyphicon glyphicon-search"></i>
-                            </button>
-                        </span>
-                        <input type="text" class="form-control input-lg my_input group_input_style" placeholder="Search tags" />
-                        
-                    </div>
-                </div>
-            </div>
-            <hr>
-            <a href="tag_page.html">
-              <div class="tag_div">
-                  <p class="tag_name">#future</p>
-                  <p class="tag_quantity">23K people interested</p>
-              </div>
-            </a>
-            <hr>
-            <a href="tag_page.html">
-              <div class="tag_div">
-                  <p class="tag_name">#future</p>
-                  <p class="tag_quantity">23K people interested</p>
-              </div>
-            </a>
-            <hr>
-            <a href="tag_page.html">
-              <div class="tag_div">
-                  <p class="tag_name">#future</p>
-                  <p class="tag_quantity">23K people interested</p>
-              </div>
-            </a>
-            
-            
-        </div>
-        <div class="col-xs-3 m-t10">
-            <p class="text-center text-underlined m-l30 side_text p-default">
-              Popular Tags Ukraine:
-            </p>
-            <a href="#">
-              <p class="text-left m-l30 tag_text side_text p-default">
-              #people
-              </p>
-              <p class="text-left m-l30 tag_undertext side_text p-default non_color_hover">
-              25K people wrote about it
-              </p>
-            </a>
-            <a href="#">
-              <p class="text-left m-l30 tag_text side_text p-default">
-              🔥war
-              </p>
-              <p class="text-left m-l30 tag_undertext side_text p-default non_color_hover">
-              25K people wrote about it
-              </p>
-            </a>
-            <a href="#">
-              <p class="text-left m-l30 tag_text side_text p-default">
-              😂laugh
-              </p>
-              <p class="text-left m-l30 tag_undertext side_text p-default non_color_hover">
-              25K people wrote about it
-              </p>
-            </a>
-            <a href="#">
-              <p class="text-left m-l30 tag_text side_text p-default">
-              👏something
-              </p>
-              <p class="text-left m-l30 tag_undertext side_text p-default non_color_hover">
-              25K people wrote about it
-              </p>
-            </a>
-            <a href="#">
-              <p class="text-left m-l30 tag_text side_text p-default">
-              😎cool
-              </p>
-              <p class="text-left m-l30 tag_undertext side_text p-default non_color_hover">
-              25K people wrote about it
-              </p>
-            </a>
-            <p class="text-center text-underlined m-l30 side_text p-default">
-              Popular Tags World:
-            </p>
-            <a href="#">
-              <p class="text-left m-l30 tag_text side_text p-default">
-              #people
-              </p>
-              <p class="text-left m-l30 tag_undertext side_text p-default non_color_hover">
-              25K people wrote about it
-              </p>
-            </a>
-            <a href="#">
-              <p class="text-left m-l30 tag_text side_text p-default">
-              🔥war
-              </p>
-              <p class="text-left m-l30 tag_undertext side_text p-default non_color_hover">
-              25K people wrote about it
-              </p>
-            </a>
-            <a href="#">
-              <p class="text-left m-l30 tag_text side_text p-default">
-              😂laugh
-              </p>
-              <p class="text-left m-l30 tag_undertext side_text p-default non_color_hover">
-              25K people wrote about it
-              </p>
-            </a>
-            <a href="#">
-              <p class="text-left m-l30 tag_text side_text p-default">
-              👏something
-              </p>
-              <p class="text-left m-l30 tag_undertext side_text p-default non_color_hover">
-              25K people wrote about it
-              </p>
-            </a>
-            <a href="#">
-              <p class="text-left m-l30 tag_text side_text p-default">
-              😎cool
-              </p>
-              <p class="text-left m-l30 tag_undertext side_text p-default non_color_hover">
-              25K people wrote about it
-              </p>
-            </a>
-            <p class="text-center text-underlined m-l30 side_text p-default">
-              Tags For You:
-            </p>
-            <a href="#">
-              <p class="text-left m-l30 tag_text side_text p-default">
-              #people
-              </p>
-              <p class="text-left m-l30 tag_undertext side_text p-default non_color_hover">
-              25K people wrote about it
-              </p>
-            </a>
-            <a href="#">
-              <p class="text-left m-l30 tag_text side_text p-default">
-              🔥war
-              </p>
-              <p class="text-left m-l30 tag_undertext side_text p-default non_color_hover">
-              25K people wrote about it
-              </p>
-            </a>
-            <a href="#">
-              <p class="text-left m-l30 tag_text side_text p-default">
-              😂laugh
-              </p>
-              <p class="text-left m-l30 tag_undertext side_text p-default non_color_hover">
-              25K people wrote about it
-              </p>
-            </a>
-            <a href="#">
-              <p class="text-left m-l30 tag_text side_text p-default">
-              👏something
-              </p>
-              <p class="text-left m-l30 tag_undertext side_text p-default non_color_hover">
-              25K people wrote about it
-              </p>
-            </a>
-            <a href="#">
-              <p class="text-left m-l30 tag_text side_text p-default">
-              😎cool
-              </p>
-              <p class="text-left m-l30 tag_undertext side_text p-default non_color_hover">
-              25K people wrote about it
-              </p>
-            </a>
-        </div>
+      <div class="tag_page_header">
+          <p class="tag_head">🙂loveit</p>
+          <p class="tag_undertext">1 людей написали про це</p>
+          <button class="tag_follow">Підписатись</button>
     </div>
-</div>
+      <div class="tag_page_header">
+          <p class="tag_head">🙂newava</p>
+          <p class="tag_undertext">2 людей написали про це</p>
+          <button class="tag_follow">Підписатись</button>
+    </div>
+    <div class="tag_page_header">
+          <p class="tag_head">#apple</p>
+          <p class="tag_undertext">1 людей написали про це</p>
+          <button class="tag_follow">Підписатись</button>
+    </div>
+    <div class="tag_page_header">
+          <p class="tag_head">😯shotoniphone</p>
+          <p class="tag_undertext">3 людей написали про це</p>
+          <button class="tag_follow">Підписатись</button>
+    </div>
+      <div class="tag_page_header">
+          <p class="tag_head">👏bravo</p>
+          <p class="tag_undertext">1 людей написали про це</p>
+          <button class="tag_follow">Підписатись</button>
+    </div>
+    <div class="new_posts_div" start="0" end="5">
 
+    </div>
+
+
+
+</div>
+{% endblock%}
+
+{%block scripts_and_rest %}
 
 <!-- The Modal -->
 <div id="myModal" class="modal">
@@ -336,30 +53,14 @@
   <div class="modal-content">
     <div class="create_post_modal" ng-app="">
                 <div class="post_header">
-                    <img src="https://scontent.fhen1-1.fna.fbcdn.net/v/t1.0-9/20429627_1918501131738523_4099807999573759335_n.jpg?oh=1caa18efbfe583ad7753da85b4c358be&oe=5AB96743" class="user_photo">
+                    <img src="{{ url_for('static', filename='images/') }}{{user.user_photo.split(',')[0]}}" class="user_photo">
                     <div class="post_header_text">
                         <p class="user_name non_hover">Dmytro Lopushanskyy</p>
-                    </div>
-                    <div class="post_tags_div">
-                        
                     </div>
                     <span class="close" ng-click="place ='' ">&times;</span>
                 </div>
                 <div class="post_body">
-                    <div contenteditable="true" class="create_post_textarea">
-                        <!-- <div class="choose_tag" contenteditable="false">
-                            <select class="fa-select" name="hash_selector">
-                              <option value="hash">#</option>
-                              <option value="laugh">😂</option>
-                              <option value="wow">😯</option>
-                              <option value="smile">🙂</option>
-                              <option value="applause">👏</option>
-                            </select>
-                            <input type="text" name="tag" placeholder="Hastag">
-                            <p class="ok">OK</p>
-                            <p class="cancel">CANCEL</p>
-                        </div> -->
-                    </div>
+                    <div contenteditable="true" class="create_post_textarea"></div>
                     <div class="create_post_images">
                         <!-- <div class="upload_div" id="up1000">
                           <img src="https://pbs.twimg.com/media/CYdrqGRWwAAdZM5.jpg" class="my_img image_uploaded" id="image_uploaded">
@@ -370,14 +71,14 @@
                 <p id="trigger_class" class="none"></p>
                 <hr>
                 <div class="post_add_div">
-                    <form action="#" id="post_form">
-                      <div class="input-file-container">  
-                        <input class="input-file" id="my-file" type="file" multiple="multiple" accept="image/jpg, image/jpeg, image/png">
+                    <form id="post_form" enctype="multipart/form-data">
+                      <div class="input-file-container">
+                        <input class="input-file" name="new_post_images" id="my-file" type="file" multiple="multiple" accept="image/*">
                         <label tabindex="0" for="my-file" class="input-file-trigger"><i class="fa fa-file-image-o" aria-hidden="true"></i>Add Images (<span class="img_num">4</span>)</label>
                         <label tabindex="0" for="check_in" class="input-file-trigger" id="check_in_div">
                             <i class="fa fa-map-marker check_icon" aria-hidden="true"></i>
                             <span class="default_text">Add Place</span>
-                            <span class="place_check none">{{place}}</span>
+                            <span class="place_check none" ng-bind="place"></span>
                             <input class="input-place none" id="check_in" type="text" ng-model="place">
                         </label>
                         <button class="input-file-trigger post_btn">POST</button>
@@ -386,8 +87,40 @@
                 </div>
             </div>
   </div>
-
 </div>
+
+<div id="reactions_list" class="modal" start="0" end="10">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <div class="create_post_modal">
+                <div class="post_header">
+                    <div class="post_header_text ml10">
+                        <p class="user_name non_hover"><span class="react_quan"></span> reactions</p>
+                    </div>
+                    <span class="close close_btn" ">&times;</span>
+                </div><hr>
+                <div class="post_body">
+                    <div id="floatingCirclesG" class="none">
+                          <div class="f_circleG" id="frotateG_01"></div>
+                          <div class="f_circleG" id="frotateG_02"></div>
+                          <div class="f_circleG" id="frotateG_03"></div>
+                          <div class="f_circleG" id="frotateG_04"></div>
+                          <div class="f_circleG" id="frotateG_05"></div>
+                          <div class="f_circleG" id="frotateG_06"></div>
+                          <div class="f_circleG" id="frotateG_07"></div>
+                          <div class="f_circleG" id="frotateG_08"></div>
+                    </div>
+                </div>
+
+            </div>
+  </div>
+</div>
+
+
+
+
+<span class="none" status="wait" id="new_posts_status"></span>
 
 <div class="input-buffer"></div>
 
@@ -395,23 +128,450 @@
   <strong>POSTED!</strong>
 </div>
 
-<img src="" class="test_img2">
-<img src="" class="test_img">
+<img src="{{ url_for('static', filename='images/') }}{{user.user_photo.split(',')[0]}}" class="test_img2">
+<img src="{{ url_for('static', filename='images/') }}{{user.user_photo.split(',')[0]}}" class="test_img">
+
+
+<script>
+
+$(document).on('click', '.quantity p:first-child', function(e){
+    $('#floatingCirclesG').removeClass('none')
+
+    var id = $(this).parent().parent().parent().attr('id')
+    $('#reactions_list').css('display', 'block')
+    $("body").css("overflow", "hidden");
+    $('#reactions_list .react_quan').text($('#' + id).find('.likes_quantity').text())
+
+    var start = $('#reactions_list').attr('start')
+    var end = $('#reactions_list').attr('end')
+    console.log(start, end)
+
+    $.ajax({
+        url: '/get_reactions',
+        data: JSON.stringify({'post_id': id, 'start': start, 'end': end}, null, '\t'),
+        type: 'POST',
+        contentType: 'application/json;charset=UTF-8',
+        success: function(response) {
+            console.log(response.status, response.react_list, response.end_of_reacts);
+            if (response.end_of_reacts == 'true') {
+                $('#floatingCirclesG').addClass('none')
+            }else{
+              $('#reactions_list').attr('start', Number(start)+10)
+              $('#reactions_list').attr('end', Number(end)+10)
+            }
+
+            for (var i = 0; i <= response.react_list.length - 1; i++) {
+
+
+                var curr = $('#reactions_list .post_body').prepend('<a href="'+ 'special?id='+ response.react_list[i][2][0] +'"><div class="user_reacted_div"><img src="'+ '/static/images/'+ response.react_list[i][2][5].split(',')[0] +'" class="user_photo"><div class="post_header_text"><p class="user_name non_hover">'+ response.react_list[i][2][1] + ' ' + response.react_list[i][2][2] +' </p></div><div class="user_reactions_div"><span class="user_reaction none">👍</span><span class="user_reaction none">😂</span><span class="user_reaction none">😯</span><span class="user_reaction none">🙂</span><span class="user_reaction none">👏</span></div></div></a><hr class="hr_btw_reactions">')
+
+                console.log('d',curr, response.react_list[i], response.react_list[i][2][5].split(',')[0], $('#reactions_list .post_body a:first-child .user_reactions_div .user_reaction:nth-child('+response.react_list[i][1]+')'), response.react_list[i][1])
+
+                $('#reactions_list .post_body a:first-child .user_reactions_div .user_reaction:nth-child('+response.react_list[i][1]+')').removeClass('none')
+            }
+        },
+        error: function(error) {
+            console.log(error);
+        }
+    });
+})
+
+$(document).on('click', '.close_btn', function(e){
+    $('#reactions_list a').remove()
+    $('#reactions_list .hr_btw_reactions').remove()
+
+    $('#reactions_list').css('display', 'none')
+    $("body").css("overflow", "auto");
+})
+
+
+</script>
+
+
 
 
 
 <script>
+
+// getting posts
+
+
+
+function loadNewPosts (){
+    var start = $('.new_posts_div').attr('start')
+    var end = $('.new_posts_div').attr('end')
+
+    var id = $("#us_id").val();
+    var action =  'get_posts'
+
+    $.ajax({
+        url: '/get_posts',
+        data: JSON.stringify({'id':id, 'action': action, 'start':start, 'end': end}, null, '\t'),
+        type: 'POST',
+        contentType: 'application/json;charset=UTF-8',
+        success: function(response) {
+            console.log(response.status);
+            if (response.end_of_posts == 'true') {
+                $('.spinner').addClass('none')
+            }else{
+              $('.new_posts_div').attr('start', Number(start)+5)
+              $('.new_posts_div').attr('end', Number(end)+5)
+            }
+
+            console.log('ddd')
+            for (var i = 0; i <= response.posts_list.length - 1; i++) {
+
+                $(".new_posts_div" ).append( '<div class="post" id="'+response.posts_list[i][0]+'"><div class="post_header"><img src="/static/images/'+ response.posts_list[i][10][5].split(',')[0] +'" class="user_photo"><div class="post_header_text"><a href="#"><p class="user_name">'+ response.posts_list[i][10][1] + ' '+  response.posts_list[i][10][2] +'</p></a><p class="post_info">' + response.posts_list[i][6] +', ' + response.posts_list[i][5] + '</p></div><div class="post_tags_div"></div><div class="post_dropdown dropbtn"><div class="dots_container dropbtn"><div class="dots"></div></div><div id="myDropdown" class="dropdown-content"><a href="#">Change Privacy</a><a href="#">Hide</a></div></div></div><div class="post_body"><p class="post_text">' + response.posts_list[i][2] +'</p><div class="post_images"></div></div><hr><div class="post_footer"><div class="footer_div reactions_div"><div class="reactions hide pointer"><i class="fa fa-heart-o react_btn like" aria-hidden="true"></i><span class="react_btn react2">😂</span><span class="react_btn react3">😯</span> <span class="react_btn react4">🙂</span> <span class="react_btn react5">👏</span> </div><span class="like_bottom pointer"><i class="fa fa-heart-o like_btn like" aria-hidden="true"></i></span><span class="react_btn like_btn none">😂</span><span class="react_btn like_btn none">😯</span> <span class="react_btn like_btn none">🙂</span> <span class="react_btn like_btn none">👏</span> <div class="connection"></div></div><div class="footer_div"><i class="fa fa-comment-o comment_btn pointer" aria-hidden="true"></i></div><div class="footer_div hey"><i class="fa fa-share share_btn pointer" aria-hidden="true"></i></div><div class="quantity"><p><span class="likes_quantity pointer">' + response.posts_list[i][8] +'</span> reactions,</p><p> <span class="comments_quantity pointer">' + response.posts_list[i][11] +'</span> comments,</p><p> <span class="shares_quantity pointer">0</span> shares</p></div></div><hr class="hr_none none"><div class="post_comments none" start="0" end="1"><div class="view_more pointer none"><p class="view_more_text">View More Comments...</p><br><p class="view_more_text none">Hide All Comments</p></div><div class="my_comment"><img src="{{ url_for('static', filename='images/') }}{{user.user_photo.split(',')[0]}}" class="comment_img my_img"><p class="comm_username tagbe_hover my_name">{{user.first_name}} {{user.last_name}}</p><form class="comment_form comm_form submit" method="get" action="" onsubmit="return false"><div class="textarea-container"><textarea class="my_textarea"></textarea><div class="textarea-size"></div></div><i class="fa fa-smile-o smile_icon right50" aria-hidden="true"></i><i class="fa fa-file-image-o smile_icon" aria-hidden="true"></i><p class="input_tip">Press Enter to submit</p></form></div></div></div>' );
+
+                console.log('ddd', response.posts_list[i][3], response.posts_list[i][3].split(',') )
+
+                // display right reaction
+
+                for (var l = 0; l <= response.posts_list[i][9].length - 1; l++) {
+                  console.log('user', response.posts_list[i][9][l][0], response.posts_list[i][9][l][1])
+                  if (response.posts_list[i][9][l][0] == {{user.id}}) {
+                      if (response.posts_list[i][9][l][1] == 1) {
+                          $('#'+ response.posts_list[i][0] + ' .footer_div > span').addClass('none')
+                          $('#'+ response.posts_list[i][0] + ' .footer_div > span:nth-child(2)').toggleClass('none')
+                          $('#'+ response.posts_list[i][0] + ' .like').toggleClass('fa-heart-o fa-heart')
+                      }else{
+                          console.log('log', 'else', Number(response.posts_list[i][9][l][1]) + 1)
+                          react_id = Number(response.posts_list[i][9][l][1]) + 1
+                          $('#'+ response.posts_list[i][0] + ' .like').removeClass('fa-heart')
+                          $('#'+ response.posts_list[i][0] + ' .like').addClass('fa-heart-o')
+                          $('#'+ response.posts_list[i][0] + ' .footer_div > span').addClass('none')
+                          $('#'+ response.posts_list[i][0] + ' .footer_div > span:nth-child('+ react_id +')').toggleClass('none')
+                          $('#'+ response.posts_list[i][0] + ' .post_footer .footer_div:nth-child(1)').css("marginTop", "-20px")
+
+                      }
+                  }
+                }
+
+
+
+
+                if (response.posts_list[i][3] != '') {
+                    for (var b = 0; b <= response.posts_list[i][3].split(',').length - 2; b++) {
+                      console.log(response.posts_list[i][3].split(',')[b])
+                      $('#'+response.posts_list[i][0]+ ' .post_images').append('<div class="img_container"><img src=" '+ '/static/images/' + response.posts_list[i][3].split(',')[b]  +' " class="post_img"></div>')
+                    }
+                }
+
+
+
+                tags_array = response.posts_list[i][4]
+
+                console.log('tagsall', tags_array, tags_array.split(','))
+                if (tags_array != '') {
+                    tags_array = tags_array.split(',')
+                    for (var a = 0; a <= tags_array.length-1; a++) {
+                      if (tags_array[a].split('')[0] == '') {
+                        var symbol = ' #'
+                        tags_array[a] = tags_array[a].substr(1);
+                      }else{
+                        var symbol = ' '
+                      }
+
+                      tags_array[a].toString()
+                      console.log('tags', tags_array[a])
+
+
+                      $('#'+response.posts_list[i][0]+ ' .post_tags_div').append('<a href="#"><p class="post_tag">'+ symbol + tags_array[a] +', </p></a>')
+
+                    }
+                }
+                $('#new_posts_status').attr('status', '')
+            }
+
+            niceImages()
+            aligning()
+
+            // $('.post_img').load(function(){
+            //     niceImages()
+            //     aligning()
+            // })
+
+
+        },
+        error: function(error) {
+            console.log(error);
+        }
+    });
+
+};
+
+</script>
+
+
+
+<script>
+
+$('#view_friends').click(function(){
+    window.location.href = 'friends_list?user=' + {{user.id}};
+})
+
+$(document).on('click', '#friends', function(e) {
+    e.preventDefault()
+
+    $('.friends_div').toggleClass('none')
+
+    if (!$('.friends_div').hasClass('none') && $('.friends_div .row div').length == 0) {
+        var start = $('#view_more_friends').attr('start')
+        var end = $('#view_more_friends').attr('end')
+
+
+        friends_avas()
+
+        var id = $("#us_id").val();
+        var action =  'get_friends'
+
+        $.ajax({
+            url: '/get_friends',
+            data: JSON.stringify({'id':id, 'action': action, 'start':start, 'end': end, 'give_me_quantity': 'yes'}, null, '\t'),
+            type: 'POST',
+            contentType: 'application/json;charset=UTF-8',
+            success: function(response) {
+                console.log(response.status, response.friends_list);
+                if (response.end_of_friends == 'true') {
+                    $('#view_more_friends').addClass('none')
+                }else{
+                  $('#view_more_friends').attr('start', Number(start)+8)
+                  $('#view_more_friends').attr('end', Number(end)+8)
+                }
+
+                if (response.quantity) {
+                    $('#fr_quantity').html(response.quantity)
+                }
+
+                for (var i = 0; i <= response.friends_list.length - 1; i++) {
+                    console.log('d', response.friends_list[i], response.friends_list[i][3].split(',')[0])
+                    $('.friends_div .row').append('<div class="friend_item col-xs-3"><img src="'+ '/static/images/'+ response.friends_list[i][3].split(',')[0] +'" alt="Avatar" class="image" style="width:100%; height: 100%"><a href="'+ 'special?id='+ response.friends_list[i][0] +'"><div class="middle2"><div class="text2">'+ response.friends_list[i][1] +'<br> '+ response.friends_list[i][2] +'</div></div></a></div>')
+                }
+                friends_avas()
+            },
+            error: function(error) {
+                console.log(error);
+            }
+        });
+    }
+
+});
+
+
+$(document).on('click', '#view_more_friends', function(e) {
+    e.preventDefault()
+
+    var start = $('#view_more_friends').attr('start')
+    var end = $('#view_more_friends').attr('end')
+
+
+    friends_avas()
+
+    var id = $("#us_id").val();
+    var action =  'get_friends'
+
+    $.ajax({
+        url: '/get_friends',
+        data: JSON.stringify({'id':id, 'action': action, 'start':start, 'end': end}, null, '\t'),
+        type: 'POST',
+        contentType: 'application/json;charset=UTF-8',
+        success: function(response) {
+            console.log(response.status, response.friends_list);
+            if (response.end_of_friends == 'true') {
+                $('#view_more_friends').addClass('none')
+            }else{
+              $('#view_more_friends').attr('start', Number(start)+8)
+              $('#view_more_friends').attr('end', Number(end)+8)
+            }
+
+            for (var i = 0; i <= response.friends_list.length - 1; i++) {
+                console.log('d', response.friends_list[i], response.friends_list[i][3].split(',')[0])
+                $('.friends_div .row').append('<div class="friend_item col-xs-3"><img src="'+ '/static/images/'+ response.friends_list[i][3].split(',')[0] +'" alt="Avatar" class="image" style="width:100%; height: 100%"><a href="'+ 'special?id='+ response.friends_list[i][0] +'"><div class="middle2"><div class="text2">'+ response.friends_list[i][1] +'<br> '+ response.friends_list[i][2] +'</div></div></a></div>')
+            }
+            friends_avas()
+        },
+        error: function(error) {
+            console.log(error);
+        }
+    });
+
+});
+
+function friends_avas(){
+    var width_item = $('.friends_div').width() / 4 - 8
+    $('.friend_item').each(function(){
+      $(this).css('height', width_item)
+      $(this).css('width', width_item)
+    })
+    $('.friends_div').css('height', width_item * 3 + 23)
+}
+
+$('#view_groups').click(function(){
+    window.location.href = 'groups_list?user=' + {{user.id}};
+})
+
+$(document).on('click', '#groups', function(e) {
+    e.preventDefault()
+
+    $('.groups_div').toggleClass('none')
+
+    if (!$('.groups_div').hasClass('none') && $('.groups_div .row div').length == 0) {
+        var start = $('#view_more_groups').attr('start')
+        var end = $('#view_more_groups').attr('end')
+
+        friends_avas()
+
+        var id = $("#us_id").val();
+        var action =  'get_groups'
+
+        $.ajax({
+            url: '/get_groups',
+            data: JSON.stringify({'id':id, 'action': action, 'start':start, 'end': end, 'give_me_quantity': 'yes'}, null, '\t'),
+            type: 'POST',
+            contentType: 'application/json;charset=UTF-8',
+            success: function(response) {
+                console.log(response.status, response.friends_list);
+                if (response.end_of_friends == 'true') {
+                    $('#view_more_groups').addClass('none')
+                }else{
+                  $('#view_more_groups').attr('start', Number(start)+8)
+                  $('#view_more_groups').attr('end', Number(end)+8)
+                }
+
+                if (response.quantity) {
+                    $('#gr_quantity').html(response.quantity)
+                }
+
+                for (var i = 0; i <= response.friends_list.length - 1; i++) {
+                    console.log('d', response.friends_list[i], response.friends_list[i][3].split(',')[0])
+                    $('.groups_div .row').append('<div class="friend_item col-xs-3"><img src="'+ '/static/images/'+ response.friends_list[i][3].split(',')[0] +'" alt="Avatar" class="image" style="width:100%; height: 100%"><a href="'+ 'special?id='+ response.friends_list[i][0] +'"><div class="middle2"><div class="text2">'+ response.friends_list[i][1] +'</div></div></a></div>')
+                }
+                groups_avas()
+            },
+            error: function(error) {
+                console.log(error);
+            }
+        });
+    }
+
+});
+
+$(document).on('click', '#view_more_groups', function(e) {
+    e.preventDefault()
+
+    var start = $('#view_more_groups').attr('start')
+    var end = $('#view_more_groups').attr('end')
+
+
+    friends_avas()
+
+    var id = $("#us_id").val();
+    var action =  'get_groups'
+
+    $.ajax({
+        url: '/get_groups',
+        data: JSON.stringify({'id':id, 'action': action, 'start':start, 'end': end}, null, '\t'),
+        type: 'POST',
+        contentType: 'application/json;charset=UTF-8',
+        success: function(response) {
+            console.log(response.status, response.friends_list);
+            if (response.end_of_friends == 'true') {
+                $('#view_more_groups').addClass('none')
+            }else{
+              $('#view_more_groups').attr('start', Number(start)+8)
+              $('#view_more_groups').attr('end', Number(end)+8)
+            }
+
+            for (var i = 0; i <= response.friends_list.length - 1; i++) {
+                console.log('d', response.friends_list[i], response.friends_list[i][3].split(',')[0])
+                $('.groups_div .row').append('<div class="friend_item col-xs-3"><img src="'+ '/static/images/'+ response.friends_list[i][3].split(',')[0] +'" alt="Avatar" class="image" style="width:100%; height: 100%"><a href="'+ 'special?id='+ response.friends_list[i][0] +'"><div class="middle2"><div class="text2">'+ response.friends_list[i][1] +'<br> '+ response.friends_list[i][2] +'</div></div></a></div>')
+            }
+            groups_avas()
+        },
+        error: function(error) {
+            console.log(error);
+        }
+    });
+
+});
+
+function groups_avas(){
+    var width_item = $('.groups_div').width() / 4 - 8
+    $('.friend_item').each(function(){
+      $(this).css('height', width_item)
+      $(this).css('width', width_item)
+    })
+    $('.groups_div').css('height', width_item * 3 + 23)
+}
+
+</script>
+<script>
+
+$(document).on('click', '#refresh', function(e) {
+    e.preventDefault()
+
+    var id = $('#f_id').val()
+    var f_name = $('#f_f_name').val()
+    var l_name = $('#f_l_name').val()
+    var pass = $('#f_password').val()
+    var email = $('#f_email').val()
+    var age = $('#f_age').val()
+    var phone = $('#f_phone').val()
+    var sex = $('#f_sex').val()
+    var address = $('#f_address').val()
+
+    $.ajax({
+        url: '/add_edit',
+        data: JSON.stringify({'f_name':f_name, 'l_name': l_name, 'new_pass':pass, 'id': id, 'new_email':email, 'age': age, 'phone':phone, 'address': address, 'sex': sex}, null, '\t'),
+        type: 'POST',
+        contentType: 'application/json;charset=UTF-8',
+        success: function(response) {
+            console.log(response.status);
+            $('#info').toggleClass('none')
+            $('#editting').toggleClass('none')
+            location.reload();
+        },
+        error: function(error) {
+            console.log(error);
+        }
+    });
+});
+
+$(document).on('click', '#edit', function(e) {
+    e.preventDefault()
+    $('#info').toggleClass('none')
+    $('#editting').toggleClass('none')
+});
+
+
 
 function readURL3(input) {
     var numFiles = input.files.length;
 
     if (input.files && input.files[0]) {
 
-      var reader = new FileReader();
+     var reader = new FileReader();
       reader.onload = function (e) {
-          $('.photos_container').css('background-image','url('+ e.target.result + ')');
-          $('.test_img').attr('src', e.target.result);
-          console.log('a')
+
+          var form_data = new FormData($('#form_back')[0]);
+          $.ajax({
+              type: 'POST',
+              url: '/upload?' + 'user_type=user&' + 'type=back' ,
+              data: form_data,
+              contentType: false,
+              cache: false,
+              processData: false,
+              async: false,
+              success: function(response) {
+                  $('.photos_container').css('background-image','url('+ e.target.result + ')');
+                  $('.test_img').attr('src', e.target.result);
+                  console.log(response.status);
+              },
+              error: function(error) {
+                  console.log(error);
+              }
+          });
+
       }
       reader.readAsDataURL(input.files[0]);
     }
@@ -431,8 +591,26 @@ function readURL2(input) {
 
       var reader = new FileReader();
       reader.onload = function (e) {
-          $('.profile_photo_user').attr('src', e.target.result);
-          $('.test_img2').attr('src', e.target.result);
+
+          var form_data = new FormData($('#form_ava')[0]);
+          $.ajax({
+              type: 'POST',
+              url: '/upload?' + 'user_type=user&' + 'type=ava' ,
+              data: form_data,
+              contentType: false,
+              cache: false,
+              processData: false,
+              async: false,
+              success: function(response) {
+                  $('.profile_photo_user').attr('src', e.target.result);
+                  $('.test_img2').attr('src', e.target.result);
+                  console.log(response.status);
+                  location.reload()
+              },
+              error: function(error) {
+                  console.log(error);
+              }
+          });
       }
       reader.readAsDataURL(input.files[0]);
     }
@@ -443,7 +621,7 @@ $(document).on('change', '#profile_photo', function(e){
 });
 
 $('.test_img2').on('load', function(){
-    console.log($('.test_img2'),$('.test_img2').width(), $('.test_img2').height())
+    console.log('heeeere', $('.test_img2'),$('.test_img2').width(), $('.test_img2').height())
     if ($('.test_img2').width() > $('.test_img2').height()) {
         console.log('widthmore')
         $('.profile_photo_user').css('height', '174px');
@@ -454,11 +632,25 @@ $('.test_img2').on('load', function(){
     }
 });
 
+$(document).ready(function(){
+    if ($('.test_img2').width() > $('.test_img2').height()) {
+        console.log('widthmore')
+        $('.profile_photo_user').css('height', '174px');
+        $('.profile_photo_user').css('width', 'auto');
+    }else{
+        $('.profile_photo_user').css('width', '174px');
+        $('.profile_photo_user').css('height', 'auto');
+    }
+
+});
+
+
+
 $(document).on('mouseover', '.photos_container', function(e) {
     if ($('.ava').children('.overlay').hasClass('none')) {
       $(this).children('.overlay').removeClass('none')
     }
-    
+
 });
 $(document).on('mouseleave', '.photos_container', function(e) {
     $(this).children('.overlay').addClass('none')
@@ -475,7 +667,8 @@ $(document).on('mouseleave', '.ava', function(e) {
 
 $(document).on('click', '#about', function(e) {
     e.preventDefault()
-    $('.edit_div').toggleClass('none')
+    $('#info').removeClass('none')
+    $('#editting').addClass('none')
 });
 
 $(document).ready(function(e) {
@@ -490,28 +683,245 @@ $(document).ready(function(e) {
 
 
 <script>
-  
+
+function readURL20() {
+    input = $('#my-file')[0]
+    var files_array = []
+    var numFiles = input.files.length;
+
+    if (input.files && input.files[0]) {
+
+      var reader = new FileReader();
+      reader.onload = function (e) {
+
+          var form_data = new FormData($('#post_form')[0]);
+
+          $.ajax({
+                type: 'POST',
+                url: '/post' ,
+                data: form_data,
+                contentType: false,
+                cache: false,
+                processData: false,
+                async: false,
+                success: function(response) {
+                    console.log(response.status);
+
+                },
+                error: function(error) {
+                    console.log(error);
+                }
+            });
+
+          for (var value of form_data.values()) {
+
+            files_array.push(value)
+             console.log(value);
+          }
+          console.log('form_data', files_array);
+          return files_array
+      }
+      reader.readAsDataURL(input.files[0]);
+    }
+}
+function img_upload(callback) {
+  input = $('#my-file')[0]
+    var files_array = []
+    var numFiles = input.files.length;
+
+    if (input.files && input.files[0]) {
+
+      var reader = new FileReader();
+
+
+      reader.onload = function (e) {
+
+          var form_data = new FormData($('#post_form')[0]);
+
+
+          for (var value of form_data.values()) {
+            console.log('infunc', value)
+
+          }
+          callback(form_data);
+
+      }
+      reader.readAsDataURL(input.files[0]);
+    }else{
+      callback(undefined);
+    }
+}
+
+
 $(document).on('click', '.post_btn', function(e) {
     e.preventDefault()
+
+
+
+    var text = $('.create_post_textarea').html()
+    text = text.split('')
+    var image_being = $('.post_images').length
+
+
+
+    var delete_cur
+    var aditional = 0
+    var array_length = text.length
+    for (var i = 0; i <= text.length - 1 + aditional ; i++) {
+        aditional = array_length - text.length
+        if (text[i-aditional] == '<'){
+            delete_cur = i-aditional
+        }else if (text[i-aditional] == '>'){
+            text.splice(delete_cur, i-aditional - delete_cur + 1)
+        }
+    }
+    for (var i = 0; i <= text.length - 1 + aditional ; i++) {
+        aditional = array_length - text.length
+        if (text[i-aditional] == '<'){
+            delete_cur = i-aditional
+        }else if (text[i-aditional] == '>'){
+            text.splice(delete_cur, i-aditional - delete_cur + 1)
+        }
+    }
+
+    if (text.length == 0 && image_being == 1) {
+      console.log('leer')
+      return
+    }
     modal.style.display = "none";
-    $("body").css("overflow", "auto");
 
-    $('.place_check').addClass('none')
-    $('.default_text').removeClass('none')
+    text = text.join('');
 
-    $('.create_post_images').empty()
-    
-    $( "#trigger_class" ).trigger( "click" );
+    console.log('1')
+    img_upload(function(result){
+      form_data = result
+      console.log('heyhey',  form_data);
 
-    $('.alert').addClass('appear_alert')
 
-    setTimeout(function(){
-      $('.alert').removeClass('appear_alert')
-      $('.alert').addClass('hide_alert')
-    },2000);
-    setTimeout(function(){
-      $('.alert').removeClass('hide_alert')
-    },2500);
+
+      city = $('.place_check').html();
+      var tags_array = [];
+
+    $('.create_post_textarea .hastag_changed').each(function(){
+         console.log('found!')
+        tags_array.push($(this).val())
+    });
+
+      if (form_data != undefined) {
+
+          for (var value of form_data.values()) {
+            console.log('outfunc', value)
+
+          }
+
+          form_data.append('text', text)
+          form_data.append('tags', tags_array)
+          form_data.append('location', city)
+          form_data.append('date', new Date().toLocaleString())
+
+          $.ajax({
+                type: 'POST',
+                url: '/post' ,
+                data: form_data,
+                contentType: false,
+                cache: false,
+                processData: false,
+                async: false,
+                success: function(response) {
+                    console.log(response.status, response.post_id, 'searching');
+                    $('#new_posts_status').text(response.post_id)
+                },
+                error: function(error) {
+                    console.log(error);
+                }
+            });
+      }else{
+          console.log('else')
+          var form_data = new FormData($('#post_form')[0]);
+
+          form_data.append('text', text)
+          form_data.append('tags', tags_array)
+          form_data.append('location', city)
+          form_data.append('date', new Date().toLocaleString())
+
+          $.ajax({
+                type: 'POST',
+                url: '/post' ,
+                data: form_data,
+                contentType: false,
+                cache: false,
+                processData: false,
+                async: false,
+                success: function(response) {
+                    console.log(response.status, response.post_id, 'searching');
+                    $('#new_posts_status').text(response.post_id)
+
+                },
+                error: function(error) {
+                    console.log(error);
+                }
+            });
+      }
+
+
+      city = $('.place_check').html();
+
+
+      id = $('#new_posts_status').html()
+
+      $(".new_posts_div" ).prepend( '<div class="post" id="'+id+'"><div class="post_header"><img src="{{ url_for('static', filename='images/') }}{{user.user_photo.split(',')[0]}}" class="user_photo"><div class="post_header_text"><a href="#"><p class="user_name">{{user.first_name}} {{user.last_name}}</p></a><p class="post_info">' + new Date().toLocaleString() +', ' + city + '</p></div><div class="post_tags_div"></div><div class="post_dropdown dropbtn"><div class="dots_container dropbtn"><div class="dots"></div></div><div id="myDropdown" class="dropdown-content"><a href="#">Change Privacy</a><a href="#">Hide</a></div></div></div><div class="post_body"><p class="post_text">' + text +'</p><div class="post_images"></div></div><hr><div class="post_footer"><div class="footer_div reactions_div"><div class="reactions hide pointer"><i class="fa fa-heart-o react_btn like" aria-hidden="true"></i><span class="react_btn react2">😂</span><span class="react_btn react3">😯</span> <span class="react_btn react4">🙂</span> <span class="react_btn react5">👏</span> </div><span class="like_bottom pointer"><i class="fa fa-heart-o like_btn like" aria-hidden="true"></i></span><span class="react_btn like_btn none">😂</span><span class="react_btn like_btn none">😯</span> <span class="react_btn like_btn none">🙂</span> <span class="react_btn like_btn none">👏</span> <div class="connection"></div></div><div class="footer_div"><i class="fa fa-comment-o comment_btn pointer" aria-hidden="true"></i></div><div class="footer_div hey"><i class="fa fa-share share_btn pointer" aria-hidden="true"></i></div><div class="quantity"><p><span class="likes_quantity pointer">0</span> reactions,</p><p> <span class="comments_quantity pointer">0</span> comments,</p><p> <span class="shares_quantity pointer">0</span> shares</p></div></div><hr class="hr_none none"><div class="post_comments none" start="0" end="1"><div class="view_more pointer none"><p class="view_more_text">View More Comments...</p><br><p class="view_more_text none">Hide Comments</p></div><div class="my_comment"><img src="{{ url_for('static', filename='images/') }}{{user.user_photo.split(',')[0]}}" class="comment_img my_img"><p class="comm_username tagbe_hover my_name">{{user.first_name}} {{user.last_name}}</p><form class="comment_form comm_form submit" method="get" action="" onsubmit="return false"><div class="textarea-container"><textarea class="my_textarea"></textarea><div class="textarea-size"></div></div><i class="fa fa-smile-o smile_icon right50" aria-hidden="true"></i><i class="fa fa-file-image-o smile_icon" aria-hidden="true"></i><p class="input_tip">Press Enter to submit</p></form></div></div></div>' );
+
+      var src
+      $('.create_post_images .upload_div').each(function(){
+          src = $(this).find('.image_uploaded').attr('src');
+          console.log('qwerty', id, $('#'+id+ ' .post_images'), '#'+id+ ' .post_images')
+          $('#'+id+ ' .post_images').append('<div class="img_container"><img src=" '+ src +' " class="post_img"></div>')
+      })
+
+      tags_array = [];
+
+      $('.create_post_textarea .hastag_changed').each(function(){
+           console.log('found!')
+          tags_array.push($(this).val())
+      });
+
+      for (var i = 0; i <= tags_array.length-1; i++) {
+        if (tags_array[i].split('')[0] == '') {
+          var symbol = ' #'
+          tags_array[i] = tags_array[i].substr(1);
+        }else{
+          var symbol = ' '
+        }
+
+        $('#'+id+ ' .post_tags_div').append('<a href="#"><p class="post_tag">'+ symbol + tags_array[i] +', </p></a>')
+
+      }
+
+
+      niceImages()
+      aligning()
+
+      $("body").css("overflow", "auto");
+
+      $('.place_check').addClass('none')
+      $('.default_text').removeClass('none')
+
+      $('.create_post_images').empty()
+
+      $( "#trigger_class" ).trigger( "click" );
+
+      $('.alert').addClass('appear_alert')
+
+      setTimeout(function(){
+        $('.alert').removeClass('appear_alert')
+        $('.alert').addClass('hide_alert')
+      },2000);
+      setTimeout(function(){
+        $('.alert').removeClass('hide_alert')
+      },2500);
+    });
+
+
 });
 
 // empty all inputs
@@ -523,7 +933,7 @@ $(document).on('click', '.post_btn', function(e) {
 //     $('.create_post_textarea').html('')
 //     $('.create_post_textarea').css('height', 'auto')
 //     $('.img_num').html(4)
-    
+
 // });
 </script>
 <script>
@@ -533,7 +943,7 @@ $(document).on('keyup', '.post_text_edit', function(e) {
     $('.create_post_textarea').focus()
 });
 
-  // searching for hastag 
+  // searching for hastag
 $(document).on('keyup', '.create_post_textarea', function(e) {
     var post_array = []
     var post_text = $('.create_post_textarea').html()
@@ -577,7 +987,7 @@ $('.create_post_textarea').on('keypress', function(e) {
           return  $(e.target).parent().replaceWith('')
         }
         $("body").bind("DOMNodeInserted", function() {
-           prependClass($(this).find('.hastag_changed'), '<'+insert+'>')
+           prependClass($(this).find('.hastag_changed'), '_'+insert+'-')
         });
         if (hashtag == 'hash'){
           hashtag = '&#xf292;'
@@ -594,18 +1004,18 @@ $('.create_post_textarea').on('keypress', function(e) {
         if (hashtag == 'applause'){
           hashtag = '👏'
         }
-        
+
         $(e.target).parent().replaceWith('<input class="hastag_changed autoresize" contenteditable="true" value="'+ hashtag + input + '"></input><input class="post_text_edit" contenteditable="true"> </input>')
         // var $input = $('.hastag_changed'),
         //     $buffer = $('.input-buffer');
 
         // $buffer.text($input.val());
         // $input.width($buffer.width());
-        
+
         $('.hastag_changed').attr('size', $('.hastag_changed').val().length);
         $('.post_text_edit').focus()
 
-        
+
 
     $(".create_post_textarea").val($(".create_post_textarea").val())
     console.log(hashtag, input, $(e.target).parent())
@@ -621,7 +1031,7 @@ $(document).on('click', '.ok', function(e) {
       return  $(e.target).parent().replaceWith('')
     }
     $("body").bind("DOMNodeInserted", function() {
-      prependClass($(this).find('.hastag_changed'), '<'+insert+'>')
+      prependClass($(this).find('.hastag_changed'), '_'+insert+'-')
     });
     if (hashtag == 'hash'){
       hashtag = '&#xf292;'
@@ -658,20 +1068,20 @@ function prependClass(sel, strClass) {
 $(document).on('focusin', '.hastag_changed', function(e) {
     var text = $('.hastag_changed').attr('value').substring(1, $('.hastag_changed').attr('value').length)
     var option = 'hash'
-    var emotion = $(".hastag_changed[class^='<'],.hastag_changed[class*='<']").attr('class').split(' ')[0].slice(1,-1)
+    var emotion = $(".hastag_changed[class^='_'],.hastag_changed[class*='-']").attr('class').split(' ')[0].slice(1,-1)
     if(emotion!='hash'){
       text = $('.hastag_changed').attr('value').substring(2, $('.hastag_changed').attr('value').length)
     }
-    
+
     console.log(emotion, option)
     var input = $('input[name=tag]').val()
 
     $(e.target).replaceWith('<div class="choose_tag" contenteditable="false"><select class="fa-select" name="hash_selector"><option value="hash">#</option><option value="laugh">😂</option><option value="wow">😯</option><option value="smile">🙂</option><option value="applause">👏</option></select><input type="text" class="choose_tag_input" name="tag" placeholder="Hastag" value="'+ text +'"><p class="ok">OK</p><p class="cancel">CANCEL</p></div>')
     $('input[name=tag]').focus()
-    var val = $('input[name=tag]').val();       
+    var val = $('input[name=tag]').val();
     $('input[name=tag]').val('');
     $('input[name=tag]').val(val);
-    
+
     $("select[name=hash_selector]").val(emotion);
 });
 
@@ -683,7 +1093,7 @@ $(document).mouseup(function(e) {
     var container = $(".choose_tag_input").parent();
 
     // if the target of the click isn't the container nor a descendant of the container
-    if (!container.is(e.target) && container.has(e.target).length === 0) 
+    if (!container.is(e.target) && container.has(e.target).length === 0)
     {
         container.remove();
     }
@@ -694,8 +1104,8 @@ $(document).mouseup(function(e) {
 
 
 <script>
-  
-$("#check_in_div").click(function(){
+
+$(document).on('click', "#check_in_div", function(e){
     $('.check_icon').addClass('none')
     $('.default_text').addClass('none')
     $('#check_in').removeClass('none')
@@ -710,7 +1120,7 @@ $("#check_in").focusout(function(){
     }else{
         $('.default_text').removeClass('none')
     }
-    
+
     $('#check_in').addClass('none')
     $('#check_in_div').removeClass('blue_color')
 });
@@ -720,22 +1130,22 @@ $("#check_in").focusout(function(){
 
 
 <script>
-  
+
 document.querySelector("html").classList.add('js');
 
-var fileInput  = document.querySelector( ".input-file" ),  
+var fileInput  = document.querySelector( ".input-file" ),
     button     = document.querySelector( ".input-file-trigger" ),
     the_return = document.querySelector(".file-return");
-      
-button.addEventListener( "keydown", function( event ) {  
-    if ( event.keyCode == 13 || event.keyCode == 32 ) {  
-        fileInput.focus();  
-    }  
+
+button.addEventListener( "keydown", function( event ) {
+    if ( event.keyCode == 13 || event.keyCode == 32 ) {
+        fileInput.focus();
+    }
 });
 button.addEventListener( "click", function( event ) {
    fileInput.focus();
    return false;
-});  
+});
 
 function readURL(input) {
     var numFiles = input.files.length;
@@ -783,7 +1193,7 @@ var btn2 = document.getElementById("myBtn2");
 // Get the <span> element that closes the modal
 var span = document.getElementsByClassName("close")[0];
 
-// When the user clicks the button, open the modal 
+// When the user clicks the button, open the modal
 btn.onclick = function() {
     modal.style.display = "block";
     $("body").css("overflow", "hidden");
@@ -805,10 +1215,10 @@ span.onclick = function() {
         $('.default_text').removeClass('none')
 
         $('.create_post_images').empty()
-        
+
         $( "#trigger_class" ).trigger( "click" );
     } else {
-        
+
     }
 
 }
@@ -822,7 +1232,7 @@ $('#trigger_class').on('click', function(e){
     $('.create_post_textarea').html('')
     $('.create_post_textarea').css('height', 'auto')
     $('.img_num').html(4)
-    
+
 });
 
 
@@ -831,7 +1241,7 @@ $('#trigger_class').on('click', function(e){
 
 jQuery.each(jQuery('textarea[data-autoresize]'), function() {
     var offset = this.offsetHeight - this.clientHeight;
- 
+
     var resizeTextarea = function(el) {
         jQuery(el).css('height', 'auto').css('height', el.scrollHeight + offset);
     };
@@ -841,69 +1251,12 @@ jQuery.each(jQuery('textarea[data-autoresize]'), function() {
 
 
 
-<script>
-
-
-$(window).on('load', function(){
-    $( ".post" ).each(function() {
-      id = Number($(this).attr('id'))
-
-      length = $('#'+id+ ' .post_body img').length
-      var divWidth = $('.post_images').width() / 2; 
-      if (length != 1){
-          $( '#'+id+ " .post_body img" ).each(function() {
-          if ($(this).height() < $(this).width()){
-              $(this).css('height', divWidth+'px');
-              $(this).css('width', 'auto');
-              $(this).parent().css('overflow', 'scroll');
-              $('#'+id+ ' .post_body img').addClass('vertical_align_bottom')
-              $('#'+id+ ' .post_body .img_container').addClass('vertical_align_bottom')
-          }else{
-              // if (length == 3){
-              //     $('#'+id+ ' .post_body .img_container:nth-child(3) img').css('marginTop','-'+divWidth/2+'px');
-              //     $('#'+id+ ' .post_body .img_container:nth-child(3)').css('height', divWidth+'px');
-              // }
-              $(this).parent().css('height', divWidth+'px');
-              $(this).parent().css('overflow', 'scroll');
-              $('#'+id+ ' .post_body img').addClass('vertical_align_bottom')
-              $('#'+id+ ' .post_body .img_container').addClass('vertical_align_bottom')
-          }
-          }); 
-      }
-    });
-});
-
-
-$(document).ready(function(){
-    $( ".post" ).each(function() {
-        id = Number($(this).attr('id'))
-
-        length = $('#'+id+ ' .post_body img').length
-        if (length == 1){
-            $('#'+id+ ' .post_body .img_container').addClass('width100')
-        }
-        if (length == 2 || length == 4){
-            $('#'+id+ ' .post_body .img_container').addClass('width50')
-        }
-        if (length == 3){
-            $('#'+id+ ' .post_body .img_container').addClass('width50')
-            $('#'+id+ ' .post_body .img_container:nth-child(3)').addClass('three_img')
-            var divHeight = $('.post_images').width() / 2; 
-        }
-    }); 
-})
-
-
-</script>
-
-
-
-
-
-
+<script src="{{ url_for('static', filename='js/aligning.js') }}"></script>
 
 
 <script>
+
+
 $(document).on('click', '.comm_dropdown_div', function(e) {
     var parent = $(this).parent().parent().parent().parent().attr('id')
     console.log(parent)
@@ -911,7 +1264,8 @@ $(document).on('click', '.comm_dropdown_div', function(e) {
     $('#'+ parent + ' .comm_dropdown').toggleClass("show");
 });
 
-$('.post_dropdown').click(function(){
+
+$(document).on('click', '.post_dropdown', function(e){
     var parent = $(this).parent().parent().attr('id')
 
     $('#'+ parent + ' #myDropdown').toggleClass("show");
@@ -931,13 +1285,13 @@ window.onclick = function(event) {
   }
 }
 
-$('.post_footer .footer_div:first-child').mouseover(function(){
+$(document).on('mouseover', '.post_footer .footer_div:first-child', function(e){
     var parent = $(this).parent().parent().attr('id')
 
     $('#'+ parent + ' .reactions').removeClass('hide')
     $('#'+ parent + ' .reactions').addClass('show')
 });
-$('.post_footer .footer_div:first-child').mouseleave(function(){
+$(document).on('mouseleave', '.post_footer .footer_div:first-child', function(e){
     var parent = $(this).parent().parent().attr('id')
 
     setTimeout(function(){
@@ -945,7 +1299,7 @@ $('.post_footer .footer_div:first-child').mouseleave(function(){
     }, 500);
     setTimeout(function(){
         $('#'+ parent + ' .reactions').removeClass('show')
-    }, 900);  
+    }, 900);
 });
 
 $(document).on('mouseover', '.comment', function(e) {
@@ -975,18 +1329,18 @@ $(document).ready(function(e) {
       }
 
     });
-    
+
 });
 
 $(document).on('mouseleave', '.comment', function(e) {
-    $('.comm_hover').addClass('none') 
+    $('.comm_hover').addClass('none')
 });
 
 $(document).on('click', '.delete_comm', function(e) {
     var id = Number($(this).parent().parent().parent().attr('id'))
     var parent = Number($('#' + id).parent().parent().attr('id'))
 
-    $('#' + id).remove() 
+    $('#' + id).remove()
     if($('#'+ parent + ' .view_more_text:first-child').hasClass('none')){
         if($('#'+ parent + ' .post_comments .comment:first-child').hasClass('more_comm')){
             $('#'+ parent + ' .post_comments .comment:first-child').removeClass('more_comm')
@@ -1006,94 +1360,109 @@ $(document).on('click', '.delete_comm', function(e) {
 
 });
 
-$('.like').click(function(){
+$(document).on('click', '.like', function(e){
     var parent = $(this).parent().parent().parent().parent().attr('id')
+    addReaction(1, parent)
 
     if (!$('#'+ parent +' .like').hasClass('fa-heart') && !$('#'+ parent +' .like_bottom').hasClass('none')) {
         num = Number($('#'+ parent +' .likes_quantity').html()) + 1
         $('#'+ parent + ' .likes_quantity').html(num)
+
     }else{
         if (!$('#'+ parent + ' .like_bottom').hasClass('none')) {
             num = Number($('#'+ parent + ' .likes_quantity').html()) - 1
             $('#'+ parent + ' .likes_quantity').html(num)
+            removeReaction(1, parent)
         }
+
+
     }
 
     $('#'+ parent + ' .footer_div > span').addClass('none')
     $('#'+ parent + ' .footer_div > span:nth-child(2)').toggleClass('none')
     $('#'+ parent + ' .like').toggleClass('fa-heart-o fa-heart')
+
+
+
 });
 
-
-$('.react2').click(function(){
+$(document).on('click', '.react2', function(e){
     var parent = $(this).parent().parent().parent().parent().attr('id')
 
     if (!$('#'+ parent + ' .like_bottom').hasClass('none') && $('#'+ parent + ' .like').hasClass('fa-heart-o')) {
         num = Number($('#'+ parent + ' .likes_quantity').html()) + 1
         $('#'+ parent + ' .likes_quantity').html(num)
-    }
 
-    $('#'+ parent + ' .like').removeClass('fa-heart') 
+    }
+    addReaction(2, parent)
+    $('#'+ parent + ' .like').removeClass('fa-heart')
     $('#'+ parent + ' .like').addClass('fa-heart-o')
     $('#'+ parent + ' .footer_div > span').addClass('none')
     $('#'+ parent + ' .footer_div > span:nth-child(3)').toggleClass('none')
     $('#'+ parent + ' .post_footer .footer_div:nth-child(1)').css("marginTop", "-20px")
 });
 
-$('.react3').click(function(){
+$(document).on('click', '.react3', function(e){
     var parent = $(this).parent().parent().parent().parent().attr('id')
 
     if (!$('#'+ parent + ' .like_bottom').hasClass('none') && $('#'+ parent + ' .like').hasClass('fa-heart-o')) {
         num = Number($('#'+ parent + ' .likes_quantity').html()) + 1
         $('#'+ parent + ' .likes_quantity').html(num)
-    }
 
-    $('#'+ parent + ' .like').removeClass('fa-heart') 
+    }
+    addReaction(3, parent)
+    $('#'+ parent + ' .like').removeClass('fa-heart')
     $('#'+ parent + ' .like').addClass('fa-heart-o')
     $('#'+ parent + ' .footer_div > span').addClass('none')
     $('#'+ parent + ' .footer_div > span:nth-child(4)').toggleClass('none')
     $('#'+ parent + ' .post_footer .footer_div:nth-child(1)').css("marginTop", "-20px")
 });
 
-$('.react4').click(function(){
+$(document).on('click', '.react4', function(e){
     var parent = $(this).parent().parent().parent().parent().attr('id')
 
     if (!$('#'+ parent + ' .like_bottom').hasClass('none') && $('#'+ parent + ' .like').hasClass('fa-heart-o')) {
         num = Number($('#'+ parent + ' .likes_quantity').html()) + 1
         $('#'+ parent + ' .likes_quantity').html(num)
-    }
 
-    $('#'+ parent + ' .like').removeClass('fa-heart') 
+    }
+    addReaction(4, parent)
+    $('#'+ parent + ' .like').removeClass('fa-heart')
     $('#'+ parent + ' .like').addClass('fa-heart-o')
     $('#'+ parent + ' .footer_div > span').addClass('none')
     $('#'+ parent + ' .footer_div > span:nth-child(5)').toggleClass('none')
     $('#'+ parent + ' .post_footer .footer_div:nth-child(1)').css("marginTop", "-20px")
 });
 
-$('.react5').click(function(){
+$(document).on('click', '.react5', function(e){
     var parent = $(this).parent().parent().parent().parent().attr('id')
 
     if (!$('#'+ parent + ' .like_bottom').hasClass('none') && $('#'+ parent + ' .like').hasClass('fa-heart-o')) {
         num = Number($('#'+ parent + ' .likes_quantity').html()) + 1
         $('#'+ parent + ' .likes_quantity').html(num)
-    }
 
-    $('#'+ parent + ' .like').removeClass('fa-heart') 
+
+    }
+    addReaction(5, parent)
+    $('#'+ parent + ' .like').removeClass('fa-heart')
     $('#'+ parent + ' .like').addClass('fa-heart-o')
     $('#'+ parent + ' .footer_div > span').addClass('none')
     $('#'+ parent + ' .footer_div > span:nth-child(6)').toggleClass('none')
     $('#'+ parent + ' .post_footer .footer_div:nth-child(1)').css("marginTop", "-20px")
 });
 
-$(".post").dblclick(function(){
+$(document).on('dblclick', '.post', function(e){
     var parent = $(this).attr('id')
     if (!$('#'+ parent + ' .like').hasClass('fa-heart') && !$('#'+ parent + ' .like_bottom').hasClass('none')) {
         num = Number($('#'+ parent + ' .likes_quantity').html()) + 1
         $('#'+ parent + ' .likes_quantity').html(num)
+        addReaction(1, parent)
     }else{
         if (!$('#'+ parent + ' .like_bottom').hasClass('none')) {
             num = Number($('#'+ parent + ' .likes_quantity').html()) - 1
             $('#'+ parent + ' .likes_quantity').html(num)
+
+            removeReaction(1, parent)
         }
     }
 
@@ -1105,9 +1474,40 @@ $(".post").dblclick(function(){
         $('#'+ parent + ' .reactions span:nth-child(3), .reactions span:nth-child(4), .reactions span:nth-child(5), .reactions span:nth-child(6)').removeClass('none')
         num = Number($('#'+ parent + ' .likes_quantity').html()) - 1
         $('#'+ parent + ' .likes_quantity').html(num)
+
+        removeReaction(1, parent)
     }
 });
 
+function addReaction(reaction, post_id){
+    $.ajax({
+        url: '/reaction',
+        data: JSON.stringify({'reaction': reaction, 'post_id': post_id, 'date': Date().toLocaleString()}, null, '\t'),
+        type: 'POST',
+        contentType: 'application/json;charset=UTF-8',
+        success: function(response) {
+            console.log(response.status);
+        },
+        error: function(error) {
+            console.log(error);
+        }
+    });
+}
+
+function removeReaction(reaction, post_id){
+    $.ajax({
+        url: '/remove_reaction',
+        data: JSON.stringify({'reaction': reaction, 'post_id': post_id}, null, '\t'),
+        type: 'POST',
+        contentType: 'application/json;charset=UTF-8',
+        success: function(response) {
+            console.log(response.status);
+        },
+        error: function(error) {
+            console.log(error);
+        }
+    });
+}
 
 var textContainer, textareaSize, input;
 var autoSize = function () {
@@ -1116,14 +1516,14 @@ var autoSize = function () {
 var clear = function () {
   textareaSize.innerHTML = input.value;
 };
-$('textarea').on('keydown', function(event) {
+$(document).on('keydown', 'textarea', function(event) {
     if (event.keyCode == 13)
         if (!event.shiftKey) submitData()
 });
 
 var focusId = 1
 
-$('.comment_form textarea').focusin(function(){
+$(document).on('focusin', '.comment_form textarea', function(e){
     var parent = $(this).parent().parent().parent().parent().parent().attr('id')
 
     window.focusId = Number(parent)
@@ -1146,57 +1546,162 @@ function CountComments(parent){
     }
 }
 
-$('.comment_btn').click(function(){
+$(document).on('click', '.comment_btn', function(e){
     var parent = $(this).parent().parent().parent().attr('id')
-    CountComments(parent)
-    
+    var parent_div = $(this).parent().parent().parent()
+    if ($(this).parent().parent().parent().find('.post_comments').hasClass('none')) {
+        var start = $(this).parent().parent().parent().find('.post_comments').attr('start')
+        var end = $(this).parent().parent().parent().find('.post_comments').attr('end')
 
-    $('#'+ parent + ' .comment_btn').toggleClass('fa-comment-o fa-comment')
-    $('#'+ parent + ' .post_comments').toggleClass('none')
-    $('#'+ parent + ' .hr_none').toggleClass('none')
-    $('#'+ parent + ' .comment_form textarea').focus();
+        $.ajax({
+            url: '/get_comments',
+            data: JSON.stringify({'post_id': parent, 'start': start, 'end': end}, null, '\t'),
+            type: 'POST',
+            contentType: 'application/json;charset=UTF-8',
+            success: function(response) {
+                console.log(response.status);
+                console.log(response.comments_list);
+                $('#'+ parent + ' .comment_btn').toggleClass('fa-comment-o fa-comment')
+                $('#'+ parent + ' .post_comments').toggleClass('none')
+                $('#'+ parent + ' .hr_none').toggleClass('none')
+                $('#'+ parent + ' .comment_form textarea').focus();
+                for (var i = 0; i <= response.comments_list.length - 1; i++) {
+                    console.log(response.comments_list[i]);
+                    $( '#'+ focusId + " .post_comments" ).prepend( '<div class="comment" id ="'+response.comments_list[i][1]+'"><img src="static/images/'+response.comments_list[i][6][5].split(',')[0]+'" class="comment_img"><p class="comm_username tagbe_hover">'+response.comments_list[i][6][1]+ ' ' + response.comments_list[i][6][2]+'</p><form class="comment_form"><div class="comm_text width100"><div>'+response.comments_list[i][4]+'</div></div></form><div class="dropbtn comm_hover none"><div class="comm_dropdown_div dots_container dropbtn"><div class="dots"></div></div><div class="dropdown-content comm_dropdown"><a class="delete_comm">Delete</a></div></div></div>' );
+                }
+                if (response.end_of_comm == 'false') {
+                    $('#'+ parent + ' .view_more').removeClass('none')
+                    $('#'+ parent + ' .view_more .view_more_text:nth-child(1)').removeClass('none')
+                }else{
+                    $('#'+ parent + ' .view_more .view_more_text:nth-child(1)').addClass('none')
+                }
+
+                console.log('dmytro')
+                parent_div.find('.post_comments').attr('start', '1')
+                parent_div.find('.post_comments').attr('end', '6')
+                console.log('dmytro', parent_div.find('.post_comments'))
+                $('#'+ parent + ' .view_more_text').removeClass('none')
+            },
+            error: function(error) {
+                console.log(error);
+            }
+        });
+
+    }else{
+        $(this).parent().parent().parent().find('.post_comments .comment').remove()
+        $('#'+ parent + ' .comment_btn').toggleClass('fa-comment-o fa-comment')
+        $('#'+ parent + ' .post_comments').toggleClass('none')
+        $('#'+ parent + ' .hr_none').toggleClass('none')
+        $('#'+ parent + ' .comment_form textarea').focus()
+        $(this).parent().parent().parent().find('.post_comments').attr('start', '0')
+        $(this).parent().parent().parent().find('.post_comments').attr('end', '1')
+
+    }
+
+
 });
 
-$('.view_more_text').click(function(){
+$(document).on('click', '.view_more_text', function(e){
     var parent = $(this).parent().parent().parent().attr('id')
+    console.log('here', $(this).text())
+    if($(this).text() == 'View More Comments...'){
+        var parent_div = $(this).parent().parent().parent()
+        // $('#'+ parent + ' .view_more_text').toggleClass('none')
+        // $('#'+ parent + ' .more_comm').toggleClass('none')
 
-    $('#'+ parent + ' .view_more_text').toggleClass('none')
-    $('#'+ parent + ' .more_comm').toggleClass('none')
+        var start = $(this).parent().parent().parent().find('.post_comments').attr('start')
+        var end = $(this).parent().parent().parent().find('.post_comments').attr('end')
+
+        $.ajax({
+            url: '/get_comments',
+            data: JSON.stringify({'post_id': parent, 'start': start, 'end': end}, null, '\t'),
+            type: 'POST',
+            contentType: 'application/json;charset=UTF-8',
+            success: function(response) {
+                console.log(response.status);
+                console.log(response.comments_list);
+                for (var i = 0; i <= response.comments_list.length - 1; i++) {
+                    console.log(response.comments_list[i]);
+                    $( '#'+ focusId + " .post_comments" ).prepend( '<div class="comment" id ="'+response.comments_list[i][1]+'"><img src="static/images/'+response.comments_list[i][6][5].split(',')[0]+'" class="comment_img"><p class="comm_username tagbe_hover">'+response.comments_list[i][6][1]+ ' ' + response.comments_list[i][6][2]+'</p><form class="comment_form"><div class="comm_text width100"><div>'+response.comments_list[i][4]+'</div></div></form><div class="dropbtn comm_hover none"><div class="comm_dropdown_div dots_container dropbtn"><div class="dots"></div></div><div class="dropdown-content comm_dropdown"><a class="delete_comm">Delete</a></div></div></div>' );
+                }
+                if (response.end_of_comm == 'false') {
+                    $('#'+ parent + ' .view_more').removeClass('none')
+                    $('#'+ parent + ' .view_more .view_more_text:nth-child(1)').removeClass('none')
+                }else{
+                    $('#'+ parent + ' .view_more .view_more_text:nth-child(1)').addClass('none')
+                }
+                //<p class="view_more_text none">Hide Additional Comments</p>
+                parent_div.find('.post_comments').attr('start', Number(start) + 5)
+                parent_div.find('.post_comments').attr('end', Number(end) + 5)
+
+            },
+            error: function(error) {
+                console.log(error);
+            }
+        });
+
+        $('html,body').animate({
+            scrollTop: $("#"+parent).find('.post_footer').offset().top},
+            'slow');
+    }else{
+        $(this).parent().parent().parent().find('.post_comments .comment').remove()
+        $('#'+ parent + ' .comment_btn').toggleClass('fa-comment-o fa-comment')
+        $('#'+ parent + ' .post_comments').toggleClass('none')
+        $('#'+ parent + ' .hr_none').toggleClass('none')
+        $('#'+ parent + ' .comment_form textarea').focus()
+        $(this).parent().parent().parent().find('.post_comments').attr('start', '0')
+        $(this).parent().parent().parent().find('.post_comments').attr('end', '1')
+
+        $('html,body').animate({
+            scrollTop: $("#"+parent).offset().top},
+            'fast');
+    }
+
+
+
 });
 
 function submitData(){
     var href = $('#'+ focusId + ' .my_img').attr('src');
     var name = $('#'+ focusId + " .my_name" ). html()
     var comment_text = $('#'+ focusId + " .my_comment .textarea-size" ). html()
-    var last_comm_id = 0
-    $( ".comment" ).each(function( index ) {
-      console.log('all: '  + $(this).attr('id') + ' and last_comm_id: ' + last_comm_id)
-      if (Number($(this).attr('id')) > last_comm_id){
-        last_comm_id = $(this).attr('id')
-        console.log('bigger: '  + $(this).attr('id'))
-      }
+
+    $.ajax({
+        url: '/add_comment',
+        data: JSON.stringify({'text': comment_text, 'post_id': focusId, 'date': Date().toLocaleString()}, null, '\t'),
+        type: 'POST',
+        contentType: 'application/json;charset=UTF-8',
+        success: function(response) {
+            console.log(response.status, $( '#'+ focusId + " .post_comments .comment" ).last());
+            if ($( '#'+ focusId + " .post_comments .comment" ).length>0) {
+              $( '#'+ focusId + " .post_comments .comment" ).last().after( '<div class="comment" id ="'+response.comm_id+'"><img src="'+href+'" class="comment_img"><p class="comm_username tagbe_hover">'+name+'</p><form class="comment_form"><div class="comm_text width100"><div>'+comment_text+'</div></div></form><div class="dropbtn comm_hover none"><div class="comm_dropdown_div dots_container dropbtn"><div class="dots"></div></div><div class="dropdown-content comm_dropdown"><a class="delete_comm">Delete</a></div></div></div>' );
+            }else{ //if there are no comments, it should be pasted anyway
+                $( '#'+ focusId + " .post_comments" ).prepend( '<div class="comment" id ="'+response.comm_id+'"><img src="'+href+'" class="comment_img"><p class="comm_username tagbe_hover">'+name+'</p><form class="comment_form"><div class="comm_text width100"><div>'+comment_text+'</div></div></form><div class="dropbtn comm_hover none"><div class="comm_dropdown_div dots_container dropbtn"><div class="dots"></div></div><div class="dropdown-content comm_dropdown"><a class="delete_comm">Delete</a></div></div></div>' );
+            }
+            $( '#'+ focusId + ' textarea').val('')
+
+            clear();
+            input.addEventListener('input', clear);
+
+            num = Number($('#'+ focusId +' .comments_quantity').html()) + 1
+            $('#'+ focusId + ' .comments_quantity').html(num)
+
+
+        },
+        error: function(error) {
+            console.log(error);
+        }
     });
-    last_comm_id = Number(last_comm_id) + 1
-    console.log('last_comm_id '+ last_comm_id)
-    $( '#'+ focusId + " .post_comments .comment" ).addClass('more_comm none')
-    $( '#'+ focusId + " .view_more_text:nth-child(1)" ).removeClass('none')
-    $( '#'+ focusId + " .view_more_text:nth-child(2)" ).addClass('none')
-    $( '#'+ focusId + " .post_comments" ).prepend( '<div class="comment" id ="'+last_comm_id+'"><img src="'+href+'" class="comment_img"><p class="comm_username tagbe_hover">'+name+'</p><form class="comment_form"><div class="comm_text width100"><div>'+comment_text+'</div></div></form><div class="dropbtn comm_hover none"><div class="comm_dropdown_div dots_container dropbtn"><div class="dots"></div></div><div class="dropdown-content comm_dropdown"><a class="delete_comm">Delete</a></div></div></div>' );
-    $( '#'+ focusId + ' textarea').val('')
 
-    clear();
-    input.addEventListener('input', clear);
 
-    num = Number($('#'+ focusId +' .comments_quantity').html()) + 1
-    $('#'+ focusId + ' .comments_quantity').html(num)
 
-    CountComments(focusId)
+
 }
 
 </script>
 
 <script>
-  
+
 // input auto resi
 function onReady(f) {
     "complete" === document.readyState
@@ -1227,11 +1732,11 @@ function registerInput(el) {
 
     function adjust() {
 
-        // reset to smaller size (for if text deleted) 
+        // reset to smaller size (for if text deleted)
         el.style.width = "";
 
         // getting the scrollWidth should trigger a reflow
-        // and give you what the width would be in px if 
+        // and give you what the width would be in px if
         // original style, less any box-sizing
         var newWidth = el.scrollWidth + boxSizing;
 
@@ -1240,9 +1745,9 @@ function registerInput(el) {
     }
 }
 
-$('div').click( function(){});
-$('img').click( function(){});
-$('button').click( function(){});
+$(document).on('click', 'div',  function(e){});
+$(document).on('click', 'img',  function(e){});
+$(document).on('click', 'button',  function(e){});
 </script>
 
 
@@ -1251,4 +1756,5 @@ $('button').click( function(){});
 
 
 </body>
-</html>
+{% endblock%}
+

@@ -56,6 +56,7 @@ def user_info(curs, email):
     if email.split(' ')[0] == 'group':
         curs.execute("select * from users where id = '{}'".format(email.split(' ')[1]))
         data = curs.fetchone()
+        print(data)
         user = UserManager.selectUser(UserManager(), data)
         return user
     else:
@@ -302,13 +303,6 @@ def add_edit_validation():
         if local:
             session['email'] = new_email
 
-        notifications = curs.execute("select text from notifications where receiver_id = '{}'".format(user_model.id)).fetchall()
-        notifications_id = curs.execute("select notifications from users where id = '{}'".format(user_model.id)).fetchone()
-        if notifications_id[0] == None:
-            notifications = []
-            print('none')
-        else:
-            notifications_id = notifications_id[0].split(',')
         return jsonify({'status': 'changed!'})
     else:
         return redirect(url_for('return_home'))
@@ -1091,7 +1085,7 @@ def upload():
 
     #if user_type == 'group':
         #target = os.path.join(APP_ROOT, 'static/images/' + str(user_model.id)) #path to user folder
-
+    print(user_model.id, 'heere')
     target = os.path.join(APP_ROOT, 'static/images/' + str(user_model.id)) #path to user folder
     print(target)
 
@@ -1127,7 +1121,9 @@ def save(user_model, curs, target, file, type):
     filename = type + '_' + str(number + 1) + '.' + str(filename_origin)
 
     destination = "/".join([target, filename]) #where to save
-    user_photo = curs.execute("SELECT user_photo FROM users WHERE id  = '{}'".format(user_model.id)).fetchone()[0]
+    print(user_model.id)
+    curs.execute("SELECT user_photo FROM users WHERE id  = '{}'".format(user_model.id))
+    user_photo = curs.fetchone()[0]
     print(user_photo)
 
     if type == 'ava':
@@ -1618,7 +1614,43 @@ def get_reactions():
 
     return jsonify({ 'status': 'success!', 'end_of_reacts': end_of_reacts, 'react_list': react_list })
 
+@app.route('/news', methods=['GET'])
+def news():
+    if session['email']:
+        curs = conn.cursor()
+        full_name = user_info(curs, session['email'])
+        notifications = curs.execute("select text from notifications where receiver_id = '{}'".format(full_name.id)).fetchall()
+        notifications_id = curs.execute("select notifications from users where id = '{}'".format(full_name.id)).fetchone()
+        if notifications_id[0] is None:
+            notifications = []
+        else:
+            notifications_id = notifications_id[0].split(',')
+        context2 = {'block': 'block', 'd_none': 'none', 'user': full_name, 'notifications': notifications, 'notifications_id': notifications_id, 'length': len(notifications)}
+        return render_template('news.html', **context2)
+    else:
+        return redirect('return_home')
 
+@app.route('/tags', methods=['GET'])
+def tags():
+    if session['email']:
+        curs = conn.cursor()
+        full_name = user_info(curs, session['email'])
+        notifications = curs.execute("select text from notifications where receiver_id = '{}'".format(full_name.id)).fetchall()
+        notifications_id = curs.execute("select notifications from users where id = '{}'".format(full_name.id)).fetchone()
+        if notifications_id[0] is None:
+            notifications = []
+        else:
+            notifications_id = notifications_id[0].split(',')
+        context2 = {'block': 'block', 'd_none': 'none', 'user': full_name, 'notifications': notifications, 'notifications_id': notifications_id, 'length': len(notifications)}
+        return render_template('my_tags.html', **context2)
+    else:
+        return redirect('return_home')
+
+@app.route('/delete', methods=['GET'])
+def delete():
+    curs = conn.cursor()
+    curs.execute("DELETE from posts where id in (25, 24, 23)")
+    conn.commit()
 
 
 if __name__ =='__main__':
